@@ -1,7 +1,10 @@
 // Actor.
-function Actor(fSpr, fX, fY) {
+function Actor(fSpr, fCol, fX, fY) {
 	// Variables.
 	this.actorSpr = fSpr;
+	this.actorColor = fCol;
+	this.actorShadow = true;
+	this.jumpSpeed = 15;
 	this.x = fX;
 	this.y = fY;
 	this.animFrame = 0;
@@ -11,6 +14,12 @@ function Actor(fSpr, fX, fY) {
 	this.animY = 0;
 	this.animGrav = 0;
 	this.animTime = undefined;
+	
+	// Setting sprite info.
+	this.SetSprite = function(fSpr, fCol) {
+		this.actorSpr = fSpr;
+		this.actorColor = fCol;
+	}
 	
 	// Setting position.
 	this.Set = function(fX, fY) {
@@ -35,8 +44,8 @@ function Actor(fSpr, fX, fY) {
 			case 1:
 				if (this.animTick > 0) this.animTick--;
 				else {
-					this.animFrame = 0 + (this.animFrame == 0);
-					if (this.animFrame == 1) snd_gen_happy.Play();
+					this.animFrame = 4 * (this.animFrame == 0);
+					if (this.animFrame == 4) snd_gen_happy.Play();
 					this.animTick = 35;
 				}
 				break;
@@ -46,7 +55,7 @@ function Actor(fSpr, fX, fY) {
 				if (this.animFrame == 0) {
 					if (this.animTick > 0) this.animTick--;
 					else {
-						this.animFrame = 1;
+						this.animFrame = 4;
 						this.animGrav = -(10 / 3);
 						snd_gen_happy.Play();
 						snd_gen_hop.Play();
@@ -54,7 +63,7 @@ function Actor(fSpr, fX, fY) {
 				}
 				else if (this.Fall()) {
 					this.animFrame = 0;
-					this.animTick = 15;
+					this.animTick = this.jumpSpeed;
 				}
 				break;
 			
@@ -62,29 +71,14 @@ function Actor(fSpr, fX, fY) {
 			case 3:
 				if (this.animTick > 0) this.animTick--;
 				else {
-					this.animFrame = 2 + (this.animFrame == 2);
+					this.animFrame = 5 + (this.animFrame == 5);
 					if (this.animFrame == 3) snd_gen_sad.Play();
 					this.animTick = 35;
 				}
 				break;
 			
-			// Shocked (still/jump).
-			case 4:
-				this.Fall();
-				this.animFrame = 4;
-				break;
-			
-			// Shocked (shiver).
-			case 5:
-				if (this.animTick > 0) this.animTick--;
-				else {
-					this.animX = 0 + (this.animX == 0);
-					this.animTick = 30;
-				}
-				break;
-			
 			// Hop.
-			case 6:
+			case 4:
 				if (this.Fall()) this.Perform(0, undefined);
 				break;
 			
@@ -113,7 +107,6 @@ function Actor(fSpr, fX, fY) {
 		// Initial frame.
 		if (fAnim >= 0 && fAnim <= 2) this.animFrame = 0;
 		else if (fAnim == 3) this.animFrame = 2;
-		else if (fAnim >= 4 && fAnim <= 5) this.animFrame = 4;
 		else this.animFrame = 0;
 	}
 	
@@ -126,12 +119,6 @@ function Actor(fSpr, fX, fY) {
 		this.animX = 0;
 		this.animY = 0;
 		snd_gen_hop.Play();
-	}
-	
-	// Shocked hop.
-	this.Shock = function(fHop) {
-		this.Hop(fHop);
-		this.animOn = 4;
 	}
 	
 	// Gravity.
@@ -153,11 +140,11 @@ function Actor(fSpr, fX, fY) {
 		this.Animation();
 		
 		// Shadow.
-		drawSpriteNormal(spr_player_shadow, 0, 0, this.x + this.animX - 12, this.y - 2);
+		if (this.actorShadow) drawSprite(spr_player_shadow, 0, 0, this.x + this.animX - 12, this.y - 2);
 		
 		// Player sprite.
-		drawSpriteNormal(this.actorSpr, this.animFrame, 0,
-			this.x + this.animX - Math.ceil(this.actorSpr.sprWidth / 4),
-			this.y + this.animY + 1 - (this.actorSpr.sprHeight / 2));
+		drawSprite(this.actorSpr, this.animFrame, this.actorColor,
+			this.x + this.animX - Math.ceil(this.actorSpr.sprWidth / 2),
+			this.y + this.animY + 1 - this.actorSpr.sprHeight);
 	}
 }

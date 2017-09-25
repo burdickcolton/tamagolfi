@@ -2,6 +2,7 @@
 function startGame() {
 	env.start();
 	objControl = new ControlMenuMain();
+	playMusic(objControl.conMusic);
 }
 
 // Initializing canvas.

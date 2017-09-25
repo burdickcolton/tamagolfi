@@ -69,9 +69,12 @@ function ControlMenuChar() {
 	this.setChar = [-1, -1, -1, -1];
 	this.setSelect = -1;
 	this.setCode = [];
+	this.setColor = 0;
+	this.setActor = undefined;
+	this.setActorWait = [undefined, undefined, undefined, undefined];
 	
 	// Music.
-	this.conMusic = msc_silence;
+	this.conMusic = msc_menu;
 	
 	// Clicky.
 	this.Click = function() {
@@ -87,6 +90,8 @@ function ControlMenuChar() {
 			else {
 				this.setChar[getPlayers()] = -1;
 				resetPlayer(getPlayers() - 1);
+				this.setColor = 0;
+				this.setActorWait[getPlayers()] = undefined;
 			}
 		}
 		
@@ -97,12 +102,15 @@ function ControlMenuChar() {
 		// Selecting.
 		else if (this.setSelect > -1) {
 			snd_menu_confirm.Play();
+			this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], this.setColor, 0, 0);
 			playerChar[getPlayers()] = this.setSelect;
+			this.setColor = 0;
 		}
 	}
 	
 	// Keyboard.
 	this.Keyboard = function(fE) {
+		// Code.
 		if (fE >= 65 && fE <= 90) {
 			// Array.
 			if (this.setCode.length >= 8) this.setCode.splice(0, 1);
@@ -115,18 +123,18 @@ function ControlMenuChar() {
 				this.setChar[getPlayers()] = tC;
 			}
 		}
+		
+		// Color.
+		else if (fE == 38) this.setColor = 0;
+		else if (fE == 37) this.setColor = 1;
+		else if (fE == 40) this.setColor = 2;
+		else if (fE == 39) this.setColor = 3;
 	}
 	
 	// Drawing.
 	this.Draw = function() {
 		// Background.
 		drawSprite(spr_menu_back, 0, 0, menuBackScroll, menuBackScroll);
-		
-		// Buttons.
-		drawSprite(spr_menu_button_char, 0, (getPlayers() > 0), 0, 4);
-		
-		// Current player.
-		if (getPlayers() < 4) drawSprite(spr_menu_player, getPlayers(), 0, 2, 124);
 		
 		// Character prep.
 		tX = 169;
@@ -136,28 +144,48 @@ function ControlMenuChar() {
 		// Unlocked characters.
 		for (j = 0; j < 4; j++) {
 			for (i = 0; i < 3; i++) {
-				drawSprite(spr_menu_char, i + (j * 3), 0, tX + (i * 51), tY + (j * 44));
-				if (checkForChar(i + (j * 3))) {
+				drawSprite(spr_menu_char, i + (j * 3), this.setColor, tX + (i * 51), tY + (j * 44));
+				/*if (checkForChar(i + (j * 3))) {
 					tP = checkCharPlayer(i + (j * 3));
 					if (playerAi[tP]) drawSprite(spr_menu_ai, tP, 0, tX + (i * 51) + 5, tY + (j * 44) + 10);
 					else drawSprite(spr_menu_player, tP, 0, tX + (i * 51) + 11, tY + (j * 44) + 10);
 				}
-				else if (MousePoint(tX + (i * 51), tY + (j * 44), tX + (i * 51) + 47, tY + (j * 44) + 38) && getPlayers() < 4) this.setSelect = i + (j * 3);
+				else*/ if (MousePoint(tX + (i * 51), tY + (j * 44), tX + (i * 51) + 47, tY + (j * 44) + 38) && getPlayers() < 4) this.setSelect = i + (j * 3);
 			}
 		}
 		
 		// Locked characters.
 		for (i = 0; i < 4; i++) {
 			if (this.setChar[i] > -1) {
-				drawSprite(spr_menu_char, this.setChar[i], 0, tX - 51, tY + (i * 44));
-				if (checkForChar(this.setChar[i])) {
+				drawSprite(spr_menu_char, this.setChar[i], this.setColor, tX - 51, tY + (i * 44));
+				/*if (checkForChar(this.setChar[i])) {
 					tP = checkCharPlayer(this.setChar[i]);
 					if (playerAi[tP]) drawSprite(spr_menu_ai, tP, 0, tX - 46, tY + (i * 44) + 10);
 					else drawSprite(spr_menu_player, tP, 0, tX - 40, tY + (i * 44) + 10);
 				}
-				else if (MousePoint(tX - 51, tY + (i * 44), tX - 4, tY + (i * 44) + 38) && getPlayers() < 4) this.setSelect = this.setChar[i];
+				else*/ if (MousePoint(tX - 51, tY + (i * 44), tX - 4, tY + (i * 44) + 38) && getPlayers() < 4) this.setSelect = this.setChar[i];
 			}
 		}
+		
+		// Actor.
+		if (this.setSelect > -1 && this.setActor == undefined) {
+			this.setActor = new Actor(spr_player[this.setSelect], this.setColor, 67, 147);
+			this.setActor.Perform(2, undefined);
+			this.setActor.actorShadow = false;
+			this.setActor.jumpSpeed = 35;
+			this.setActor.animTick = this.setActor.jumpSpeed;
+		}
+		else if (this.setSelect == -1) this.setActor = undefined;
+		if (this.setActor != undefined) {
+			this.setActor.SetSprite(spr_player[this.setSelect], this.setColor);
+			this.setActor.Draw();
+		}
+		
+		// Buttons.
+		drawSprite(spr_menu_button_char, 0, (getPlayers() > 0), 0, 4);
+		
+		// Current player.
+		if (getPlayers() < 4) drawSprite(spr_menu_player, getPlayers(), 0, 2, 124);
 		
 		// Stats.
 		if (this.setSelect > -1) {
@@ -171,6 +199,21 @@ function ControlMenuChar() {
 			drawSpritePart(spr_menu_bar, charStat[this.setSelect][2], 5, 40, 203);
 			drawSpritePart(spr_menu_bar, charStat[this.setSelect][3], 5, 40, 212);
 			drawSpritePart(spr_menu_bar, charStat[this.setSelect][4], 5, 40, 221);
+		}
+		
+		// Selected characters.
+		this.DrawSelect(1, 232, 48);
+		this.DrawSelect(3, 296, 48);
+		this.DrawSelect(0, 200, 56);
+		this.DrawSelect(2, 264, 56);
+	}
+	
+	// Drawing a selected character.
+	this.DrawSelect = function(fP, fX, fY) {
+		if (this.setActorWait[fP] != undefined) {
+			this.setActorWait[fP].Set(fX, fY);
+			this.setActorWait[fP].Draw();
+			drawSprite(spr_menu_player_mini, fP, 0, fX - 5, fY);
 		}
 	}
 	

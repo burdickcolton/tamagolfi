@@ -7,7 +7,7 @@ function loadSnd(file, ismusic) {
 
 // Music.
 var msc_silence = loadSnd("silence", true);
-var msc_menu = loadSnd("silence", true);
+var msc_menu = loadSnd("menu", true);
 var msc_mini_golf = loadSnd("mini_golf", true);
 
 // Menu.

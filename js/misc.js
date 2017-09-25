@@ -5,6 +5,13 @@ function resetPlayers() {
 	}
 }
 
+// Resetting one player.
+function resetPlayer(fIn) {
+	playerChar[fIn] = -1;
+	playerAi[fIn] = false;
+	playerColor[fIn] = 0;
+}
+
 // Seeing if the character has been selected.
 function checkForChar(fChar) {
 	for (fi = 0; fi < 4; fi++) {
@@ -103,12 +110,6 @@ function getPlayers() {
 		if (playerChar[fI] > -1) return(fI + 1);
 	}
 	return(0);
-}
-
-// Resetting one player.
-function resetPlayer(fIn) {
-	playerChar[fIn] = -1;
-	playerAi[fIn] = false;
 }
 
 // Compiling string from key array.

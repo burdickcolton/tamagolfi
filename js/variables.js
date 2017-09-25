@@ -14,6 +14,7 @@ var gameMode = 0;
 // Game setup.
 var playerChar = [];
 var playerAi = [];
+var playerColor = [];
 var playerDiff = 0;
 resetPlayers();
 

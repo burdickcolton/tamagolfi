@@ -72,5 +72,5 @@ function playSound(fSnd) {
 // Changing volume.
 function newVolume(fVol) {
 	gameVolume = fVol;
-	if (musicCurrentlyPlaying !== undefined) musicCurrentlyPlaying.volume = fVol;
+	if (musicCurrentlyPlaying !== undefined) musicCurrentlyPlaying.sound.volume = fVol;
 }
