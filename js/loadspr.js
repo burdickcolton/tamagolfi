@@ -19,7 +19,7 @@ var spr_transition = loadSpr("transition", 1, 1);
 var spr_menu_title = loadSpr("menu_title", 1, 1);
 var spr_menu_back = loadSpr("menu_background", 1, 1);
 var spr_menu_button_main = loadSpr("menu_buttons_main", 1, 1);
-var spr_menu_player = loadSpr("menu_player", 4, 1);
+var spr_menu_player = loadSpr("menu_player", 4, 2);
 var spr_menu_player_mini = loadSpr("menu_player_mini", 4, 1);
 var spr_menu_ai = loadSpr("menu_ai", 4, 1);
 var spr_menu_flag = loadSpr("menu_flag", 2, 1);
@@ -31,6 +31,19 @@ var spr_menu_locked = loadSpr("menu_locked", 1, 1);
 var spr_menu_button_char = loadSpr("menu_buttons_char", 1, 2);
 
 // Golf sprites.
+var spr_golf_cursor = loadSpr("golf_cursor", 1, 1);
+var spr_golf_trajec = loadSpr("golf_trajectory", 2, 1);
+var spr_golf_ball = loadSpr("golf_ball", 5, 1);
+var spr_golf_ball_shadow = loadSpr("golf_ball_shadow", 2, 1);
+var spr_golf_hole = loadSpr("golf_hole", 6, 1);
+
+// HUD sprites.
+var spr_hud_shadow_char = loadSpr("hud_shadow_char", 1, 1);
+var spr_hud_number = loadSpr("hud_number", 10, 2);
+var spr_hud_yards = loadSpr("hud_yards", 2, 1);
+var spr_hud_spin_type = loadSpr("hud_spin_type", 3, 1);
+var spr_hud_spin_bar = loadSpr("hud_spin_bar", 1, 1);
+var spr_hud_spin_ticker = loadSpr("hud_spin_ticker", 1, 1);
 
 // Player sprites.
 var spr_player_shadow = loadSpr("player_shadow", 1, 1);
@@ -42,3 +55,12 @@ for(i = 0; i < charStat.length; i++) {
 }
 
 // Club sprites.
+var spr_club = [];
+for(i = 0; i < charStat.length; i++) {
+	if (i < 10) tN = "0" + i;
+	else tN = i;
+	spr_club.push(loadSpr("club_00", 5, 3));
+}
+
+// Course sprites.
+var spr_course_range = loadSpr("course_range", 1, 1);

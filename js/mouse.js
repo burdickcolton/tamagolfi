@@ -3,6 +3,9 @@ mouseX = 0;
 mouseY = 0;
 mouseState = 0;
 
+// Keyboard array.
+keyState = [];
+
 // Getting mouse position.
 function getMousePos(e) {
 	tempBound = env.canvas.getBoundingClientRect();

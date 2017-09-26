@@ -119,6 +119,24 @@ function keyArrayString(fIn) {
 	return(tRe);
 }
 
+// Attempting to select a color.
+function selectColor(fChar, fColor) {
+	tAv = [0, 1, 2, 3];
+	for(fI = 3; fI >= 0; fI--) {
+		if (playerChar[fI] == fChar) tAv.splice(tAv.indexOf(playerColor[fI]), 1);
+	}
+	if (tAv.indexOf(fColor) > -1) return(fColor);
+	else if (tAv.length == 0) return(0);
+	else return(tAv[0]);
+}
+
+// Median.
+function median(fA, fB, fC) {
+	if (Math.min(fA, fB, fC) != fA && Math.max(fA, fB, fC) != fA) return(fA);
+	else if (Math.min(fA, fB, fC) != fB && Math.max(fA, fB, fC) != fB) return(fB);
+	else return(fC);
+}
+
 // Getting character code.
 function charCode(fCode) {
 	switch(keyArrayString(fCode)) {

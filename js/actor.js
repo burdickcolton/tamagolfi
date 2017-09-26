@@ -15,6 +15,12 @@ function Actor(fSpr, fCol, fX, fY) {
 	this.animGrav = 0;
 	this.animTime = undefined;
 	
+	// Club.
+	this.clubOn = false;
+	this.clubSpr = 0;
+	this.clubFrame = 0;
+	this.clubType = 0;
+	
 	// Setting sprite info.
 	this.SetSprite = function(fSpr, fCol) {
 		this.actorSpr = fSpr;
@@ -25,6 +31,12 @@ function Actor(fSpr, fCol, fX, fY) {
 	this.Set = function(fX, fY) {
 		this.x = fX;
 		this.y = fY;
+	}
+	
+	// Enablding club.
+	this.Club = function(fSpr) {
+		this.clubOn = true;
+		this.clubSpr = spr_club[fSpr];
 	}
 	
 	// Animation.
@@ -81,6 +93,12 @@ function Actor(fSpr, fCol, fX, fY) {
 			case 4:
 				if (this.Fall()) this.Perform(0, undefined);
 				break;
+				
+			// Aiming.
+			case 5:
+				this.animFrame = 1;
+				this.clubFrame = 0;
+				break;
 			
 			// Completely still.
 			default:
@@ -135,16 +153,22 @@ function Actor(fSpr, fCol, fX, fY) {
 	}
 	
 	// Drawing.
-	this.Draw = function() {
+	this.Draw = function(fX) {
 		// Animating.
 		this.Animation();
 		
 		// Shadow.
-		if (this.actorShadow) drawSprite(spr_player_shadow, 0, 0, this.x + this.animX - 12, this.y - 2);
+		if (this.actorShadow) drawSprite(spr_player_shadow, 0, 0, this.x + this.animX - 12 + fX, this.y - 2);
 		
 		// Player sprite.
+		initSpriteDimensions(this.actorSpr);
 		drawSprite(this.actorSpr, this.animFrame, this.actorColor,
-			this.x + this.animX - Math.ceil(this.actorSpr.sprWidth / 2),
+			this.x + this.animX - Math.floor(this.actorSpr.sprWidth / 2) + fX,
+			this.y + this.animY + 1 - this.actorSpr.sprHeight);
+			
+		// Club sprite.
+		if (this.clubOn) drawSprite(this.clubSpr, this.clubFrame, this.clubType,
+			this.x + this.animX - Math.floor(this.actorSpr.sprWidth / 2) + fX,
 			this.y + this.animY + 1 - this.actorSpr.sprHeight);
 	}
 }

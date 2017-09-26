@@ -5,10 +5,21 @@ function loadSnd(file, ismusic) {
 	return (tempRe);
 }
 
+// Voice loading function.
+function voiceLoad(fChar) {
+	if (fChar < 10) tN = "0" + fChar;
+	else tN = fChar;
+	snd_voice_great[fChar] = (loadSnd("/voices/great_" + tN, false));
+	snd_voice_good[fChar] = (loadSnd("/voices/good_" + tN, false));
+	snd_voice_okay[fChar] = (loadSnd("/voices/okay_" + tN, false));
+	snd_voice_bad[fChar] = (loadSnd("/voices/bad_" + tN, false));
+	snd_voice_swing[fChar] = (loadSnd("/voices/swing_" + tN, false));
+}
+
 // Music.
 var msc_silence = loadSnd("silence", true);
 var msc_menu = loadSnd("menu", true);
-var msc_mini_golf = loadSnd("mini_golf", true);
+var msc_course_default = loadSnd("course_default", true);
 
 // Menu.
 var snd_menu_confirm = loadSnd("menu_confirm", false);
@@ -33,12 +44,17 @@ var snd_golf_bounce = loadSnd("golf_bounce", false);
 var snd_golf_cup = loadSnd("golf_cup", false);
 var snd_golf_sink = loadSnd("golf_sink", false);
 
-// Voice: Very Happy
+// Voice instantiation.
+var snd_voice_great = [];
+var snd_voice_good = [];
+var snd_voice_okay = [];
+var snd_voice_bad = [];
+var snd_voice_swing = [];
 
-// Voice: Happy
-
-// Voice: Okay
-
-// Voice: Sad
-
-// Voice: Stroke
+// Loading available voices.
+voiceLoad(0);
+voiceLoad(1);
+voiceLoad(4);
+voiceLoad(5);
+voiceLoad(7);
+voiceLoad(13);

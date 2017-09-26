@@ -96,13 +96,19 @@ function ControlMenuChar() {
 		}
 		
 		// Continue.
-		
-		// AI.
+		else if (MousePoint(0, 36, 171, 62)) {
+			if (getPlayers() > 0)  {
+				playSound(snd_menu_confirm);
+				TransGo(new ControlGolf());
+			}
+		}
 		
 		// Selecting.
 		else if (this.setSelect > -1) {
-			snd_menu_confirm.Play();
-			this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], this.setColor, 0, 0);
+			playSound(snd_menu_confirm);
+			playSound(snd_voice_good[this.setSelect]);
+			playerColor[getPlayers()] = selectColor(this.setSelect, this.setColor);
+			this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], playerColor[getPlayers()], 0, 0);
 			playerChar[getPlayers()] = this.setSelect;
 			this.setColor = 0;
 		}
@@ -144,26 +150,16 @@ function ControlMenuChar() {
 		// Unlocked characters.
 		for (j = 0; j < 4; j++) {
 			for (i = 0; i < 3; i++) {
-				drawSprite(spr_menu_char, i + (j * 3), this.setColor, tX + (i * 51), tY + (j * 44));
-				/*if (checkForChar(i + (j * 3))) {
-					tP = checkCharPlayer(i + (j * 3));
-					if (playerAi[tP]) drawSprite(spr_menu_ai, tP, 0, tX + (i * 51) + 5, tY + (j * 44) + 10);
-					else drawSprite(spr_menu_player, tP, 0, tX + (i * 51) + 11, tY + (j * 44) + 10);
-				}
-				else*/ if (MousePoint(tX + (i * 51), tY + (j * 44), tX + (i * 51) + 47, tY + (j * 44) + 38) && getPlayers() < 4) this.setSelect = i + (j * 3);
+				drawSprite(spr_menu_char, i + (j * 3), selectColor(i + (j * 3), this.setColor), tX + (i * 51), tY + (j * 44));
+				if (MousePoint(tX + (i * 51), tY + (j * 44), tX + (i * 51) + 47, tY + (j * 44) + 38) && getPlayers() < 4) this.setSelect = i + (j * 3);
 			}
 		}
 		
 		// Locked characters.
 		for (i = 0; i < 4; i++) {
 			if (this.setChar[i] > -1) {
-				drawSprite(spr_menu_char, this.setChar[i], this.setColor, tX - 51, tY + (i * 44));
-				/*if (checkForChar(this.setChar[i])) {
-					tP = checkCharPlayer(this.setChar[i]);
-					if (playerAi[tP]) drawSprite(spr_menu_ai, tP, 0, tX - 46, tY + (i * 44) + 10);
-					else drawSprite(spr_menu_player, tP, 0, tX - 40, tY + (i * 44) + 10);
-				}
-				else*/ if (MousePoint(tX - 51, tY + (i * 44), tX - 4, tY + (i * 44) + 38) && getPlayers() < 4) this.setSelect = this.setChar[i];
+				drawSprite(spr_menu_char, this.setChar[i], selectColor(this.setChar[i], this.setColor), tX - 51, tY + (i * 44));
+				if (MousePoint(tX - 51, tY + (i * 44), tX - 4, tY + (i * 44) + 38) && getPlayers() < 4) this.setSelect = this.setChar[i];
 			}
 		}
 		
@@ -177,8 +173,8 @@ function ControlMenuChar() {
 		}
 		else if (this.setSelect == -1) this.setActor = undefined;
 		if (this.setActor != undefined) {
-			this.setActor.SetSprite(spr_player[this.setSelect], this.setColor);
-			this.setActor.Draw();
+			this.setActor.SetSprite(spr_player[this.setSelect], selectColor(this.setSelect, this.setColor));
+			this.setActor.Draw(0);
 		}
 		
 		// Buttons.
@@ -194,11 +190,9 @@ function ControlMenuChar() {
 			
 			// Stats.
 			drawSprite(spr_menu_stats, 0, 0, 2, 177);
-			drawSpritePart(spr_menu_bar, charStat[this.setSelect][0], 5, 40, 185);
-			drawSpritePart(spr_menu_bar, charStat[this.setSelect][1], 5, 40, 194);
-			drawSpritePart(spr_menu_bar, charStat[this.setSelect][2], 5, 40, 203);
-			drawSpritePart(spr_menu_bar, charStat[this.setSelect][3], 5, 40, 212);
-			drawSpritePart(spr_menu_bar, charStat[this.setSelect][4], 5, 40, 221);
+			for(i = 0; i < 4; i++) {
+				drawSpritePart(spr_menu_bar, charStat[this.setSelect][i] * 2, 7, 40, 185 + (i * 11));
+			}
 		}
 		
 		// Selected characters.
@@ -212,7 +206,7 @@ function ControlMenuChar() {
 	this.DrawSelect = function(fP, fX, fY) {
 		if (this.setActorWait[fP] != undefined) {
 			this.setActorWait[fP].Set(fX, fY);
-			this.setActorWait[fP].Draw();
+			this.setActorWait[fP].Draw(0);
 			drawSprite(spr_menu_player_mini, fP, 0, fX - 5, fY);
 		}
 	}

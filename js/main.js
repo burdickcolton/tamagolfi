@@ -24,6 +24,10 @@ var env = {
 		// Key inputs.
 		window.addEventListener('keydown', function (e) {
 			objControl.Keyboard(e.keyCode);
+			keyState[e.keyCode] = true;
+		})
+		window.addEventListener('keyup', function (e) {
+			keyState[e.keyCode] = false;
 		})
 		
 		// Mouse inputs.
