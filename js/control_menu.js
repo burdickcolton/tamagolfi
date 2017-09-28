@@ -131,10 +131,12 @@ function ControlMenuChar() {
 		}
 		
 		// Color.
-		else if (fE == 38) this.setColor = 0;
-		else if (fE == 37) this.setColor = 1;
-		else if (fE == 40) this.setColor = 2;
-		else if (fE == 39) this.setColor = 3;
+		else if (getPlayers() < 4) {
+			if (fE == 38) this.setColor = 0;
+			else if (fE == 37) this.setColor = 1;
+			else if (fE == 40) this.setColor = 2;
+			else if (fE == 39) this.setColor = 3;
+		}
 	}
 	
 	// Drawing.
@@ -192,6 +194,8 @@ function ControlMenuChar() {
 			drawSprite(spr_menu_stats, 0, 0, 2, 177);
 			for(i = 0; i < 4; i++) {
 				drawSpritePart(spr_menu_bar, charStat[this.setSelect][i] * 2, 7, 40, 185 + (i * 11));
+				if (charStat[this.setSelect][i] > 25)
+					drawSpritePart(spr_menu_bar_over, 1 + ((charStat[this.setSelect][i] - 25) * 2) + (charStat[this.setSelect][i] >= 50), 9, 39, 184 + (i * 11));
 			}
 		}
 		
@@ -207,7 +211,7 @@ function ControlMenuChar() {
 		if (this.setActorWait[fP] != undefined) {
 			this.setActorWait[fP].Set(fX, fY);
 			this.setActorWait[fP].Draw(0);
-			drawSprite(spr_menu_player_mini, fP, 0, fX - 5, fY);
+			drawSprite(spr_menu_player_mini, fP, 0, fX - 4, fY);
 		}
 	}
 	
@@ -217,5 +221,44 @@ function ControlMenuChar() {
 			if (this.setChar[fi] == fIn) return(true);
 		}
 		return(false);
+	}
+}
+
+// Main menu controller.
+function ControlMenuPause() {
+	// Stuff.
+	this.conGolf = objControl;
+	this.conMusic = objControl.conMusic;
+	
+	// Clicky.
+	this.Click = function() {
+		// Continue.
+		if (MousePoint(0, 100, 171, 126)) {
+			TransGo(this.conGolf);
+			playSound(snd_menu_confirm);
+		}
+		
+		// Quit.
+		else if (MousePoint(0, 132, 171, 158)) {
+			TransGo(new ControlMenuMain());
+			playSound(snd_menu_cancel);
+		}
+	}
+	
+	// Keyboard.
+	this.Keyboard = function(fE) {
+		// Nothing.
+	}
+	
+	// Drawing.
+	this.Draw = function() {
+		// Background.
+		drawSprite(spr_menu_back, 0, 0, menuBackScroll, menuBackScroll);
+		
+		// Title.
+		drawSprite(spr_menu_title, 0, 0, 160 - (spr_menu_title.sprWidth / 2), 8);
+		
+		// Buttons.
+		drawSprite(spr_menu_button_pause, 0, 0, 0, 100);
 	}
 }

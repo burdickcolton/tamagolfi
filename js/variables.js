@@ -8,8 +8,9 @@ var menuLanguageEnable = false;
 var menuLanguage = 0;
 var menuBackScroll = 0;
 var menuBackTick = 1;
-var gameVolume = .5;
+var gameVolume = (1/3);
 var gameMode = 0;
+var gameLieBonus = [1.125, 1, .9, .7, .5, 1];
 
 // Game setup.
 var playerChar = [];

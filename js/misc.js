@@ -78,7 +78,7 @@ function randomMax(fMax) {
 
 // Seeing if the middle value is between the outer values.
 function valueBetween(fA, fMid, fB) {
-	return(fMid >= fA && fMid <= fB);
+	return((fMid >= fA && fMid <= fB) || (fMid >= fB && fMid <= fA));
 }
 
 // Calculating direction from point A to point B.
@@ -132,9 +132,17 @@ function selectColor(fChar, fColor) {
 
 // Median.
 function median(fA, fB, fC) {
-	if (Math.min(fA, fB, fC) != fA && Math.max(fA, fB, fC) != fA) return(fA);
-	else if (Math.min(fA, fB, fC) != fB && Math.max(fA, fB, fC) != fB) return(fB);
+	if (valueBetween(fB, fA, fC)) return(fA);
+	else if (valueBetween(fA, fB, fC)) return(fB);
 	else return(fC);
+	/*if (Math.min(fA, fB, fC) != fA && Math.max(fA, fB, fC) != fA) return(fA);
+	else if (Math.min(fA, fB, fC) != fB && Math.max(fA, fB, fC) != fB) return(fB);
+	else return(fC);*/
+}
+
+// Mean.
+function mean(fA, fB) {
+	return((fA + fB) / 2);
 }
 
 // Getting character code.

@@ -43,6 +43,8 @@ var snd_golf_hit = loadSnd("golf_hit", false);
 var snd_golf_bounce = loadSnd("golf_bounce", false);
 var snd_golf_cup = loadSnd("golf_cup", false);
 var snd_golf_sink = loadSnd("golf_sink", false);
+var snd_golf_backswing = loadSnd("golf_backswing", false);
+var snd_golf_foreswing = loadSnd("golf_foreswing", false);
 
 // Voice instantiation.
 var snd_voice_great = [];

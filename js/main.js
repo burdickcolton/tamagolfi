@@ -23,7 +23,7 @@ var env = {
 		
 		// Key inputs.
 		window.addEventListener('keydown', function (e) {
-			objControl.Keyboard(e.keyCode);
+			if (objTransition == undefined) objControl.Keyboard(e.keyCode);
 			keyState[e.keyCode] = true;
 		})
 		window.addEventListener('keyup', function (e) {

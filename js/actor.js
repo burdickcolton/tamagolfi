@@ -99,6 +99,46 @@ function Actor(fSpr, fCol, fX, fY) {
 				this.animFrame = 1;
 				this.clubFrame = 0;
 				break;
+				
+			// Waiting before swing.
+			case 6:
+				this.SwingAnim(1, 0, 8);
+				break;
+				
+			// Backswing 1.
+			case 7:
+				this.SwingAnim(2, 1, 30);
+				break;
+				
+			// Backswing 2.
+			case 8:
+				this.SwingAnim(7, 2, 1);
+				if (this.animOn == 9) {
+					//snd_golf_backswing.Stop();
+					playSound(snd_golf_foreswing);
+				}
+				break;
+				
+			// Foreswing 1.
+			case 9:
+				this.SwingAnim(2, 3, 1);
+				break;
+				
+			// Foreswing 2.
+			case 10:
+				this.SwingAnim(3, 4, 1);
+				break;
+				
+			// Foreswing 3.
+			case 11:
+				this.SwingAnim(3, 5, 0);
+				break;
+				
+			// Swing ended.
+			case 12:
+				this.animFrame = 8;
+				this.clubFrame = 6;
+				break;
 			
 			// Completely still.
 			default:
@@ -125,7 +165,7 @@ function Actor(fSpr, fCol, fX, fY) {
 		// Initial frame.
 		if (fAnim >= 0 && fAnim <= 2) this.animFrame = 0;
 		else if (fAnim == 3) this.animFrame = 2;
-		else this.animFrame = 0;
+		//else this.animFrame = 0;
 	}
 	
 	// Hopping.
@@ -152,6 +192,19 @@ function Actor(fSpr, fCol, fX, fY) {
 		return (this.animY == 0 && this.animGrav == 0);
 	}
 	
+	// Swing animation thing.
+	this.SwingAnim = function(fFrame, fClub, fTick) {
+		this.animFrame = fFrame;
+		this.clubFrame = fClub;
+		if (this.animTick > 0) {
+			if (objTransition == undefined) this.animTick--;
+		}
+		else if (objTransition == undefined) {
+			this.Perform(this.animOn + 1, undefined);
+			this.animTick = fTick;
+		}
+	}
+	
 	// Drawing.
 	this.Draw = function(fX) {
 		// Animating.
@@ -167,8 +220,11 @@ function Actor(fSpr, fCol, fX, fY) {
 			this.y + this.animY + 1 - this.actorSpr.sprHeight);
 			
 		// Club sprite.
-		if (this.clubOn) drawSprite(this.clubSpr, this.clubFrame, this.clubType,
-			this.x + this.animX - Math.floor(this.actorSpr.sprWidth / 2) + fX,
-			this.y + this.animY + 1 - this.actorSpr.sprHeight);
+		if (this.clubOn) {
+			initSpriteDimensions(this.clubSpr);
+			drawSprite(this.clubSpr, this.clubFrame, 0,
+				this.x + this.animX - Math.floor(this.clubSpr.sprWidth / 2) + fX,
+				this.y + this.animY + 1 - this.actorSpr.sprHeight);
+		}
 	}
 }
