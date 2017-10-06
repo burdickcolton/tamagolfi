@@ -14,6 +14,7 @@ function Actor(fSpr, fCol, fX, fY) {
 	this.animY = 0;
 	this.animGrav = 0;
 	this.animTime = undefined;
+	this.animSwingHold = 0;
 	
 	// Club.
 	this.clubOn = false;
@@ -102,19 +103,19 @@ function Actor(fSpr, fCol, fX, fY) {
 				
 			// Waiting before swing.
 			case 6:
-				this.SwingAnim(1, 0, 8);
+				this.SwingAnim(1, 0, Math.ceil(this.animSwingHold * 8));
 				break;
 				
 			// Backswing 1.
 			case 7:
-				this.SwingAnim(2, 1, 30);
+				this.SwingAnim(2, 1, Math.ceil(this.animSwingHold * 30));
 				break;
 				
 			// Backswing 2.
 			case 8:
 				this.SwingAnim(7, 2, 1);
 				if (this.animOn == 9) {
-					//snd_golf_backswing.Stop();
+					if (this.animSwingHold < .25) snd_golf_backswing.Stop();
 					playSound(snd_golf_foreswing);
 				}
 				break;
@@ -211,7 +212,7 @@ function Actor(fSpr, fCol, fX, fY) {
 		this.Animation();
 		
 		// Shadow.
-		if (this.actorShadow) drawSprite(spr_player_shadow, 0, 0, this.x + this.animX - 12 + fX, this.y - 2);
+		if (this.actorShadow) drawSprite(spr_player_shadow, 0, 0, this.x + this.animX - 11 + fX, this.y - 2);
 		
 		// Player sprite.
 		initSpriteDimensions(this.actorSpr);

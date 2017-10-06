@@ -26,6 +26,7 @@ var spr_menu_flag = loadSpr("menu_flag", 2, 1);
 var spr_menu_stats = loadSpr("menu_stats", 1, 1);
 var spr_menu_bar = loadSpr("menu_bar", 1, 1);
 var spr_menu_bar_over = loadSpr("menu_bar_over", 1, 1);
+var spr_menu_bar_over_more = loadSpr("menu_bar_over_more", 1, 1);
 var spr_menu_char = loadSpr("menu_char", charStat.length, 4);
 var spr_menu_name = loadSpr("menu_name", 1, charStat.length);
 var spr_menu_locked = loadSpr("menu_locked", 1, 1);
@@ -49,6 +50,10 @@ var spr_hud_spin_bar = loadSpr("hud_spin_bar", 1, 1);
 var spr_hud_spin_ticker = loadSpr("hud_spin_ticker", 1, 1);
 var spr_hud_max_drive = loadSpr("hud_max_drive", 1, 1);
 var spr_hud_lie = loadSpr("hud_lie", gameLieBonus.length + 1, 1);
+var spr_hud_wind_title = loadSpr("hud_wind_title", 2, 1);
+var spr_hud_wind_direction = loadSpr("hud_wind_direction", 8, 10);
+var spr_hud_camera = loadSpr("hud_camera", 1, 7);
+var spr_hud_camera_title = loadSpr("hud_camera_title", 1, 1);
 
 // Player sprites.
 var spr_player_shadow = loadSpr("player_shadow", 1, 1);
@@ -56,8 +61,7 @@ var spr_player = [];
 for(i = 0; i < charStat.length; i++) {
 	if (i < 10) tN = "0" + i;
 	else tN = i;
-	//spr_player.push(loadSpr("player_" + tN, 7, 4));
-	spr_player.push(loadSpr("player_00", 9, 4));
+	spr_player.push(loadSpr("player_" + tN, 9, 4));
 }
 
 // Club sprites.
@@ -65,7 +69,7 @@ var spr_club = [];
 for(i = 0; i < charStat.length; i++) {
 	if (i < 10) tN = "0" + i;
 	else tN = i;
-	spr_club.push(loadSpr("club_00", 7, 1));
+	spr_club.push(loadSpr("club_" + tN, 7, 1));
 }
 
 // Course sprites.

@@ -14,6 +14,10 @@ function CourseBall(fX, fY, fPlayer) {
 	this.ballBounced = false;
 	this.ballSpin = 0;
 	this.ballBounces = 0;
+	this.ballPlayer = fPlayer;
+	this.ballTrackMaxDis = 0;
+	this.ballWindMult = 1;
+	this.ballSave = charStat[playerChar[fPlayer]][3];
 	
 	// Stats applied to shot.
 	this.shotSpin = 0;
@@ -33,18 +37,28 @@ function CourseBall(fX, fY, fPlayer) {
 	
 	// Stroke.
 	this.Stroke = function(fDis, fDir, fLoft, fSpin) {
+		this.ballTrackMaxDis = fDis;
 		this.ballDir = fDir;
 		this.ballGrav = -fLoft;
-		//this.ballDrop = this.ballDropDefault * (7.5 / fLoft);
-		this.ballSpeed = fDis / ((fLoft / this.ballDrop) * 2);
+		this.ballSpeed = fDis / (((fLoft / this.ballDrop) + ((fLoft * this.ballDrop) / 2)) * 2);
 		this.shotSpin = fSpin;
 		this.ballBounced = false;
 		this.ballBounces = 0;
 		playSound(snd_golf_hit);
-		//console.log("Ball speed: " + this.ballSpeed + ". Ball drop: " + this.ballDrop + ".");
+		if (gameDebug) {
+			console.clear();
+			console.log("STROKE\n   Dis: " + shortDecimal(this.ballTrackMaxDis / 6, 4) + " ft.\n   Spd: " + shortDecimal(this.ballSpeed / 6, 4) + " ft/f\n   Dir: " + shortDecimal(this.ballDir, 2));
+		}
 	}
 	
-	// Putting.
+	// Getting lie.
+	this.Lie = function() {
+		tR = this.ballLie = objControl.objHole.holeArray[Math.floor(this.x / 32)][Math.floor((this.y - 80) / 32)] + 1;
+		if (tR < 1) tR = getBetween(tR, 1, this.ballSave / 50);
+		return(tR);
+	}
+	
+	// Interacting with cup.
 	
 	// Moving.
 	this.Move = function() {
@@ -53,32 +67,49 @@ function CourseBall(fX, fY, fPlayer) {
 		
 		// Airborne.
 		if (!this.Grounded()) {
+			// Wind.
+			tWindDir = objControl.objHole.windDir;
+			tWindSpeed = objControl.objHole.windSpeed / 7500;
+			if (xDir(tWindSpeed, tWindDir) > 0) tX = xDir(tWindSpeed, tWindDir) * (charStat[playerChar[this.ballPlayer]][1] / 50);
+			else tX = xDir(tWindSpeed, tWindDir) * ((50 - charStat[playerChar[this.ballPlayer]][1]) / 50);
+			tY = yDir(tWindSpeed, tWindDir) * ((50 - charStat[playerChar[this.ballPlayer]][1]) / 50);
+			this.ballSpeed = calcDistance(0, 0, xDir(this.ballSpeed, this.ballDir) + tX, yDir(this.ballSpeed, this.ballDir) + tY);
+			this.ballDir = calcDirection(0, 0, xDir(this.ballSpeed, this.ballDir) + tX, yDir(this.ballSpeed, this.ballDir) + tY);
+			
 			// Gravity.
 			this.z += this.ballGrav;
 			this.ballGrav += this.ballDrop;
 			
 			// Bouncing.
 			if (this.z >= 0 && this.ballGrav >= 0) {
-				/*if (!this.ballBounced) {
-					console.log("First impact: " + (calcDistance(objControl.shotX, objControl.shotY, this.x, this.y) / 6) + " ft.");
-					console.log("Apex: " + high + " with loft-apex ratio " + (loft/high) + ".");
+				// First impact.
+				if (!this.ballBounced) {
+					if (gameDebug) console.log("IMPACT\n   Dis: " + shortDecimal(calcDistance(objControl.shotX, objControl.shotY, this.x, this.y) / 6, 4) + " ft.\n   Dev: " + shortDecimal((calcDistance(objControl.shotX, objControl.shotY, this.x, this.y) - this.ballTrackMaxDis) / 6, 4) + " ft.\n   Spd: " + shortDecimal(this.ballSpeed / 6, 4) + " ft/f\n   Dir: " + shortDecimal(this.ballDir, 2));
 					this.ballBounced = true;
-				}*/
-				playSound(snd_golf_bounce);
+				}
+				
+				// Physics.
+				this.ballLie = this.Lie();
 				this.ballBounces++;
 				this.z = 0;
-				this.ballLie = 1;
-				this.ballGrav *= -(1/2.5) * gameLieBonus[this.ballLie];
+				if (this.ballLie == 5) {
+					this.ballGrav = 0;
+					playSound(snd_golf_backswing);
+				}
+				else this.ballGrav *= -((1/2.5) + (.2 * (charStat[playerChar[this.ballPlayer]][1] / 50))) * (gameLieBonus[this.ballLie] / (1 + (gameLieBonus[this.ballLie] < 1)));
 				if (this.ballBounces >= 3) this.ballGrav = 0;
-				//else this.ballSpeed *= ((1/3) + ((1/4.5) * this.shotSpin)) * gameLieBonus[this.ballLie];
 				else this.ballSpeed *= ((2/3) + (.25 * this.shotSpin)) * gameLieBonus[this.ballLie];
+				
+				// Sound.
+				if (this.ballLie == 2 || this.ballLie == 3) playSound(snd_golf_bounce_rough);
+				else playSound(snd_golf_bounce);
 			}
 		}
 		
 		// Rolling.
 		else {
-			this.ballLie = 1;
-			this.ballSpeed *= .98 * gameLieBonus[this.ballLie];
+			this.ballLie = this.Lie();
+			this.ballSpeed *= .98 * (gameLieBonus[this.ballLie] / ((1 + gameLieBonus[this.ballLie]) / 2));
 			if (Math.abs(this.ballSpeed) < .05) this.ballSpeed = 0;
 		}
 		
@@ -88,16 +119,20 @@ function CourseBall(fX, fY, fPlayer) {
 		
 		// Bouncing off of course walls. (X)
 		if ((this.x - 1 < 0 || this.x + 1 > (objControl.objHole.holeSpr.width / 2)) && xDir(this.ballSpeed, this.ballDir) != 0) {
+			tSp = this.ballSpeed;
 			this.x = median(2, this.x, (objControl.objHole.holeSpr.width / 2) - 2);
-			this.ballDir = calcDirection(0, 0, -xDir(this.ballSpeed, this.ballDir) * .5, yDir(this.ballSpeed, this.ballDir));
+			this.ballSpeed = calcDistance(0, 0, -xDir(tSp, this.ballDir) * .5, yDir(tSp, this.ballDir));
+			this.ballDir = calcDirection(0, 0, -xDir(tSp, this.ballDir) * .5, yDir(tSp, this.ballDir));
 			this.shotSpin *= -1;
 			playSound(snd_golf_cup);
 		}
 		
 		// Bouncing off of course walls. (Y)
 		if ((this.y - 1 < 79 || this.y + 1 > 207) && yDir(this.ballSpeed, this.ballDir) != 0) {
+			tSp = this.ballSpeed;
 			this.y = median(80, this.y, 205);
-			this.ballDir = calcDirection(0, 0, xDir(this.ballSpeed, this.ballDir), -yDir(this.ballSpeed, this.ballDir) * .5);
+			this.ballSpeed = calcDistance(0, 0, xDir(tSp, this.ballDir), -yDir(tSp, this.ballDir) * .5);
+			this.ballDir = calcDirection(0, 0, xDir(tSp, this.ballDir), -yDir(tSp, this.ballDir) * .5);
 			playSound(snd_golf_cup);
 		}
 		
@@ -132,7 +167,7 @@ function CourseBall(fX, fY, fPlayer) {
 		tDis = GetFixDistance(fX, this, fMax);
 		tDir = GetFixDirection(fX, this);
 		tSpeed = tDis / ((fLoft / this.ballDrop) * 2);
-		if (true) {
+		if (valueBetween(80, mouseY, 208)) {
 			// Coordinates.
 			tX = this.x;
 			tY = this.y;
@@ -154,14 +189,6 @@ function CourseBall(fX, fY, fPlayer) {
 					drawSprite(spr_golf_trajec, 0, 0, tX - fX - 1, tY + tZ - 2);
 				}
 			}
-			
-			// Trajectory.
-			/*for(i = this.shotTick / 2; i < tDis; i += this.shotTickMax / 2) {
-				tYD = this.y + yDir(i, tDir) - 2;
-				if (!valueBetween(80, tYD, 208)) break;
-				drawSprite(spr_golf_trajec, 1, 0, this.x + xDir(i, tDir) - fX, tYD);
-				drawSprite(spr_golf_trajec, 0, 0, this.x + xDir(i, tDir) - fX, tYD + yDir(fLoft, (i / tDis) * 180));
-			}*/
 			
 			// Cursor.
 			drawSprite(spr_golf_cursor, 0, 0, this.x - 7 - fX + xDir(tDis, tDir), median(80, this.y + yDir(tDis, tDir), 208) - 12);

@@ -42,10 +42,10 @@ var env = {
         })
         window.addEventListener('touchstart', function (e) {
 			getMousePos(e);
-			MouseClick();
         })
         window.addEventListener('touchend', function (e) {
             mouseState = 0;
+			MouseClick();
         })
 	},
 	

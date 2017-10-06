@@ -6,7 +6,7 @@ function ControlGolfRun(fO) {
 		else fO.NextTurn();
 	}
 	
-	// Moving camera.
+	// Automatic camera movement.
 	if (fO.shotHit) fO.cameraX = median(0, (fO.objHole.holeSpr.width / 2) - 320, fO.objBall[fO.shotPlayer].x - 160);
 	else if (fO.cameraAuto) {
 		if (fO.cameraX > 0) {
@@ -16,7 +16,18 @@ function ControlGolfRun(fO) {
 		}
 		else fO.cameraAuto = false;
 	}
-	else if (fO.objActor.animOn == 5) {
+	
+	// Manual camera movements.
+	else if (fO.cameraButton > 0) {
+		if (Math.abs(fO.cameraX - fO.cameraGoal) < 16) {
+			fO.cameraX = fO.cameraGoal;
+			fO.cameraButton = 0;
+		}
+		else fO.cameraX += Math.sign(fO.cameraGoal - fO.cameraX) * 16;
+	}
+	
+	// Arrow keys. (temporary)
+	/*else if (fO.objActor.animOn == 5) {
 		if (keyState[37]) {
 			if (fO.cameraX > 8) fO.cameraX -= 8;
 			else fO.cameraX = 0;
@@ -25,7 +36,7 @@ function ControlGolfRun(fO) {
 			if (fO.cameraX < (fO.objHole.holeSpr.width / 2) - 328) fO.cameraX += 8;
 			else fO.cameraX = (fO.objHole.holeSpr.width / 2) - 320;
 		}
-	}
+	}*/
 	
 	// Shot tracking.
 	if (fO.shotHit) {

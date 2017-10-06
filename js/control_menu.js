@@ -28,13 +28,16 @@ function ControlMenuMain() {
 	this.Click = function() {
 		// Tamamatch.
 		if (MousePoint(0, 100, 171, 126)) {
-			//
+			TransGo(new ControlMenuChar());
+			playSound(snd_menu_confirm);
+			gameMode = 0;
 		}
 		
 		// Friendly game.
 		else if (MousePoint(0, 132, 171, 158)) {
 			TransGo(new ControlMenuChar());
 			playSound(snd_menu_confirm);
+			gameMode = 1;
 		}
 		
 		// Tournament.
@@ -105,37 +108,53 @@ function ControlMenuChar() {
 		
 		// Selecting.
 		else if (this.setSelect > -1) {
-			playSound(snd_menu_confirm);
-			playSound(snd_voice_good[this.setSelect]);
-			playerColor[getPlayers()] = selectColor(this.setSelect, this.setColor);
-			this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], playerColor[getPlayers()], 0, 0);
-			playerChar[getPlayers()] = this.setSelect;
-			this.setColor = 0;
+			// Tama-Match.
+			if (gameMode == 0) {
+				playSound(snd_menu_confirm);
+				playSound(snd_voice_good[this.setSelect]);
+				playerColor[getPlayers()] = selectColor(this.setSelect, this.setColor);
+				this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], playerColor[getPlayers()], 0, 0);
+				playerChar[getPlayers()] = this.setSelect;
+				playSound(snd_menu_confirm);
+				TransGo(new ControlGolf());
+			}
+			
+			// Free play.
+			else {
+				playSound(snd_menu_confirm);
+				playSound(snd_voice_good[this.setSelect]);
+				playerColor[getPlayers()] = selectColor(this.setSelect, this.setColor);
+				this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], playerColor[getPlayers()], 0, 0);
+				playerChar[getPlayers()] = this.setSelect;
+				this.setColor = 0;
+			}
 		}
 	}
 	
 	// Keyboard.
 	this.Keyboard = function(fE) {
-		// Code.
-		if (fE >= 65 && fE <= 90) {
-			// Array.
-			if (this.setCode.length >= 8) this.setCode.splice(0, 1);
-			this.setCode.push(fE);
-			
-			// Checking code.
-			tC = charCode(this.setCode);
-			if (tC > -1 && !this.CheckLocked(tC)) {
-				playSound(snd_gen_correct);
-				this.setChar[getPlayers()] = tC;
+		if (getPlayers() < 4) {
+			// Code.
+			if (fE >= 65 && fE <= 90) {
+				// Array.
+				if (this.setCode.length >= 8) this.setCode.splice(0, 1);
+				this.setCode.push(fE);
+				
+				// Checking code.
+				tC = charCode(this.setCode);
+				if (tC > -1 && !this.CheckLocked(tC)) {
+					playSound(snd_gen_correct);
+					this.setChar[getPlayers()] = tC;
+				}
 			}
-		}
-		
-		// Color.
-		else if (getPlayers() < 4) {
-			if (fE == 38) this.setColor = 0;
-			else if (fE == 37) this.setColor = 1;
-			else if (fE == 40) this.setColor = 2;
-			else if (fE == 39) this.setColor = 3;
+			
+			// Color.
+			else {
+				if (fE == 38) this.setColor = 0;
+				else if (fE == 37) this.setColor = 1;
+				else if (fE == 40) this.setColor = 2;
+				else if (fE == 39) this.setColor = 3;
+			}
 		}
 	}
 	
@@ -153,7 +172,7 @@ function ControlMenuChar() {
 		for (j = 0; j < 4; j++) {
 			for (i = 0; i < 3; i++) {
 				drawSprite(spr_menu_char, i + (j * 3), selectColor(i + (j * 3), this.setColor), tX + (i * 51), tY + (j * 44));
-				if (MousePoint(tX + (i * 51), tY + (j * 44), tX + (i * 51) + 47, tY + (j * 44) + 38) && getPlayers() < 4) this.setSelect = i + (j * 3);
+				if (MousePoint(tX + (i * 51), tY + (j * 44), tX + (i * 51) + 47, tY + (j * 44) + 38) && getPlayers() < modePlayers[gameMode]) this.setSelect = i + (j * 3);
 			}
 		}
 		
@@ -161,7 +180,7 @@ function ControlMenuChar() {
 		for (i = 0; i < 4; i++) {
 			if (this.setChar[i] > -1) {
 				drawSprite(spr_menu_char, this.setChar[i], selectColor(this.setChar[i], this.setColor), tX - 51, tY + (i * 44));
-				if (MousePoint(tX - 51, tY + (i * 44), tX - 4, tY + (i * 44) + 38) && getPlayers() < 4) this.setSelect = this.setChar[i];
+				if (MousePoint(tX - 51, tY + (i * 44), tX - 4, tY + (i * 44) + 38) && getPlayers() < modePlayers[gameMode]) this.setSelect = this.setChar[i];
 			}
 		}
 		
@@ -180,10 +199,10 @@ function ControlMenuChar() {
 		}
 		
 		// Buttons.
-		drawSprite(spr_menu_button_char, 0, (getPlayers() > 0), 0, 4);
+		drawSprite(spr_menu_button_char, 0, (getPlayers() > 0 && gameMode != 0), 0, 4);
 		
 		// Current player.
-		if (getPlayers() < 4) drawSprite(spr_menu_player, getPlayers(), 0, 2, 124);
+		if (getPlayers() < modePlayers[gameMode]) drawSprite(spr_menu_player, getPlayers(), 0, 2, 124);
 		
 		// Stats.
 		if (this.setSelect > -1) {
@@ -196,6 +215,8 @@ function ControlMenuChar() {
 				drawSpritePart(spr_menu_bar, charStat[this.setSelect][i] * 2, 7, 40, 185 + (i * 11));
 				if (charStat[this.setSelect][i] > 25)
 					drawSpritePart(spr_menu_bar_over, 1 + ((charStat[this.setSelect][i] - 25) * 2) + (charStat[this.setSelect][i] >= 50), 9, 39, 184 + (i * 11));
+				if (charStat[this.setSelect][i] > 50)
+					drawSpritePart(spr_menu_bar_over_more, 1 + ((charStat[this.setSelect][i] - 50) * 2) + (charStat[this.setSelect][i] >= 75), 9, 39, 184 + (i * 11));
 			}
 		}
 		
@@ -224,7 +245,7 @@ function ControlMenuChar() {
 	}
 }
 
-// Main menu controller.
+// Pause menu controller.
 function ControlMenuPause() {
 	// Stuff.
 	this.conGolf = objControl;
@@ -247,7 +268,11 @@ function ControlMenuPause() {
 	
 	// Keyboard.
 	this.Keyboard = function(fE) {
-		// Nothing.
+		// Unause.
+		if (fE == 27) {
+			TransGo(this.conGolf);
+			playSound(snd_menu_confirm);
+		}
 	}
 	
 	// Drawing.

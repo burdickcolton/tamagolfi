@@ -10,7 +10,12 @@ var menuBackScroll = 0;
 var menuBackTick = 1;
 var gameVolume = (1/3);
 var gameMode = 0;
-var gameLieBonus = [1.125, 1, .9, .7, .5, 1];
+var gameLieBonus = [1.125, 1, 0.875, .75, .5, 1];
+var gameDebug = false;
+var gameMission = 0;
+
+// Mode settings.
+var modePlayers = [1, 4];
 
 // Game setup.
 var playerChar = [];
@@ -21,19 +26,19 @@ resetPlayers();
 
 // Character stats.
 var charStat = [
-	[13, 13, 12, 12], // Melodytchi
-	[10, 8, 25, 7], // Makiko
-	[19, 22, 7, 2], // Anemoriritchi
-	[5, 10, 18, 17], // Kiramotchi
-	[4, 13, 17, 16], // Chamametchi
-	[5, 25, 1, 19], // Watawatatchi
-	[14, 9, 16, 11], // Pianitchi
-	[18, 2, 19, 11], // Gozarutchi
-	[6, 9, 22, 13], // Imotchi
-	[11, 16, 9, 14], // Uwasatchi
-	[9, 15, 25, 1], // Nyorotchi
-	[7, 15, 16, 12], // Neotchi
-	[21, 9, 9, 11], // Mamametchi
-	[12, 7, 23, 8], // Memetchi
-	//[50, 0, 0, 0], // Nightmare Mamametchi
+	[15, 15, 15, 15], // Melodytchi
+	[13, 11, 25, 11], // Makiko
+	[20, 22, 14, 4], // Anemoriritchi
+	[7, 12, 21, 20], // Kiramotchi
+	[6, 14, 19, 21], // Chamametchi
+	[9, 25, 6, 20], // Watawatatchi
+	[17, 11, 19, 13], // Pianitchi
+	[21, 4, 22, 13], // Gozarutchi
+	[8, 13, 23, 16], // Imotchi
+	[14, 16, 11, 19], // Uwasatchi
+	[11, 23, 25, 1], // Nyorotchi
+	[8, 18, 19, 15], // Neotchi
+	[21, 12, 13, 14], // Mamametchi
+	[14, 10, 23, 13], // Memetchi
+	//[50, 5, 4, 1], // Nightmare Mamametchi
 ];

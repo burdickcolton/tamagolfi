@@ -37,10 +37,12 @@ var snd_gen_bounce = loadSnd("general_bounce", false);
 var snd_gen_happy = loadSnd("general_happy", false);
 var snd_gen_sad = loadSnd("general_sad", false);
 var snd_gen_hop = loadSnd("general_hop", false);
+var snd_gen_camera = loadSnd("general_camera", false);
 
 // Golf sounds.
 var snd_golf_hit = loadSnd("golf_hit", false);
 var snd_golf_bounce = loadSnd("golf_bounce", false);
+var snd_golf_bounce_rough = loadSnd("golf_bounce_rough", false);
 var snd_golf_cup = loadSnd("golf_cup", false);
 var snd_golf_sink = loadSnd("golf_sink", false);
 var snd_golf_backswing = loadSnd("golf_backswing", false);

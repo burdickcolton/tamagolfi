@@ -145,6 +145,22 @@ function mean(fA, fB) {
 	return((fA + fB) / 2);
 }
 
+// Testing.
+function restart() {
+	TransGo(new ControlGolf());
+}
+
+// Shorten a decimal number.
+function shortDecimal(fN, fP) {
+	return(Math.round(fN * Math.pow(10, fP)) / Math.pow(10, fP));
+}
+
+// Setting wind.
+function wind(fS, fD) {
+	objControl.objHole.windSpeed = fS;
+	objControl.objHole.windDir = fD;
+}
+
 // Getting character code.
 function charCode(fCode) {
 	switch(keyArrayString(fCode)) {

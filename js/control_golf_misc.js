@@ -25,7 +25,8 @@ function GetMaxDistance(fChar, fSpin, fLie) {
 function GetLoft(fChar, fSpin, fLie, fDis) {
 	if (fSpin < 0) tSpin = 1 - ((fSpin * (charStat[fChar][2] / 25)) * .2);
 	else tSpin = 1 - ((fSpin * ((26 - charStat[fChar][2]) / 25)) * .2);
-	return(((7.5 + (charStat[fChar][1] * .1)) * tSpin) * fDis);
+	//return(((7.5 + (charStat[fChar][1] * .1)) * tSpin) * fDis);
+	return((((9 + sqr((charStat[fChar][1] / 50) * 1)) * gameLieBonus[fLie]) * tSpin) * fDis);
 }
 
 // Getting a valid distance.
@@ -35,7 +36,7 @@ function GetFixDistance(fX, fBall, fMax) {
 
 // Getting a valid direction.
 function GetFixDirection(fX, fBall) {
-	tDir = calcDirection(Math.min(fBall.x - fX, mouseX), fBall.y, Math.max(fBall.x - fX, mouseX), mouseY);
+	tDir = calcDirection(Math.min(fBall.x - fX, mouseX), fBall.y, Math.max(fBall.x - fX, mouseX), mouseY - 1);
 	if (tDir > 45 && tDir < 135) tDir = 45;
 	else if (tDir < 315 && tDir > 225) tDir = 315;
 	return(tDir);
@@ -48,7 +49,7 @@ function GetSpin(fChar, fSpin) {
 
 // Number drawing function.
 function DrawNumber(fX, fY, fN, fCol) {
-	tStr = Math.ceil(fN / 6).toString();
+	tStr = Math.round(fN).toString();
 	for(fi = 0; fi < tStr.length; fi++) {
 		drawSprite(spr_hud_number, Number(tStr[fi]), fCol, fX + (7 * fi), fY);
 	}
