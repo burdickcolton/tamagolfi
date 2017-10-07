@@ -1,5 +1,5 @@
 // Primary control.
-function ControlGolf() {
+function ControlGolf(fCourse, fHole) {
 	// Current shot statistics/settings.
 	this.shotX = 0;
 	this.shotY = 0;
@@ -17,9 +17,10 @@ function ControlGolf() {
 	this.playerFirst = true;
 	
 	// Objects.
-	this.objHole = new CourseHole();
+	this.objHole = new CourseHole(fCourse, fHole);
 	this.objBall = [];
 	this.objCup = new CourseCup((this.objHole.holeSpr.width / 2) - 64, 112 + randomMax(64));
+	//this.objCup = new CourseCup(this.objHole.holeArray);
 	this.objActor = undefined;
 	this.objTrail = [];
 	
@@ -262,13 +263,13 @@ function ControlGolf() {
 //////////
 // HOLE //
 //////////
-function CourseHole() {
+function CourseHole(fCourse, fHole) {
 	// Variables.
-	this.holeArray = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0], [2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [3, 3, 3, 3], [3, 3, 3, 3], [3, 3, 3, 3], [3, 3, 3, 3], [3, 3, 3, 3], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [4, 4, 4, 4], [4, 4, 4, 4], [4, 4, 4, 4], [4, 4, 4, 4], [4, 4, 4, 4]];
-	this.holeSpr = spr_course_range;
-	this.holePar = 3;
-	this.windSpeed = randomMax(10);
-	this.windDir = Math.round(randomMax(7) * 45);
+	this.holeArray = courseObj[fCourse].courseData[fHole];
+	this.holeSpr = courseObj[fCourse].courseSpr[fHole];
+	this.holePar = courseObj[fCourse].coursePar[fHole];;
+	this.windSpeed = courseObj[fCourse].WindSpeed();
+	this.windDir = courseObj[fCourse].WindDirection();
 	
 	// Drawing.
 	this.Draw = function(fX) {

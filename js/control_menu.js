@@ -28,9 +28,7 @@ function ControlMenuMain() {
 	this.Click = function() {
 		// Tamamatch.
 		if (MousePoint(0, 100, 171, 126)) {
-			TransGo(new ControlMenuChar());
-			playSound(snd_menu_confirm);
-			gameMode = 0;
+			// Placeholder.
 		}
 		
 		// Friendly game.
@@ -102,7 +100,7 @@ function ControlMenuChar() {
 		else if (MousePoint(0, 36, 171, 62)) {
 			if (getPlayers() > 0)  {
 				playSound(snd_menu_confirm);
-				TransGo(new ControlGolf());
+				TransGo(new ControlGolf(0, 0));
 			}
 		}
 		
@@ -116,7 +114,7 @@ function ControlMenuChar() {
 				this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], playerColor[getPlayers()], 0, 0);
 				playerChar[getPlayers()] = this.setSelect;
 				playSound(snd_menu_confirm);
-				TransGo(new ControlGolf());
+				TransGo(new ControlGolf(0, 0));
 			}
 			
 			// Free play.

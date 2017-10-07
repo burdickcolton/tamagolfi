@@ -9,11 +9,11 @@ function loadSnd(file, ismusic) {
 function voiceLoad(fChar) {
 	if (fChar < 10) tN = "0" + fChar;
 	else tN = fChar;
-	snd_voice_great[fChar] = (loadSnd("/voices/great_" + tN, false));
-	snd_voice_good[fChar] = (loadSnd("/voices/good_" + tN, false));
-	snd_voice_okay[fChar] = (loadSnd("/voices/okay_" + tN, false));
-	snd_voice_bad[fChar] = (loadSnd("/voices/bad_" + tN, false));
-	snd_voice_swing[fChar] = (loadSnd("/voices/swing_" + tN, false));
+	snd_voice_great[fChar] = (loadSnd("voices/great_" + tN, false));
+	snd_voice_good[fChar] = (loadSnd("voices/good_" + tN, false));
+	snd_voice_okay[fChar] = (loadSnd("voices/okay_" + tN, false));
+	snd_voice_bad[fChar] = (loadSnd("voices/bad_" + tN, false));
+	snd_voice_swing[fChar] = (loadSnd("voices/swing_" + tN, false));
 }
 
 // Music.

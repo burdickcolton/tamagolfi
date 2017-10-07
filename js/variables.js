@@ -13,6 +13,8 @@ var gameMode = 0;
 var gameLieBonus = [1.125, 1, 0.875, .75, .5, 1];
 var gameDebug = false;
 var gameMission = 0;
+var gameCourse = 0;
+var gameHole = 0;
 
 // Mode settings.
 var modePlayers = [1, 4];
@@ -31,7 +33,7 @@ var charStat = [
 	[20, 22, 14, 4], // Anemoriritchi
 	[7, 12, 21, 20], // Kiramotchi
 	[6, 14, 19, 21], // Chamametchi
-	[9, 25, 6, 20], // Watawatatchi
+	[5, 25, 5, 25], // Watawatatchi
 	[17, 11, 19, 13], // Pianitchi
 	[21, 4, 22, 13], // Gozarutchi
 	[8, 13, 23, 16], // Imotchi
