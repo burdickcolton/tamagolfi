@@ -32,6 +32,8 @@ var spr_menu_name = loadSpr("menu_name", 1, charStat.length);
 var spr_menu_locked = loadSpr("menu_locked", 1, 1);
 var spr_menu_button_char = loadSpr("menu_buttons_char", 1, 2);
 var spr_menu_button_pause = loadSpr("menu_buttons_pause", 1, 1);
+var spr_menu_button_scorecard = loadSpr("menu_buttons_scorecard", 1, 2);
+var spr_menu_scorecard = loadSpr("menu_scorecard", 4, 1);
 
 // Golf sprites.
 var spr_golf_cursor = loadSpr("golf_cursor", 1, 1);
@@ -49,11 +51,14 @@ var spr_hud_spin_type = loadSpr("hud_spin_type", 3, 1);
 var spr_hud_spin_bar = loadSpr("hud_spin_bar", 1, 1);
 var spr_hud_spin_ticker = loadSpr("hud_spin_ticker", 1, 1);
 var spr_hud_max_drive = loadSpr("hud_max_drive", 1, 1);
-var spr_hud_lie = loadSpr("hud_lie", gameLieBonus.length + 1, 1);
+var spr_hud_lie = loadSpr("hud_lie", gameLieBonus.length + 2, 1);
 var spr_hud_wind_title = loadSpr("hud_wind_title", 2, 1);
 var spr_hud_wind_direction = loadSpr("hud_wind_direction", 8, 10);
 var spr_hud_camera = loadSpr("hud_camera", 1, 7);
 var spr_hud_camera_title = loadSpr("hud_camera_title", 1, 1);
+var spr_hud_score = loadSpr("hud_score", 1, 11);
+var spr_hud_sign = loadSpr("hud_sign", 2, 1);
+var spr_hud_par = loadSpr("hud_par", 1, 1);
 
 // Player sprites.
 var spr_player_shadow = loadSpr("player_shadow", 1, 1);

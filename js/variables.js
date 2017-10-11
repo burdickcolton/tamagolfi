@@ -8,9 +8,9 @@ var menuLanguageEnable = false;
 var menuLanguage = 0;
 var menuBackScroll = 0;
 var menuBackTick = 1;
-var gameVolume = (1/3);
+var gameVolume = 1;
 var gameMode = 0;
-var gameLieBonus = [1.125, 1, 0.875, .75, .5, 1];
+var gameLieBonus = [1.125, 1, 0.75, .5, (1/3), 1];
 var gameDebug = false;
 var gameMission = 0;
 var gameCourse = 0;
@@ -23,6 +23,7 @@ var modePlayers = [1, 4];
 var playerChar = [];
 var playerAi = [];
 var playerColor = [];
+var playerScore = [];
 var playerDiff = 0;
 resetPlayers();
 
@@ -33,7 +34,7 @@ var charStat = [
 	[20, 22, 14, 4], // Anemoriritchi
 	[7, 12, 21, 20], // Kiramotchi
 	[6, 14, 19, 21], // Chamametchi
-	[5, 25, 5, 25], // Watawatatchi
+	[8, 25, 2, 25], // Watawatatchi
 	[17, 11, 19, 13], // Pianitchi
 	[21, 4, 22, 13], // Gozarutchi
 	[8, 13, 23, 16], // Imotchi

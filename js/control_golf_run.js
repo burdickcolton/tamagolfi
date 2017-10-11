@@ -3,11 +3,14 @@ function ControlGolfRun(fO) {
 	// Turn handling.
 	if (fO.shotEnd) {
 		if (fO.shotWait > 0) fO.shotWait--;
+		else if (fO.shotPlayer > -1 && BallDone(fO.objBall[fO.shotPlayer]) && fO.scoreIndex == -1) Celebrate(fO);
 		else fO.NextTurn();
 	}
 	
 	// Automatic camera movement.
-	if (fO.shotHit) fO.cameraX = median(0, (fO.objHole.holeSpr.width / 2) - 320, fO.objBall[fO.shotPlayer].x - 160);
+	if (fO.shotHit && fO.scoreIndex == -1) {
+		if (exists(fO.objBall[fO.shotPlayer])) fO.cameraX = median(0, (fO.objHole.holeSpr.width / 2) - 320, fO.objBall[fO.shotPlayer].x - 160);
+	}
 	else if (fO.cameraAuto) {
 		if (fO.cameraX > 0) {
 			if (fO.cameraSpeed < 16) fO.cameraSpeed += .05;
@@ -40,7 +43,8 @@ function ControlGolfRun(fO) {
 	
 	// Shot tracking.
 	if (fO.shotHit) {
-		if (fO.objBall[fO.shotPlayer].Stopped()) fO.shotEnd = true;
+		if (!exists(fO.objBall[fO.shotPlayer])) fO.shotEnd = true;
+		else if (fO.objBall[fO.shotPlayer].Stopped()) fO.shotEnd = true;
 	}
 	else if (fO.objActor.animOn == 10) {
 		playSound(snd_voice_swing[playerChar[fO.shotPlayer]]);
@@ -51,6 +55,18 @@ function ControlGolfRun(fO) {
 		fO.shotHit = true;
 		fO.shotWait = getSec(1);
 		fO.playerScore[fO.shotPlayer]++;
+	}
+	
+	// Score bouncing.
+	if (fO.scoreIndex > -1) {
+		fO.scoreY += fO.scoreGrav;
+		if (fO.scoreY < 208) fO.scoreGrav += .25;
+		else if (fO.scoreY >= 208 && fO.scoreGrav > 0) {
+			if (fO.scoreGrav >= 1) fO.scoreGrav *= -.5;
+			else fO.scoreGrav = 0;
+			fO.scoreY = 208;
+			playSound(snd_gen_bounce);
+		}
 	}
 	
 	// End.

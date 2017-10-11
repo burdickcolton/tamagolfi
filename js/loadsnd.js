@@ -19,6 +19,7 @@ function voiceLoad(fChar) {
 // Music.
 var msc_silence = loadSnd("silence", true);
 var msc_menu = loadSnd("menu", true);
+var msc_scorecard = loadSnd("scorecard", true);
 var msc_course_default = loadSnd("course_default", true);
 
 // Menu.

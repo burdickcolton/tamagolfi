@@ -1,5 +1,5 @@
 // Ball.
-function CourseBall(fX, fY, fPlayer) {
+function CourseBall(fX, fY, fPlayer, fCup) {
 	// Variables.
 	this.x = fX;
 	this.y = fY;
@@ -18,6 +18,10 @@ function CourseBall(fX, fY, fPlayer) {
 	this.ballTrackMaxDis = 0;
 	this.ballWindMult = 1;
 	this.ballSave = charStat[playerChar[fPlayer]][3];
+	this.ballSkipped = false;
+	this.ballTrail = true;
+	this.ballCupBounce = 10;
+	this.cupObj = fCup;
 	
 	// Stats applied to shot.
 	this.shotSpin = 0;
@@ -44,6 +48,8 @@ function CourseBall(fX, fY, fPlayer) {
 		this.shotSpin = fSpin;
 		this.ballBounced = false;
 		this.ballBounces = 0;
+		this.ballSkipped = false;
+		this.ballTrail = true;
 		playSound(snd_golf_hit);
 		if (gameDebug) {
 			console.clear();
@@ -53,7 +59,12 @@ function CourseBall(fX, fY, fPlayer) {
 	
 	// Getting lie.
 	this.Lie = function() {
-		tR = this.ballLie = objControl.objHole.holeArray[Math.floor(this.x / 32)][Math.floor((this.y - 80) / 32)] + 1;
+		return(objControl.objHole.holeArray[Math.floor(this.x / 32)][Math.floor((this.y - 80) / 32)] + 1);
+	}
+	
+	// Getting lie multiplier.
+	this.LieEffect = function() {
+		tR = gameLieBonus[this.ballLie];
 		if (tR < 1) tR = getBetween(tR, 1, this.ballSave / 50);
 		return(tR);
 	}
@@ -94,23 +105,61 @@ function CourseBall(fX, fY, fPlayer) {
 				this.z = 0;
 				if (this.ballLie == 5) {
 					this.ballGrav = 0;
-					playSound(snd_golf_backswing);
+					if (!this.ballSkipped) playSound(snd_golf_backswing);
 				}
-				else this.ballGrav *= -((1/2.5) + (.2 * (charStat[playerChar[this.ballPlayer]][1] / 50))) * (gameLieBonus[this.ballLie] / (1 + (gameLieBonus[this.ballLie] < 1)));
+				else this.ballGrav *= -((1/2.5) + (.2 * (charStat[playerChar[this.ballPlayer]][1] / 50))) * this.LieEffect();
 				if (this.ballBounces >= 3) this.ballGrav = 0;
-				else this.ballSpeed *= ((2/3) + (.25 * this.shotSpin)) * gameLieBonus[this.ballLie];
+				else this.ballSpeed *= ((2/3) + (.25 * this.shotSpin)) * this.LieEffect();
 				
 				// Sound.
-				if (this.ballLie == 2 || this.ballLie == 3) playSound(snd_golf_bounce_rough);
-				else playSound(snd_golf_bounce);
+				if (!this.ballSkipped) {
+					if (this.ballLie == 2 || this.ballLie == 3) playSound(snd_golf_bounce_rough);
+					else playSound(snd_golf_bounce);
+				}
 			}
 		}
 		
-		// Rolling.
+		// Grounded.
 		else {
-			this.ballLie = this.Lie();
-			this.ballSpeed *= .98 * (gameLieBonus[this.ballLie] / ((1 + gameLieBonus[this.ballLie]) / 2));
-			if (Math.abs(this.ballSpeed) < .05) this.ballSpeed = 0;
+			// Cup interaction.
+			if (valueBetween(this.cupObj.x - 4, this.x, this.cupObj.x + 5) && valueBetween(this.cupObj.y - 2, this.y, this.cupObj.y + 3)) {
+				// Thing.
+				if (!this.ballSkipped) {
+					this.ballSkipped = true;
+					this.ballBounces = 0;
+				}
+				
+				// Skipping.
+				if (this.ballSpeed > .75) {
+					this.ballGrav = -Math.sqrt(this.ballSpeed) * 1.5;
+					this.ballSpeed *= .5;
+					playSound(snd_golf_cup);
+				}
+				
+				// Bouncing.
+				else if (this.ballSpeed > .05 || calcDistance(this.x, this.y, this.cupObj.x, this.cupObj.y + 2) > .05 || this.ballBounces < this.ballCupBounce) {
+					this.ballTrail = false;
+					this.ballGrav = -((((this.ballCupBounce + 1) - this.ballBounces) / this.ballCupBounce) * .75);
+					this.ballDir = calcDirection(this.x, this.y, this.cupObj.x, this.cupObj.y + 2);
+					this.ballSpeed = calcDistance(this.x, this.y, this.cupObj.x, this.cupObj.y + 2) / ((Math.abs(this.ballGrav) * 2) / this.ballDrop);
+					playSound(snd_golf_cup);
+					this.ballBounces++;
+				}
+				
+				// Sinking.
+				else {
+					objControl.objBall[this.ballPlayer] = undefined;
+					fCup.cupFrame = this.ballColor + 1;
+					playSound(snd_golf_sink);
+				}
+			}
+			
+			// Rolling.
+			else {
+				this.ballLie = this.Lie();
+				this.ballSpeed *= .98 * this.LieEffect();
+				if (Math.abs(this.ballSpeed) < .05) this.ballSpeed = 0;
+			}
 		}
 		
 		// Coordinates.
@@ -137,10 +186,12 @@ function CourseBall(fX, fY, fPlayer) {
 		}
 		
 		// Trail.
-		tColor = 1 + ((this.shotSpin != 0) * Math.sign(this.shotSpin));
-		objControl.objTrail.push(new CourseTrail(this.x, this.y + this.z, tColor));
-		if (calcDistance(this.x, this.y + this.z, tPreX, tPreY) >= 3)
-			objControl.objTrail.push(new CourseTrail(mean(this.x, tPreX), mean(this.y + this.z, tPreY), tColor));
+		if (this.ballTrail) {
+			tColor = 1 + ((this.shotSpin != 0) * Math.sign(this.shotSpin));
+			objControl.objTrail.push(new CourseTrail(this.x, this.y + this.z, tColor));
+			if (calcDistance(this.x, this.y + this.z, tPreX, tPreY) >= 3)
+				objControl.objTrail.push(new CourseTrail(mean(this.x, tPreX), mean(this.y + this.z, tPreY), tColor));
+		}
 		
 		// End.
 	}

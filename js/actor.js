@@ -85,7 +85,7 @@ function Actor(fSpr, fCol, fX, fY) {
 				if (this.animTick > 0) this.animTick--;
 				else {
 					this.animFrame = 5 + (this.animFrame == 5);
-					if (this.animFrame == 3) snd_gen_sad.Play();
+					if (this.animFrame == 6) snd_gen_sad.Play();
 					this.animTick = 35;
 				}
 				break;
@@ -165,7 +165,7 @@ function Actor(fSpr, fCol, fX, fY) {
 		
 		// Initial frame.
 		if (fAnim >= 0 && fAnim <= 2) this.animFrame = 0;
-		else if (fAnim == 3) this.animFrame = 2;
+		else if (fAnim == 3) this.animFrame = 5;
 		//else this.animFrame = 0;
 	}
 	

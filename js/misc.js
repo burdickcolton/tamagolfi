@@ -10,6 +10,7 @@ function resetPlayer(fIn) {
 	playerChar[fIn] = -1;
 	playerAi[fIn] = false;
 	playerColor[fIn] = 0;
+	playerScore[fIn] = 0;
 }
 
 // Seeing if the character has been selected.
@@ -104,6 +105,16 @@ function getSec(fIn) {
 	return(Math.round(fIn * 60));
 }
 
+// Mean.
+function mean(fA, fB) {
+	return((fA + fB) / 2);
+}
+
+// Checking to see if an object exist.
+function exists(fObj) {
+	return(fObj != undefined);
+}
+
 // Getting amount of players.
 function getPlayers() {
 	for(fI = 3; fI >= 0; fI--) {
@@ -155,10 +166,15 @@ function shortDecimal(fN, fP) {
 	return(Math.round(fN * Math.pow(10, fP)) / Math.pow(10, fP));
 }
 
-// Setting wind.
+// Setting wind (debug).
 function wind(fS, fD) {
 	objControl.objHole.windSpeed = fS;
 	objControl.objHole.windDir = fD;
+}
+
+// Getting string width of a number.
+function getNumWidth(fN) {
+	return(fN.toString().length * 7);
 }
 
 // Getting character code.

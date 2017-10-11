@@ -7,6 +7,7 @@ var courseTemplate = {
 	courseSpr: [],
 	courseData: [],
 	coursePar: [],
+	courseObs: [],
 	
 	// Getting wind.
 	WindSpeed: function() {return(0);},
@@ -29,6 +30,7 @@ courseObj.push({
 	courseSpr: [],
 	courseData: [],
 	coursePar: [],
+	courseObs: [],
 	
 	// Getting wind.
 	WindSpeed: function() {return(randomMax(10));},

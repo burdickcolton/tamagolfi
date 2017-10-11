@@ -15,6 +15,9 @@ function ControlGolf(fCourse, fHole) {
 	// Scores.
 	this.playerScore = [0, 0, 0, 0];
 	this.playerFirst = true;
+	this.scoreIndex = -1;
+	this.scoreGrav = 0;
+	this.scoreY = -32;
 	
 	// Objects.
 	this.objHole = new CourseHole(fCourse, fHole);
@@ -102,34 +105,47 @@ function ControlGolf(fCourse, fHole) {
 			this.playerFirst = false;
 			this.shotPlayer = -1;
 			for(i = 0; i < this.objBall.length; i++) {
-				if (this.shotPlayer == -1) this.shotPlayer = i;
-				else if (calcDistance(this.objBall[i].x, this.objBall[i].y, this.objCup.x, this.objCup.y) >
-					calcDistance(this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y, this.objCup.x, this.objCup.y))
-					this.shotPlayer = i;
+				if (!BallDone(this.objBall[i])) {
+					if (this.shotPlayer == -1) this.shotPlayer = i;
+					else if (calcDistance(this.objBall[i].x, this.objBall[i].y, this.objCup.x, this.objCup.y) >
+						calcDistance(this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y, this.objCup.x, this.objCup.y))
+						this.shotPlayer = i;
+				}
 			}
 		}
 		
 		// Ending the hole.
-		
-		// Reset.
-		this.shotHit = false;
-		this.shotEnd = false;
-		this.shotSpin = 0;
-		this.cameraButton = 0;
-		
-		// Objects.
-		if (this.playerFirst) this.objBall.push(new CourseBall(32, 144, this.shotPlayer));
-		this.objActor = new Actor(spr_player[playerChar[this.shotPlayer]], playerColor[this.shotPlayer],
-			this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y - 9);
-		this.objActor.Club(playerChar[this.shotPlayer]);
-		this.objActor.Perform(5, undefined);
-		this.shotX = this.objBall[this.shotPlayer].x;
-		this.shotY = this.objBall[this.shotPlayer].y;
-		
-		// Visuals.
-		if (!this.cameraAuto) {
-			this.cameraX = median(0, (this.objHole.holeSpr.width / 2) - 320, this.objBall[this.shotPlayer].x - 80);
+		if (this.shotPlayer == -1) {
+			TransGo(new ControlMenuScorecard());
 		}
+		
+		// Starting.
+		else {
+			// Resetting.
+			this.shotHit = false;
+			this.shotEnd = false;
+			this.shotSpin = 0;
+			this.cameraButton = 0;
+			this.objCup.cupFrame = 0;
+			this.scoreIndex = -1;
+			this.scoreGrav = 0;
+			this.scoreY = -32;
+			
+			// Objects.
+			if (this.playerFirst) this.objBall.push(new CourseBall(32, 144, this.shotPlayer, this.objCup));
+			this.objActor = new Actor(spr_player[playerChar[this.shotPlayer]], playerColor[this.shotPlayer],
+				this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y - 9);
+			this.objActor.Club(playerChar[this.shotPlayer]);
+			this.objActor.Perform(5, undefined);
+			this.shotX = this.objBall[this.shotPlayer].x;
+			this.shotY = this.objBall[this.shotPlayer].y;
+			
+			// Visuals.
+			if (!this.cameraAuto) {
+				this.cameraX = median(0, (this.objHole.holeSpr.width / 2) - 320, this.objBall[this.shotPlayer].x - 80);
+			}
+		}
+		// End.
 	}
 	
 	// Moving camera.
@@ -186,7 +202,7 @@ function ControlGolf(fCourse, fHole) {
 		
 		// Inactive golf balls.
 		for(i = 0; i < this.objBall.length; i++) {
-			if (this.shotPlayer != i) this.objBall[i].Draw(this.cameraX);
+			if (this.shotPlayer != i && exists(this.objBall[i])) this.objBall[i].Draw(this.cameraX);
 		}
 		
 		// Actor.
@@ -196,10 +212,17 @@ function ControlGolf(fCourse, fHole) {
 		for(i = 0; i < this.objTrail.length; i++) {
 			this.objTrail[i].Draw(this.cameraX, this.objTrail);
 		}
-		if (this.shotPlayer > -1) this.objBall[this.shotPlayer].Draw(this.cameraX);
+		if (this.shotPlayer > -1) {
+			if (exists(this.objBall[this.shotPlayer])) this.objBall[this.shotPlayer].Draw(this.cameraX);
+		}
+		
+		// Current hole.
+		
+		// Score.
+		if (this.scoreIndex > -1) drawSprite(spr_hud_score, 0, this.scoreIndex, 61, this.scoreY);
 		
 		// Shot stats.
-		if (!this.cameraAuto && this.shotPlayer > -1) {
+		else if (!this.cameraAuto && this.shotPlayer > -1) {
 			// Trajectory.
 			if (!this.shotHit && this.objActor.animOn == 5) {
 				tMax = GetMaxDistance(playerChar[this.shotPlayer], this.shotSpin, this.objBall[this.shotPlayer].ballLie);
@@ -216,7 +239,9 @@ function ControlGolf(fCourse, fHole) {
 			// Stroke number.
 			DrawNumber(51, 2, this.playerScore[this.shotPlayer], 0);
 			
-			// Hole.
+			// Par.
+			drawSprite(spr_hud_par, 0, 0, 2, 210);
+			DrawNumber(32, 210, this.objHole.holePar, 0);
 			
 			// Wind.
 			drawSprite(spr_hud_wind_title, 0, 0, 131, 225);
@@ -224,12 +249,14 @@ function ControlGolf(fCourse, fHole) {
 			else drawSprite(spr_hud_wind_direction, Math.round(this.objHole.windDir / 45), this.objHole.windSpeed - 1, 167, 219);
 			
 			// Lie.
-			if (this.objBall[this.shotPlayer].Grounded()) tI = this.objBall[this.shotPlayer].ballLie + 1;
+			if (!exists(this.objBall[this.shotPlayer])) tI = 7;
+			else if (this.objBall[this.shotPlayer].Grounded()) tI = this.objBall[this.shotPlayer].ballLie + 1;
 			else tI = 0;
 			drawSprite(spr_hud_lie, tI, 0, 265, 197);
 			
 			// Distance to cup.
-			tYd = Math.ceil(calcDistance(this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y, this.objCup.x, this.objCup.y));
+			if (exists(this.objBall[this.shotPlayer])) tYd = Math.ceil(calcDistance(this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y, this.objCup.x, this.objCup.y));
+			else tYd = 0;
 			DrawYards(51, 17, tYd, 0);
 			
 			// Spin.
@@ -246,11 +273,14 @@ function ControlGolf(fCourse, fHole) {
 				drawSprite(spr_hud_max_drive, 0, 0, 2, 225);
 				DrawYards(32, 225, GetMaxDistance(playerChar[this.shotPlayer], this.shotSpin, this.objBall[this.shotPlayer].ballLie), 2);
 			}
-			else {
+			else if (exists(this.objBall[this.shotPlayer])) {
 				DrawYards(2, 225, calcDistance(this.shotX, this.shotY, this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y), 1);
 				if ((this.objBall[this.shotPlayer].y + this.objBall[this.shotPlayer].z) <= 28) {
 					DrawYards(155 - ((Math.ceil(Math.abs(this.objBall[this.shotPlayer].z) / 6).toString().length * 7) / 2), 26, Math.abs(this.objBall[this.shotPlayer].z), 3); 
 				}
+			}
+			else {
+				DrawYards(2, 225, calcDistance(this.shotX, this.shotY, this.objCup.x, this.objCup.y), 1);
 			}
 				
 			// End.

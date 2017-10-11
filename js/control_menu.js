@@ -285,3 +285,56 @@ function ControlMenuPause() {
 		drawSprite(spr_menu_button_pause, 0, 0, 0, 100);
 	}
 }
+
+// Scorecard controller.
+function ControlMenuScorecard() {
+	// Stuff.
+	this.conMusic = msc_scorecard;
+	
+	// Clicky.
+	this.Click = function() {
+		if (MousePoint(0, 100, 171, 126)) {
+			// Next hole.
+			if (true) {
+				playSound(snd_menu_confirm);
+				TransGo(new ControlGolf(0, 0));
+			}
+			
+			// Results.
+			else {
+			}
+		}
+	}
+	
+	// Keyboard.
+	this.Keyboard = function(fE) {
+		// Nothing.
+	}
+	
+	// Drawing.
+	this.Draw = function() {
+		// Background.
+		drawSprite(spr_menu_back, 0, 0, menuBackScroll, menuBackScroll);
+		
+		// Title.
+		drawSprite(spr_menu_title, 0, 0, 160 - (spr_menu_title.sprWidth / 2), 8);
+		
+		// Buttons.
+		drawSprite(spr_menu_button_scorecard, 0, 0, 0, 100);
+		
+		// Scores.
+		tX = 160 - Math.ceil(((getPlayers() * 47) + ((getPlayers() - 1) * 32)) / 2);
+		for(i = 0; i < getPlayers(); i++) {
+			// Player.
+			drawSprite(spr_menu_player, i, 0, tX + (i * 79) + 10, 144);
+			drawSprite(spr_menu_char, playerChar[i], playerColor[i], tX + (i * 79), 165);
+			
+			// Scorecard.
+			tS = playerScore[i];
+			tXN = tX + (i * 79) + 23 - Math.floor((getNumWidth(Math.abs(tS)) + (7 * (tS != 0)) ) / 2);
+			drawSprite(spr_menu_scorecard, i, 0, tX + (i * 79), 207);
+			if (tS != 0) drawSprite(spr_hud_sign, (tS < 0), 0, tXN, 212);
+			DrawNumber(tXN + (7 * (tS != 0)), 212, Math.abs(tS), ((tS < 1) * 2) + (tS < 0));
+		}
+	}
+}
