@@ -98,9 +98,10 @@ function ControlMenuChar() {
 		
 		// Continue.
 		else if (MousePoint(0, 36, 171, 62)) {
-			if (getPlayers() > 0)  {
+			if (getPlayers() > 0) {
+				gameHole = 0;
 				playSound(snd_menu_confirm);
-				TransGo(new ControlGolf(0, 0));
+				TransGo(new ControlGolf(gameCourse, gameHole));
 			}
 		}
 		
@@ -114,7 +115,7 @@ function ControlMenuChar() {
 				this.setActorWait[getPlayers()] = new Actor(spr_player[this.setSelect], playerColor[getPlayers()], 0, 0);
 				playerChar[getPlayers()] = this.setSelect;
 				playSound(snd_menu_confirm);
-				TransGo(new ControlGolf(0, 0));
+				TransGo(new ControlGolf(gameCourse, gameHole));
 			}
 			
 			// Free play.
@@ -290,18 +291,22 @@ function ControlMenuPause() {
 function ControlMenuScorecard() {
 	// Stuff.
 	this.conMusic = msc_scorecard;
+	this.buttonSpr = (gameHole >= courseObj[gameCourse].courseLen - 1);
 	
 	// Clicky.
 	this.Click = function() {
 		if (MousePoint(0, 100, 171, 126)) {
 			// Next hole.
-			if (true) {
+			if (gameHole < courseObj[gameCourse].courseLen - 1) {
+				gameHole++;
 				playSound(snd_menu_confirm);
-				TransGo(new ControlGolf(0, 0));
+				TransGo(new ControlGolf(gameCourse, gameHole));
 			}
 			
 			// Results.
 			else {
+				playSound(snd_menu_confirm);
+				TransGo(new ControlMenuMain());
 			}
 		}
 	}
@@ -320,7 +325,7 @@ function ControlMenuScorecard() {
 		drawSprite(spr_menu_title, 0, 0, 160 - (spr_menu_title.sprWidth / 2), 8);
 		
 		// Buttons.
-		drawSprite(spr_menu_button_scorecard, 0, 0, 0, 100);
+		drawSprite(spr_menu_button_scorecard, 0, this.buttonSpr, 0, 100);
 		
 		// Scores.
 		tX = 160 - Math.ceil(((getPlayers() * 47) + ((getPlayers() - 1) * 32)) / 2);

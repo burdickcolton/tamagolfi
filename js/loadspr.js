@@ -12,6 +12,17 @@ function loadSpr(file, fCol, fRow) {
 	return (tempRe);
 }
 
+// Loading course sprites.
+function loadCourseSpr(fLen, fName) {
+	fr = [];
+	for(fi = 0; fi <= fLen; fi++) {
+		if (fi < 10) tN = "0" + fi;
+		else tN = fi;
+		fr.push(loadSpr("course_" + fName + "_" + tN, 1, 1));
+	}
+	return(fr);
+}
+
 // Transition.
 var spr_transition = loadSpr("transition", 1, 1);
 
@@ -59,9 +70,11 @@ var spr_hud_camera_title = loadSpr("hud_camera_title", 1, 1);
 var spr_hud_score = loadSpr("hud_score", 1, 11);
 var spr_hud_sign = loadSpr("hud_sign", 2, 1);
 var spr_hud_par = loadSpr("hud_par", 1, 1);
+var spr_hud_hole = loadSpr("hud_hole", 1, 18);
 
 // Player sprites.
 var spr_player_shadow = loadSpr("player_shadow", 1, 1);
+var spr_player_particle = loadSpr("player_particle", charStat.length, 2);
 var spr_player = [];
 for(i = 0; i < charStat.length; i++) {
 	if (i < 10) tN = "0" + i;
@@ -79,3 +92,4 @@ for(i = 0; i < charStat.length; i++) {
 
 // Course sprites.
 var spr_course_range = loadSpr("course_range", 1, 1);
+var spr_course_tamatown = loadCourseSpr(9, "tamatown");

@@ -122,7 +122,7 @@ function CourseBall(fX, fY, fPlayer, fCup) {
 		// Grounded.
 		else {
 			// Cup interaction.
-			if (valueBetween(this.cupObj.x - 4, this.x, this.cupObj.x + 5) && valueBetween(this.cupObj.y - 2, this.y, this.cupObj.y + 3)) {
+			if (valueBetween(this.cupObj.x - 5, this.x, this.cupObj.x + 5) && valueBetween(this.cupObj.y - 3, this.y, this.cupObj.y + 3)) {
 				// Thing.
 				if (!this.ballSkipped) {
 					this.ballSkipped = true;

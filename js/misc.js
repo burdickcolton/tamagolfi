@@ -177,6 +177,11 @@ function getNumWidth(fN) {
 	return(fN.toString().length * 7);
 }
 
+// Getting if the number if even.
+function getEven(fN) {
+	return(Math.floor(fN / 2) == Math.ceil(fN / 2));
+}
+
 // Getting character code.
 function charCode(fCode) {
 	switch(keyArrayString(fCode)) {

@@ -22,7 +22,7 @@ function ControlGolf(fCourse, fHole) {
 	// Objects.
 	this.objHole = new CourseHole(fCourse, fHole);
 	this.objBall = [];
-	this.objCup = new CourseCup((this.objHole.holeSpr.width / 2) - 64, 112 + randomMax(64));
+	this.objCup = new CourseCup(this.objHole);
 	//this.objCup = new CourseCup(this.objHole.holeArray);
 	this.objActor = undefined;
 	this.objTrail = [];
@@ -32,10 +32,10 @@ function ControlGolf(fCourse, fHole) {
 	this.cameraAuto = true;
 	this.cameraSpeed = -1;
 	this.cameraButton = 0;
-	this.cameraGoal = this.cameraX;
+	this.cameraGoal = 0;
 	
 	// Music.
-	this.conMusic = msc_course_default;
+	this.conMusic = this.objHole.holeMusic;
 	
 	///////////////
 	// FUNCTIONS //
@@ -105,7 +105,7 @@ function ControlGolf(fCourse, fHole) {
 			this.playerFirst = false;
 			this.shotPlayer = -1;
 			for(i = 0; i < this.objBall.length; i++) {
-				if (!BallDone(this.objBall[i])) {
+				if (!BallDone(this.objBall[i]) && this.playerScore[i] < this.objHole.holePar + 3) {
 					if (this.shotPlayer == -1) this.shotPlayer = i;
 					else if (calcDistance(this.objBall[i].x, this.objBall[i].y, this.objCup.x, this.objCup.y) >
 						calcDistance(this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y, this.objCup.x, this.objCup.y))
@@ -217,12 +217,13 @@ function ControlGolf(fCourse, fHole) {
 		}
 		
 		// Current hole.
+		if (this.cameraAuto) drawSprite(spr_hud_hole, 0, gameHole, 101, 104);
 		
 		// Score.
-		if (this.scoreIndex > -1) drawSprite(spr_hud_score, 0, this.scoreIndex, 61, this.scoreY);
+		else if (this.scoreIndex > -1) drawSprite(spr_hud_score, 0, this.scoreIndex, 61, this.scoreY);
 		
 		// Shot stats.
-		else if (!this.cameraAuto && this.shotPlayer > -1) {
+		else if (this.shotPlayer > -1) {
 			// Trajectory.
 			if (!this.shotHit && this.objActor.animOn == 5) {
 				tMax = GetMaxDistance(playerChar[this.shotPlayer], this.shotSpin, this.objBall[this.shotPlayer].ballLie);
@@ -297,7 +298,8 @@ function CourseHole(fCourse, fHole) {
 	// Variables.
 	this.holeArray = courseObj[fCourse].courseData[fHole];
 	this.holeSpr = courseObj[fCourse].courseSpr[fHole];
-	this.holePar = courseObj[fCourse].coursePar[fHole];;
+	this.holePar = courseObj[fCourse].coursePar[fHole];
+	this.holeMusic = courseObj[fCourse].courseMsc;
 	this.windSpeed = courseObj[fCourse].WindSpeed();
 	this.windDir = courseObj[fCourse].WindDirection();
 	
@@ -312,14 +314,40 @@ function CourseHole(fCourse, fHole) {
 /////////
 // CUP //
 /////////
-function CourseCup(fX, fY) {
+function CourseCup(fHole) {
 	// Variables.
-	this.x = fX;
-	this.y = fY;
+	this.x = 0;
+	this.y = 0;
+	this.hole = fHole;
 	this.cupFrame = 0;
+	
+	// Checking if position is valid.
+	this.Check = function() {
+		if (this.x != 0) return(true);
+		return(CheckLie(this.x, this.y, this.hole) == 5 &&
+			CheckLie(this.x - 8, this.y - 8, this.hole) == 5 &&
+			CheckLie(this.x + 8, this.y - 8, this.hole) == 5 &&
+			CheckLie(this.x - 8, this.y + 8, this.hole) == 5 &&
+			CheckLie(this.x + 8, this.y + 8, this.hole) == 5);
+	}
 	
 	// Drawing.
 	this.Draw = function(fX) {
 		drawSprite(spr_golf_hole, this.cupFrame, 0, this.x - 4 - fX, this.y - 3);
+	}
+	
+	// Gathering position of green.
+	tFG = -1;
+	for(i = 0; i < fHole.holeArray.length; i++) {
+		if (fHole.holeArray[i].indexOf(4) > -1) {
+			tFG = i;
+			break;
+		}
+	}
+	
+	// Placing.
+	while(!this.Check()) {
+		this.x = randomRange((tFG * 32) + 48, (fHole.holeArray.length * 32) - 16);
+		this.y = randomRange(96, 192);
 	}
 }

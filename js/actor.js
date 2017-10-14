@@ -15,6 +15,11 @@ function Actor(fSpr, fCol, fX, fY) {
 	this.animGrav = 0;
 	this.animTime = undefined;
 	this.animSwingHold = 0;
+	this.animPart = -1;
+	this.animPartSpeed = 2.5;
+	this.animPartRot = 0;
+	this.animPartDis = 8;
+	this.animPartObj = [];
 	
 	// Club.
 	this.clubOn = false;
@@ -72,6 +77,12 @@ function Actor(fSpr, fCol, fX, fY) {
 						this.animGrav = -(10 / 3);
 						snd_gen_happy.Play();
 						snd_gen_hop.Play();
+						if (this.animPart > -1) for(ti = 0; ti < 6; ti++) {
+							tD = randomMax(30);
+							this.animPartObj.push(new ActorPart(this.animPart, this,
+								xDir(16, (180 + tD) + (ti * ((360 - (180 + tD)) / 5))),
+								yDir(16, (180 + tD) + (ti * ((360 - (180 + tD)) / 5))) ));
+						}
 					}
 				}
 				else if (this.Fall()) {
@@ -208,6 +219,11 @@ function Actor(fSpr, fCol, fX, fY) {
 	
 	// Drawing.
 	this.Draw = function(fX) {
+		// Thing.
+		initSpriteDimensions(this.actorSpr);
+		tW = this.actorSpr.sprWidth;
+		tWH = Math.floor(tW / 2);
+		
 		// Animating.
 		this.Animation();
 		
@@ -215,17 +231,62 @@ function Actor(fSpr, fCol, fX, fY) {
 		if (this.actorShadow) drawSprite(spr_player_shadow, 0, 0, this.x + this.animX - 11 + fX, this.y - 2);
 		
 		// Player sprite.
-		initSpriteDimensions(this.actorSpr);
-		drawSprite(this.actorSpr, this.animFrame, this.actorColor,
-			this.x + this.animX - Math.floor(this.actorSpr.sprWidth / 2) + fX,
-			this.y + this.animY + 1 - this.actorSpr.sprHeight);
-			
+		drawSprite(this.actorSpr, this.animFrame, this.actorColor, this.x + this.animX - tWH + fX, this.y + this.animY + 1 - this.actorSpr.sprHeight);
+		
+		// Particles.
+		for(i = 0; i < this.animPartObj.length; i++) {
+			this.animPartObj[i].Draw(fX);
+		}
+		
 		// Club sprite.
 		if (this.clubOn) {
 			initSpriteDimensions(this.clubSpr);
 			drawSprite(this.clubSpr, this.clubFrame, 0,
 				this.x + this.animX - Math.floor(this.clubSpr.sprWidth / 2) + fX,
 				this.y + this.animY + 1 - this.actorSpr.sprHeight);
+		}
+	}
+}
+
+// Particle.
+function ActorPart(fSpr, fActor, fX, fY) {
+	// Variables.
+	//this.x = fActor.x + randomRange(-8, 8);
+	//this.y = fActor.y + randomMax(8);
+	this.x = fActor.x + fX;
+	this.y = fActor.y + fY;
+	this.z = -(fActor.actorSpr.sprHeight / 2);
+	this.speed = randomRange(1, 2.5);
+	this.dir = calcDirection(fActor.x, fActor.y, this.x, this.y);
+	this.grav = randomRange(-3.5, -5);
+	this.actor = fActor;
+	this.animBounce = false;
+	this.animBlink = true;
+	this.animSpr = fSpr;
+	this.animInd = randomMax(1);
+	
+	// Drawing.
+	this.Draw = function(fX) {
+		// Physics.
+		if (this.animBounce) this.animBlink = !this.animBlink;
+		this.x = median(8, this.x + xDir(this.speed, this.dir), (objControl.objHole.holeSpr.width / 2) - 8);
+		this.y = Math.min(this.y + yDir(this.speed, this.dir), 200);
+		this.grav += .1;
+		this.z += this.grav;
+		
+		// Bouncing.
+		if (this.z >= 0 && this.grav > 0) {
+			this.z = 0;
+			this.grav *= -.75;
+			this.speed *= randomRange(.25, 1);
+			if (!this.animBounce) this.animBounce = true;
+			else this.actor.animPartObj.splice(this.actor.animPartObj.indexOf(this), 1);
+		}
+		
+		// Sprite.
+		if (this.animBlink) {
+			drawSprite(spr_golf_ball_shadow, 0, 0, this.x + fX - 2, this.y - 2);
+			drawSprite(spr_player_particle, this.animSpr, this.animInd, this.x + fX - 8, this.y + this.z - 17);
 		}
 	}
 }

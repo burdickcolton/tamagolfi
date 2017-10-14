@@ -31,7 +31,7 @@ function GetLoft(fChar, fSpin, fLie, fDis) {
 
 // Getting a valid distance.
 function GetFixDistance(fX, fBall, fMax) {
-	return(median(48, calcDistance(fBall.x - fX, fBall.y, mouseX, mouseY) * (mouseX > (fBall.x - fX)), fMax));
+	return(median(24, calcDistance(fBall.x - fX, fBall.y, mouseX, mouseY) * (mouseX > (fBall.x - fX)), fMax));
 }
 
 // Getting a valid direction.
@@ -73,6 +73,9 @@ function Celebrate(fO) {
 	// Getting stuff.
 	tP = fO.objHole.holePar;
 	tS = fO.playerScore[fO.shotPlayer] + exists(fO.objBall[fO.shotPlayer]);
+	if (exists(fO.objBall[fO.shotPlayer])) {
+		if (fO.objBall[fO.shotPlayer].ballLie != 5) tS++;
+	}
 	
 	// HUD.
 	if (tS == 1) fO.scoreIndex = 0;
@@ -87,7 +90,13 @@ function Celebrate(fO) {
 	// Misc.
 	fO.objActor.clubOn = false;
 	fO.objActor.Perform(2 - (tS == tP) + (tS > tP), undefined);
+	if (tS - tP < -1) fO.objActor.animPart = playerChar[fO.shotPlayer];
 	fO.cameraX = median(0, (fO.objHole.holeSpr.width / 2) - 320, fO.objActor.x - 160);
 	fO.shotWait = getSec(4);
 	playerScore[fO.shotPlayer] += tS - tP;
+}
+
+// Checking the lie of a coordinate.
+function CheckLie(fX, fY, fHole) {
+	return(fHole.holeArray[Math.floor(fX / 32)][Math.floor((fY - 80) / 32)] + 1);
 }

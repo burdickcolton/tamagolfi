@@ -3,7 +3,7 @@ function ControlGolfRun(fO) {
 	// Turn handling.
 	if (fO.shotEnd) {
 		if (fO.shotWait > 0) fO.shotWait--;
-		else if (fO.shotPlayer > -1 && BallDone(fO.objBall[fO.shotPlayer]) && fO.scoreIndex == -1) Celebrate(fO);
+		else if (fO.shotPlayer > -1 && (BallDone(fO.objBall[fO.shotPlayer]) || fO.playerScore[fO.shotPlayer] >= fO.objHole.holePar + 3) && fO.scoreIndex == -1) Celebrate(fO);
 		else fO.NextTurn();
 	}
 	

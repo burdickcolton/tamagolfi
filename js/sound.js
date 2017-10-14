@@ -66,7 +66,8 @@ function playMusic(newMusic) {
 
 // Playing a sound.
 function playSound(fSnd) {
-	if (fSnd != undefined) fSnd.Play();
+	//if (fSnd != undefined) fSnd.Play();
+	fSnd.Play();
 }
 
 // Changing volume.
