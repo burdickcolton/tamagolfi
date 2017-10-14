@@ -78,7 +78,7 @@ snd_voice_okay[2] = loadSnd("voices/okay_02", false);
 voiceLoad(4);
 voiceLoad(5);
 voiceLoad(7);
-snd_voice_okay[9] = loadSnd("voices/okay_09", false);
+//snd_voice_okay[9] = loadSnd("voices/okay_09", false);
 snd_voice_bad[9] = loadSnd("voices/bad_09", false);
 snd_voice_good[9] = loadSnd("voices/good_09", false);
 snd_voice_swing[9] = loadSnd("voices/swing_09", false);
