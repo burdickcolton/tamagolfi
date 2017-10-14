@@ -92,4 +92,4 @@ for(i = 0; i < charStat.length; i++) {
 
 // Course sprites.
 var spr_course_range = loadSpr("course_range", 1, 1);
-var spr_course_tamatown = loadCourseSpr(9, "tamatown");
+var spr_course_tamatown = loadCourseSpr(3, "tamatown");
