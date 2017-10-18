@@ -182,6 +182,11 @@ function getEven(fN) {
 	return(Math.floor(fN / 2) == Math.ceil(fN / 2));
 }
 
+// Sorting for drawing depth.
+function depthSort(fArr) {
+	fArr.sort(function(fA, fB) {return(fA.y - fB.y);});
+}
+
 // Getting character code.
 function charCode(fCode) {
 	switch(keyArrayString(fCode)) {

@@ -37,8 +37,8 @@ function GetFixDistance(fX, fBall, fMax) {
 // Getting a valid direction.
 function GetFixDirection(fX, fBall) {
 	tDir = calcDirection(Math.min(fBall.x - fX, mouseX), fBall.y, Math.max(fBall.x - fX, mouseX), mouseY - 1);
-	if (tDir > 45 && tDir < 135) tDir = 45;
-	else if (tDir < 315 && tDir > 225) tDir = 315;
+	if (tDir > 67.5 && tDir < 112.5) tDir = 67.5;
+	else if (tDir < 292.5 && tDir > 247.5) tDir = 292.5;
 	return(tDir);
 }
 

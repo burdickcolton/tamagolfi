@@ -4,6 +4,7 @@ function Actor(fSpr, fCol, fX, fY) {
 	this.actorSpr = fSpr;
 	this.actorColor = fCol;
 	this.actorShadow = true;
+	this.actorMute = false;
 	this.jumpSpeed = 15;
 	this.x = fX;
 	this.y = fY;
@@ -63,7 +64,7 @@ function Actor(fSpr, fCol, fX, fY) {
 				if (this.animTick > 0) this.animTick--;
 				else {
 					this.animFrame = 4 * (this.animFrame == 0);
-					if (this.animFrame == 4) snd_gen_happy.Play();
+					if (this.animFrame == 4 && !this.actorMute) snd_gen_happy.Play();
 					this.animTick = 35;
 				}
 				break;
@@ -75,8 +76,7 @@ function Actor(fSpr, fCol, fX, fY) {
 					else {
 						this.animFrame = 4;
 						this.animGrav = -(10 / 3);
-						snd_gen_happy.Play();
-						snd_gen_hop.Play();
+						if (!this.actorMute) {snd_gen_happy.Play(); snd_gen_hop.Play();}
 						if (this.animPart > -1) for(ti = 0; ti < 6; ti++) {
 							tD = randomMax(30);
 							this.animPartObj.push(new ActorPart(this.animPart, this,
@@ -96,7 +96,7 @@ function Actor(fSpr, fCol, fX, fY) {
 				if (this.animTick > 0) this.animTick--;
 				else {
 					this.animFrame = 5 + (this.animFrame == 5);
-					if (this.animFrame == 6) snd_gen_sad.Play();
+					if (this.animFrame == 6 && !this.actorMute) snd_gen_sad.Play();
 					this.animTick = 35;
 				}
 				break;
@@ -234,8 +234,8 @@ function Actor(fSpr, fCol, fX, fY) {
 		drawSprite(this.actorSpr, this.animFrame, this.actorColor, this.x + this.animX - tWH + fX, this.y + this.animY + 1 - this.actorSpr.sprHeight);
 		
 		// Particles.
-		for(i = 0; i < this.animPartObj.length; i++) {
-			this.animPartObj[i].Draw(fX);
+		for(acti = 0; acti < this.animPartObj.length; acti++) {
+			this.animPartObj[acti].Draw(fX);
 		}
 		
 		// Club sprite.

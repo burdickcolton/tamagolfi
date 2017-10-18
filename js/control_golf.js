@@ -133,6 +133,7 @@ function ControlGolf(fCourse, fHole) {
 			
 			// Objects.
 			if (this.playerFirst) this.objBall.push(new CourseBall(32, 144, this.shotPlayer, this.objCup));
+			else if (this.objBall[this.shotPlayer].y < 92) this.objBall[this.shotPlayer].y = 92;
 			this.objActor = new Actor(spr_player[playerChar[this.shotPlayer]], playerColor[this.shotPlayer],
 				this.objBall[this.shotPlayer].x, this.objBall[this.shotPlayer].y - 9);
 			this.objActor.Club(playerChar[this.shotPlayer]);
@@ -299,13 +300,20 @@ function CourseHole(fCourse, fHole) {
 	this.holeArray = courseObj[fCourse].courseData[fHole];
 	this.holeSpr = courseObj[fCourse].courseSpr[fHole];
 	this.holePar = courseObj[fCourse].coursePar[fHole];
+	this.holeObs = courseObj[fCourse].courseObs[fHole];
 	this.holeMusic = courseObj[fCourse].courseMsc;
 	this.windSpeed = courseObj[fCourse].WindSpeed();
 	this.windDir = courseObj[fCourse].WindDirection();
 	
 	// Drawing.
 	this.Draw = function(fX) {
+		// Terrain.
 		drawSprite(this.holeSpr, 0, 0, -fX, 0);
+		
+		// Obstacles.
+		for (hi = 0; hi < this.holeObs.length; hi++) {
+			this.holeObs[hi].Draw(fX);
+		}
 	}
 }
 
@@ -323,7 +331,6 @@ function CourseCup(fHole) {
 	
 	// Checking if position is valid.
 	this.Check = function() {
-		if (this.x != 0) return(true);
 		return(CheckLie(this.x, this.y, this.hole) == 5 &&
 			CheckLie(this.x - 8, this.y - 8, this.hole) == 5 &&
 			CheckLie(this.x + 8, this.y - 8, this.hole) == 5 &&

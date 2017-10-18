@@ -15,7 +15,7 @@ function loadSpr(file, fCol, fRow) {
 // Loading course sprites.
 function loadCourseSpr(fLen, fName) {
 	fr = [];
-	for(fi = 0; fi <= fLen; fi++) {
+	for(fi = 0; fi < fLen; fi++) {
 		if (fi < 10) tN = "0" + fi;
 		else tN = fi;
 		fr.push(loadSpr("course_" + fName + "_" + tN, 1, 1));
@@ -44,7 +44,10 @@ var spr_menu_locked = loadSpr("menu_locked", 1, 1);
 var spr_menu_button_char = loadSpr("menu_buttons_char", 1, 2);
 var spr_menu_button_pause = loadSpr("menu_buttons_pause", 1, 1);
 var spr_menu_button_scorecard = loadSpr("menu_buttons_scorecard", 1, 2);
-var spr_menu_scorecard = loadSpr("menu_scorecard", 4, 1);
+var spr_menu_scorecard = loadSpr("menu_scorecard", 4, 2);
+var spr_menu_button_result = loadSpr("menu_buttons_result", 1, 1);
+var spr_menu_result_rank = loadSpr("menu_result_rank", 1, 4);
+var spr_menu_result_multi = loadSpr("menu_result_multi", 1, 1);
 
 // Golf sprites.
 var spr_golf_cursor = loadSpr("golf_cursor", 1, 1);
@@ -53,6 +56,8 @@ var spr_golf_ball = loadSpr("golf_ball", 5, 1);
 var spr_golf_ball_shadow = loadSpr("golf_ball_shadow", 2, 1);
 var spr_golf_hole = loadSpr("golf_hole", 6, 1);
 var spr_golf_trail = loadSpr("golf_trail", 4, 3);
+var spr_golf_medal = loadSpr("golf_medal", 3, 1);
+var spr_golf_mushroom = loadSpr("golf_mushroom", 3, 1);
 
 // HUD sprites.
 var spr_hud_shadow_char = loadSpr("hud_shadow_char", 1, 1);
@@ -92,4 +97,4 @@ for(i = 0; i < charStat.length; i++) {
 
 // Course sprites.
 var spr_course_range = loadSpr("course_range", 1, 1);
-var spr_course_tamatown = loadCourseSpr(3, "tamatown");
+var spr_course_tamatown = loadCourseSpr(6, "tamatown");

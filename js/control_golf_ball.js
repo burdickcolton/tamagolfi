@@ -69,15 +69,35 @@ function CourseBall(fX, fY, fPlayer, fCup) {
 		return(tR);
 	}
 	
-	// Interacting with cup.
+	// Bouncing (from obstacles).
+	this.Bounce = function(fSpd, fDir, fGrav) {
+		this.ballDir = fDir;
+		this.ballGrav = fGrav;
+		this.ballSpeed = fSpd;
+		this.ballBounced = false;
+		this.ballBounces = 0;
+		this.ballSkipped = false;
+	}
+	
+	// Setting position.
+	this.Set = function(fX, fY, fZ) {
+		this.x = fX;
+		this.y = fY;
+		this.z = fZ;
+	}
 	
 	// Moving.
 	this.Move = function() {
 		tPreX = this.x;
 		tPreY = this.y + this.z;
 		
+		// Obstacles.
+		if (ObsCollision(this)) {
+			// Nothing haha. This was just put in after everything else so it's a lazy way of making sure the other movements don't happen.
+		}
+		
 		// Airborne.
-		if (!this.Grounded()) {
+		else if (!this.Grounded()) {
 			// Wind.
 			tWindDir = objControl.objHole.windDir;
 			tWindSpeed = objControl.objHole.windSpeed / 7500;

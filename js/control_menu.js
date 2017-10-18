@@ -19,7 +19,7 @@ function ControlTemplate() {
 // Main menu controller.
 function ControlMenuMain() {
 	// Reset.
-	resetPlayers();
+	gameHole = 0;
 	
 	// Music.
 	this.conMusic = msc_menu;
@@ -36,6 +36,7 @@ function ControlMenuMain() {
 			TransGo(new ControlMenuChar());
 			playSound(snd_menu_confirm);
 			gameMode = 1;
+			resetPlayers();
 		}
 		
 		// Tournament.
@@ -99,7 +100,6 @@ function ControlMenuChar() {
 		// Continue.
 		else if (MousePoint(0, 36, 171, 62)) {
 			if (getPlayers() > 0) {
-				gameHole = 0;
 				playSound(snd_menu_confirm);
 				TransGo(new ControlGolf(gameCourse, gameHole));
 			}
@@ -306,7 +306,8 @@ function ControlMenuScorecard() {
 			// Results.
 			else {
 				playSound(snd_menu_confirm);
-				TransGo(new ControlMenuMain());
+				if (getPlayers() == 1) TransGo(new ControlResultSolo());
+				else TransGo(new ControlResultMulti());
 			}
 		}
 	}
