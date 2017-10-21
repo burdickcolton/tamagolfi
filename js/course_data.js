@@ -71,7 +71,7 @@ courseObj.push({
 	courseObs: [],
 	courseMsc: msc_course_default,
 	courseLen: 0,
-	courseRec: -18,
+	courseRec: -16,
 	
 	// Getting wind.
 	WindSpeed: function() {return(randomMax(2));},
