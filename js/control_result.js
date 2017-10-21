@@ -5,7 +5,7 @@ function ControlResultSolo() {
 	// Variables.
 	tL = courseObj[gameCourse].courseData.length;
 	this.backSpr = courseObj[gameCourse].courseSpr[tL - 1];
-	this.playerMedal = (playerScore[0] >= -tL) + (playerScore[0] > -.5 * tL) + (playerScore[0] > 0);
+	this.playerMedal = (playerScore[0] > courseObj[gameCourse].courseRec) + (playerScore[0] > -.75 * tL) + (playerScore[0] > 0);
 	this.resultStart = false;
 	this.rankY = -32;
 	this.rankGrav = 0;
@@ -27,7 +27,7 @@ function ControlResultSolo() {
 	for(i = 0; i < charStat.length; i++) {
 		if (playerChar[0] != i) this.crowdArr.push(i);
 	}
-	tW = Math.min(23, this.crowdArr.length, Math.ceil((-playerScore[0] / tL) * 7.5));
+	tW = Math.min(23, this.crowdArr.length, Math.ceil((-playerScore[0] / tL) * 5));
 	for(i = 0; i < tW; i++) {
 		tA = randomMax(this.crowdArr.length - 1);
 		tT = randomMax(this.tileArr.length - 1);

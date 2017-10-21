@@ -18,7 +18,7 @@ function ObsMushroom(fX, fY, fType) {
 	this.Hit = function(fBall) {
 		tD = calcDistance(this.x + 16, this.y + 16, fBall.x, fBall.y);
 		tR = calcDirection(this.x + 16, this.y + 16, fBall.x, fBall.y);
-		if (tD <= 16 && fBall.z >= -24 && this.shroomTick <= 0) {
+		if (valueBetween(this.x, fBall.x, this.x + 32) && valueBetween(this.y, fBall.y, this.y + 32) && fBall.z >= -24 && this.shroomTick <= 0) {
 			if (tD >= 16 - (fBall.ballSpeed + .5)) fBall.Set((this.x + 16) + xDir(15, tR), (this.y + 16) + yDir(15, tR), fBall.z);
 			else fBall.Set(fBall.x, fBall.y, -25);
 			if (this.shroomType == 1) fBall.Bounce(2.5, 180, -2.5);

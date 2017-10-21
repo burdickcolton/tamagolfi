@@ -332,9 +332,9 @@ function CourseCup(fHole) {
 	// Checking if position is valid.
 	this.Check = function() {
 		return(CheckLie(this.x, this.y, this.hole) == 5 &&
-			CheckLie(this.x - 8, this.y - 8, this.hole) == 5 &&
+			CheckLie(this.x - 24, this.y - 8, this.hole) == 5 &&
 			CheckLie(this.x + 8, this.y - 8, this.hole) == 5 &&
-			CheckLie(this.x - 8, this.y + 8, this.hole) == 5 &&
+			CheckLie(this.x - 24, this.y + 8, this.hole) == 5 &&
 			CheckLie(this.x + 8, this.y + 8, this.hole) == 5);
 	}
 	
