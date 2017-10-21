@@ -1,77 +1,8 @@
-// Current music.
-var musicCurrentlyPlaying;
-
-// Sound class.
-function Sound(src) {
-	// Initialization.
-	this.sound = document.createElement("audio");
-	this.sound.src = src;
-	this.sound.setAttribute("preload", "auto");
-	this.sound.setAttribute("controls", "none");
-	this.sound.style.display = "none";
-	document.body.appendChild(this.sound);
-	
-	// Playing sound.
-	this.Play = function() {
-		this.sound.currentTime = 0;
-		this.sound.volume = gameVolume;
-		this.sound.play();
-	}
-	
-	// Stopping sound.
-	this.Stop = function() {
-		this.sound.currentTime = 0;
-		this.sound.pause();
-	}
-}
-
-// Music class.
-function Music(src) {
-	// Initialization.
-	this.sound = document.createElement("audio");
-	this.sound.src = src;
-	this.sound.setAttribute("preload", "auto");
-	this.sound.setAttribute("controls", "none");
-	this.sound.style.display = "none";
-	document.body.appendChild(this.sound);
-	
-	// Loop listener.
-	this.sound.addEventListener('ended', function() {
-		this.currentTime = 0;
-		this.play();
-	}, false);
-	
-	// Playing music.
-	this.Play = function() {
-		this.sound.currentTime = 0;
-		this.sound.volume = gameVolume;
-		this.sound.play();
-	}
-	
-	// Stopping music.
-	this.Stop = function() {
-		this.sound.currentTime = 0;
-		this.sound.pause();
-	}
-}
-
-// Playing new music.
-function playMusic(newMusic) {
-	if (newMusic != musicCurrentlyPlaying) {
-		if (musicCurrentlyPlaying !== undefined) {musicCurrentlyPlaying.Stop();}
-		musicCurrentlyPlaying = newMusic;
-		if (musicCurrentlyPlaying !== undefined) {musicCurrentlyPlaying.Play();}
-	}
-}
-
-// Playing a sound.
-function playSound(fSnd) {
-	//if (fSnd != undefined) fSnd.Play();
-	fSnd.Play();
-}
-
-// Changing volume.
-function newVolume(fVol) {
-	gameVolume = fVol;
-	if (musicCurrentlyPlaying !== undefined) musicCurrentlyPlaying.sound.volume = fVol;
-}
+/***************************************************************************/
+/*                                                                         */
+/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
+/*  Javascript Obfuscator Free Version can be downloaded here              */
+/*  http://javascriptobfuscator.com                                        */
+/*                                                                         */
+/***************************************************************************/
+var _$_2610=["\x73\x6F\x75\x6E\x64","\x61\x75\x64\x69\x6F","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x73\x72\x63","\x70\x72\x65\x6C\x6F\x61\x64","\x61\x75\x74\x6F","\x73\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65","\x63\x6F\x6E\x74\x72\x6F\x6C\x73","\x6E\x6F\x6E\x65","\x64\x69\x73\x70\x6C\x61\x79","\x73\x74\x79\x6C\x65","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x62\x6F\x64\x79","\x50\x6C\x61\x79","\x63\x75\x72\x72\x65\x6E\x74\x54\x69\x6D\x65","\x76\x6F\x6C\x75\x6D\x65","\x70\x6C\x61\x79","\x53\x74\x6F\x70","\x70\x61\x75\x73\x65","\x65\x6E\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"];var musicCurrentlyPlaying;function Sound(_0x149F6){this[_$_2610[0]]= document[_$_2610[2]](_$_2610[1]);this[_$_2610[0]][_$_2610[3]]= _0x149F6;this[_$_2610[0]][_$_2610[6]](_$_2610[4],_$_2610[5]);this[_$_2610[0]][_$_2610[6]](_$_2610[7],_$_2610[8]);this[_$_2610[0]][_$_2610[10]][_$_2610[9]]= _$_2610[8];document[_$_2610[12]][_$_2610[11]](this[_$_2610[0]]);this[_$_2610[13]]= function(){this[_$_2610[0]][_$_2610[14]]= 0;this[_$_2610[0]][_$_2610[15]]= gameVolume;this[_$_2610[0]][_$_2610[16]]()};this[_$_2610[17]]= function(){this[_$_2610[0]][_$_2610[14]]= 0;this[_$_2610[0]][_$_2610[18]]()}}function Music(_0x149F6){this[_$_2610[0]]= document[_$_2610[2]](_$_2610[1]);this[_$_2610[0]][_$_2610[3]]= _0x149F6;this[_$_2610[0]][_$_2610[6]](_$_2610[4],_$_2610[5]);this[_$_2610[0]][_$_2610[6]](_$_2610[7],_$_2610[8]);this[_$_2610[0]][_$_2610[10]][_$_2610[9]]= _$_2610[8];document[_$_2610[12]][_$_2610[11]](this[_$_2610[0]]);this[_$_2610[0]][_$_2610[20]](_$_2610[19],function(){this[_$_2610[14]]= 0;this[_$_2610[16]]()},false);this[_$_2610[13]]= function(){this[_$_2610[0]][_$_2610[14]]= 0;this[_$_2610[0]][_$_2610[15]]= gameVolume;this[_$_2610[0]][_$_2610[16]]()};this[_$_2610[17]]= function(){this[_$_2610[0]][_$_2610[14]]= 0;this[_$_2610[0]][_$_2610[18]]()}}function playMusic(_0x14AA7){if(_0x14AA7!= musicCurrentlyPlaying){if(musicCurrentlyPlaying!== undefined){musicCurrentlyPlaying[_$_2610[17]]()};musicCurrentlyPlaying= _0x14AA7;if(musicCurrentlyPlaying!== undefined){musicCurrentlyPlaying[_$_2610[13]]()}}}function playSound(_0x14AE2){_0x14AE2[_$_2610[13]]()}function newVolume(_0x14A31){gameVolume= _0x14A31;if(musicCurrentlyPlaying!== undefined){musicCurrentlyPlaying[_$_2610[0]][_$_2610[15]]= _0x14A31}}

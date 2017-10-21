@@ -1,36 +1,8 @@
-// Interval function.
-function gameInterval() {
-	// Drawing.
-	drawInterval();
-	
-	// Transition.
-	if (objTransition != undefined) objTransition.Act();
-	
-	// Holding mouse button.
-	if (mouseState == 2) {
-		mouseState = 1;
-	}
-	
-	// Moving menu background.
-	if (menuBackTick > 0) menuBackTick--;
-	else {
-		menuBackTick = 3;
-		if (menuBackScroll > -24) menuBackScroll--;
-		else menuBackScroll += 23;
-	}
-}
-
-// Interval drawing function.
-function drawInterval() {
-	// Clearing canvas.
-	env.clear();
-	
-	// Test cursor.
-	//drawSprite(spr_test, mouseState, 0, mouseX, mouseY - 4);
-	
-	// Drawing from controller.
-	objControl.Draw();
-	
-	// Drawing transition.
-	if (objTransition != undefined) objTransition.Draw();
-}
+/***************************************************************************/
+/*                                                                         */
+/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
+/*  Javascript Obfuscator Free Version can be downloaded here              */
+/*  http://javascriptobfuscator.com                                        */
+/*                                                                         */
+/***************************************************************************/
+var _$_7fcf=["\x41\x63\x74","\x63\x6C\x65\x61\x72","\x44\x72\x61\x77"];function gameInterval(){drawInterval();if(objTransition!= undefined){objTransition[_$_7fcf[0]]()};if(mouseState== 2){mouseState= 1};if(menuBackTick> 0){menuBackTick--}else {menuBackTick= 3;if(menuBackScroll>  -24){menuBackScroll--}else {menuBackScroll+= 23}}}function drawInterval(){env[_$_7fcf[1]]();objControl[_$_7fcf[2]]();if(objTransition!= undefined){objTransition[_$_7fcf[2]]()}}

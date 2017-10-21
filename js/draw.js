@@ -1,23 +1,8 @@
-// Setting dimensions.
-function initSpriteDimensions(fSpr) {
-	if (fSpr.sprWidth == 0 || fSpr.sprHeight == 0) {
-		fSpr.sprWidth = Math.round((fSpr.width / fSpr.sprCol) / 2);
-		fSpr.sprHeight = Math.round((fSpr.height / fSpr.sprRow) / 2);
-	}
-}
-
-// Base drawing function.
-function drawSpriteFull(fSpr, fLeft, fTop, fWidth, fHeight, fX, fY) {
-	env.context.drawImage(fSpr, fLeft, fTop, fWidth, fHeight, fX, fY, fWidth, fHeight);
-}
-
-// Simple drawing function.
-function drawSprite(fSpr, fCol, fRow, fX, fY) {
-	initSpriteDimensions(fSpr);
-	drawSpriteFull(fSpr, (fCol * fSpr.sprWidth) * 2, (fRow * fSpr.sprHeight) * 2, fSpr.sprWidth * 2, fSpr.sprHeight * 2, Math.round(fX) * 2, Math.round(fY) * 2);
-}
-
-// Partial sprite drawing.
-function drawSpritePart(fSpr, fW, fH, fX, fY) {
-	drawSpriteFull(fSpr, 0, 0, Math.round(fW) * 2, Math.round(fH) * 2, Math.round(fX) * 2, Math.round(fY) * 2);
-}
+/***************************************************************************/
+/*                                                                         */
+/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
+/*  Javascript Obfuscator Free Version can be downloaded here              */
+/*  http://javascriptobfuscator.com                                        */
+/*                                                                         */
+/***************************************************************************/
+var _$_df06=["\x73\x70\x72\x57\x69\x64\x74\x68","\x73\x70\x72\x48\x65\x69\x67\x68\x74","\x77\x69\x64\x74\x68","\x73\x70\x72\x43\x6F\x6C","\x72\x6F\x75\x6E\x64","\x68\x65\x69\x67\x68\x74","\x73\x70\x72\x52\x6F\x77","\x64\x72\x61\x77\x49\x6D\x61\x67\x65","\x63\x6F\x6E\x74\x65\x78\x74"];function initSpriteDimensions(_0x13C5D){if(_0x13C5D[_$_df06[0]]== 0|| _0x13C5D[_$_df06[1]]== 0){_0x13C5D[_$_df06[0]]= Math[_$_df06[4]]((_0x13C5D[_$_df06[2]]/ _0x13C5D[_$_df06[3]])/ 2);_0x13C5D[_$_df06[1]]= Math[_$_df06[4]]((_0x13C5D[_$_df06[5]]/ _0x13C5D[_$_df06[6]])/ 2)}}function drawSpriteFull(_0x13C5D,_0x145D0,_0x1460B,_0x14646,_0x14595,_0x13C98,_0x13CD3){env[_$_df06[8]][_$_df06[7]](_0x13C5D,_0x145D0,_0x1460B,_0x14646,_0x14595,_0x13C98,_0x13CD3,_0x14646,_0x14595)}function drawSprite(_0x13C5D,_0x13C22,_0x1455A,_0x13C98,_0x13CD3){initSpriteDimensions(_0x13C5D);drawSpriteFull(_0x13C5D,(_0x13C22* _0x13C5D[_$_df06[0]])* 2,(_0x1455A* _0x13C5D[_$_df06[1]])* 2,_0x13C5D[_$_df06[0]]* 2,_0x13C5D[_$_df06[1]]* 2,Math[_$_df06[4]](_0x13C98)* 2,Math[_$_df06[4]](_0x13CD3)* 2)}function drawSpritePart(_0x13C5D,_0x146BC,_0x14681,_0x13C98,_0x13CD3){drawSpriteFull(_0x13C5D,0,0,Math[_$_df06[4]](_0x146BC)* 2,Math[_$_df06[4]](_0x14681)* 2,Math[_$_df06[4]](_0x13C98)* 2,Math[_$_df06[4]](_0x13CD3)* 2)}

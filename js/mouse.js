@@ -1,29 +1,8 @@
-// Mouse variables.
-mouseX = 0;
-mouseY = 0;
-mouseState = 0;
-
-// Keyboard array.
-keyState = [];
-
-// Getting mouse position.
-function getMousePos(e) {
-	tempBound = env.canvas.getBoundingClientRect();
-	tempDom = document.documentElement;
-    mouseX = Math.round((e.clientX - tempBound.left - 4) / 2);
-    mouseY = Math.round((e.clientY - tempBound.top - 4) / 2);
-}
-
-// Mouse point.
-function MousePoint(fXA, fYA, fXB, fYB) {
-	return(mouseX >= fXA && mouseY >= fYA && mouseX < fXB && mouseY < fYB);
-}
-
-// Clicking.
-function MouseClick() {
-	// State.
-	mouseState = 2;
-	
-	// Control.
-	if (objTransition == undefined && MousePoint(0, 0, 320, 240)) objControl.Click();
-}
+/***************************************************************************/
+/*                                                                         */
+/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
+/*  Javascript Obfuscator Free Version can be downloaded here              */
+/*  http://javascriptobfuscator.com                                        */
+/*                                                                         */
+/***************************************************************************/
+var _$_d946=["\x67\x65\x74\x42\x6F\x75\x6E\x64\x69\x6E\x67\x43\x6C\x69\x65\x6E\x74\x52\x65\x63\x74","\x63\x61\x6E\x76\x61\x73","\x64\x6F\x63\x75\x6D\x65\x6E\x74\x45\x6C\x65\x6D\x65\x6E\x74","\x63\x6C\x69\x65\x6E\x74\x58","\x6C\x65\x66\x74","\x72\x6F\x75\x6E\x64","\x63\x6C\x69\x65\x6E\x74\x59","\x74\x6F\x70","\x43\x6C\x69\x63\x6B"];mouseX= 0;mouseY= 0;mouseState= 0;keyState= [];function getMousePos(_0x13BE7){tempBound= env[_$_d946[1]][_$_d946[0]]();tempDom= document[_$_d946[2]];mouseX= Math[_$_d946[5]]((_0x13BE7[_$_d946[3]]- tempBound[_$_d946[4]]- 4)/ 2);mouseY= Math[_$_d946[5]]((_0x13BE7[_$_d946[6]]- tempBound[_$_d946[7]]- 4)/ 2)}function MousePoint(_0x1490A,_0x14980,_0x14945,_0x149BB){return (mouseX>= _0x1490A&& mouseY>= _0x14980&& mouseX< _0x14945&& mouseY< _0x149BB)}function MouseClick(){mouseState= 2;if(objTransition== undefined&& MousePoint(0,0,320,240)){objControl[_$_d946[8]]()}}
