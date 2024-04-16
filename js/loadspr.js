@@ -1,8 +1,108 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_d8fe=["","\x74\x65\x6D\x70\x52\x65","\x73\x72\x63","\x73\x70\x72\x2F","\x2E\x70\x6E\x67","\x73\x70\x72\x43\x6F\x6C","\x73\x70\x72\x52\x6F\x77","\x73\x70\x72\x57\x69\x64\x74\x68","\x73\x70\x72\x48\x65\x69\x67\x68\x74","\x30","\x63\x6F\x75\x72\x73\x65\x5F","\x5F","\x70\x75\x73\x68","\x74\x72\x61\x6E\x73\x69\x74\x69\x6F\x6E","\x6D\x65\x6E\x75\x5F\x74\x69\x74\x6C\x65","\x6D\x65\x6E\x75\x5F\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64","\x6D\x65\x6E\x75\x5F\x62\x75\x74\x74\x6F\x6E\x73\x5F\x6D\x61\x69\x6E","\x6D\x65\x6E\x75\x5F\x70\x6C\x61\x79\x65\x72","\x6D\x65\x6E\x75\x5F\x70\x6C\x61\x79\x65\x72\x5F\x6D\x69\x6E\x69","\x6D\x65\x6E\x75\x5F\x61\x69","\x6D\x65\x6E\x75\x5F\x66\x6C\x61\x67","\x6D\x65\x6E\x75\x5F\x73\x74\x61\x74\x73","\x6D\x65\x6E\x75\x5F\x62\x61\x72","\x6D\x65\x6E\x75\x5F\x62\x61\x72\x5F\x6F\x76\x65\x72","\x6D\x65\x6E\x75\x5F\x62\x61\x72\x5F\x6F\x76\x65\x72\x5F\x6D\x6F\x72\x65","\x6D\x65\x6E\x75\x5F\x63\x68\x61\x72","\x6C\x65\x6E\x67\x74\x68","\x6D\x65\x6E\x75\x5F\x6E\x61\x6D\x65","\x6D\x65\x6E\x75\x5F\x6C\x6F\x63\x6B\x65\x64","\x6D\x65\x6E\x75\x5F\x62\x75\x74\x74\x6F\x6E\x73\x5F\x63\x68\x61\x72","\x6D\x65\x6E\x75\x5F\x62\x75\x74\x74\x6F\x6E\x73\x5F\x70\x61\x75\x73\x65","\x6D\x65\x6E\x75\x5F\x62\x75\x74\x74\x6F\x6E\x73\x5F\x73\x63\x6F\x72\x65\x63\x61\x72\x64","\x6D\x65\x6E\x75\x5F\x73\x63\x6F\x72\x65\x63\x61\x72\x64","\x6D\x65\x6E\x75\x5F\x62\x75\x74\x74\x6F\x6E\x73\x5F\x72\x65\x73\x75\x6C\x74","\x6D\x65\x6E\x75\x5F\x72\x65\x73\x75\x6C\x74\x5F\x72\x61\x6E\x6B","\x6D\x65\x6E\x75\x5F\x72\x65\x73\x75\x6C\x74\x5F\x6D\x75\x6C\x74\x69","\x6D\x65\x6E\x75\x5F\x62\x75\x74\x74\x6F\x6E\x73\x5F\x63\x6F\x75\x72\x73\x65","\x6D\x65\x6E\x75\x5F\x63\x6F\x75\x72\x73\x65\x5F\x70\x72\x65\x76\x69\x65\x77","\x6D\x65\x6E\x75\x5F\x63\x6F\x75\x72\x73\x65\x5F\x69\x6E\x66\x6F","\x67\x6F\x6C\x66\x5F\x63\x75\x72\x73\x6F\x72","\x67\x6F\x6C\x66\x5F\x74\x72\x61\x6A\x65\x63\x74\x6F\x72\x79","\x67\x6F\x6C\x66\x5F\x62\x61\x6C\x6C","\x67\x6F\x6C\x66\x5F\x62\x61\x6C\x6C\x5F\x73\x68\x61\x64\x6F\x77","\x67\x6F\x6C\x66\x5F\x68\x6F\x6C\x65","\x67\x6F\x6C\x66\x5F\x74\x72\x61\x69\x6C","\x67\x6F\x6C\x66\x5F\x6D\x65\x64\x61\x6C","\x67\x6F\x6C\x66\x5F\x6D\x75\x73\x68\x72\x6F\x6F\x6D","\x67\x6F\x6C\x66\x5F\x6B\x61\x62\x6F\x64\x65\x62\x69\x74\x63\x68\x69","\x67\x6F\x6C\x66\x5F\x67\x68\x6F\x73\x74\x5F\x70\x61\x64","\x67\x6F\x6C\x66\x5F\x67\x68\x6F\x73\x74\x5F\x63\x6C\x75\x62","\x67\x6F\x6C\x66\x5F\x67\x68\x6F\x73\x74\x5F\x73\x68\x61\x64\x6F\x77","\x68\x75\x64\x5F\x73\x68\x61\x64\x6F\x77\x5F\x63\x68\x61\x72","\x68\x75\x64\x5F\x6E\x75\x6D\x62\x65\x72","\x68\x75\x64\x5F\x79\x61\x72\x64\x73","\x68\x75\x64\x5F\x73\x70\x69\x6E\x5F\x74\x79\x70\x65","\x68\x75\x64\x5F\x73\x70\x69\x6E\x5F\x62\x61\x72","\x68\x75\x64\x5F\x73\x70\x69\x6E\x5F\x74\x69\x63\x6B\x65\x72","\x68\x75\x64\x5F\x6D\x61\x78\x5F\x64\x72\x69\x76\x65","\x68\x75\x64\x5F\x6C\x69\x65","\x68\x75\x64\x5F\x77\x69\x6E\x64\x5F\x74\x69\x74\x6C\x65","\x68\x75\x64\x5F\x77\x69\x6E\x64\x5F\x64\x69\x72\x65\x63\x74\x69\x6F\x6E","\x68\x75\x64\x5F\x63\x61\x6D\x65\x72\x61","\x68\x75\x64\x5F\x63\x61\x6D\x65\x72\x61\x5F\x74\x69\x74\x6C\x65","\x68\x75\x64\x5F\x73\x63\x6F\x72\x65","\x68\x75\x64\x5F\x73\x69\x67\x6E","\x68\x75\x64\x5F\x70\x61\x72","\x68\x75\x64\x5F\x68\x6F\x6C\x65","\x70\x6C\x61\x79\x65\x72\x5F\x73\x68\x61\x64\x6F\x77","\x70\x6C\x61\x79\x65\x72\x5F\x70\x61\x72\x74\x69\x63\x6C\x65","\x70\x6C\x61\x79\x65\x72\x5F","\x63\x6C\x75\x62\x5F","\x63\x6F\x75\x72\x73\x65\x5F\x72\x61\x6E\x67\x65","\x74\x61\x6D\x61\x74\x6F\x77\x6E","\x74\x61\x6D\x61\x77\x65\x65\x6E"];var loadTempDir=_$_d8fe[0];function loadSpr(_0x161C0,_0x15554,_0x15EB4){this[_$_d8fe[1]]=  new Image();this[_$_d8fe[1]][_$_d8fe[2]]= _$_d8fe[3]+ _0x161C0+ _$_d8fe[4];this[_$_d8fe[1]][_$_d8fe[5]]= _0x15554;this[_$_d8fe[1]][_$_d8fe[6]]= _0x15EB4;this[_$_d8fe[1]][_$_d8fe[7]]= 0;this[_$_d8fe[1]][_$_d8fe[8]]= 0;return (tempRe)}function loadCourseSpr(_0x16148,_0x16184){fr= [];for(fi= 0;fi< _0x16148;fi++){if(fi< 10){tN= _$_d8fe[9]+ fi}else {tN= fi};fr[_$_d8fe[12]](loadSpr(_$_d8fe[10]+ _0x16184+ _$_d8fe[11]+ tN,1,1))};return (fr)}var spr_transition=loadSpr(_$_d8fe[13],1,1);var spr_menu_title=loadSpr(_$_d8fe[14],1,1);var spr_menu_back=loadSpr(_$_d8fe[15],1,1);var spr_menu_button_main=loadSpr(_$_d8fe[16],1,1);var spr_menu_player=loadSpr(_$_d8fe[17],4,2);var spr_menu_player_mini=loadSpr(_$_d8fe[18],4,1);var spr_menu_ai=loadSpr(_$_d8fe[19],4,1);var spr_menu_flag=loadSpr(_$_d8fe[20],2,1);var spr_menu_stats=loadSpr(_$_d8fe[21],1,1);var spr_menu_bar=loadSpr(_$_d8fe[22],1,1);var spr_menu_bar_over=loadSpr(_$_d8fe[23],1,1);var spr_menu_bar_over_more=loadSpr(_$_d8fe[24],1,1);var spr_menu_char=loadSpr(_$_d8fe[25],charStat[_$_d8fe[26]],4);var spr_menu_name=loadSpr(_$_d8fe[27],1,charStat[_$_d8fe[26]]);var spr_menu_locked=loadSpr(_$_d8fe[28],1,1);var spr_menu_button_char=loadSpr(_$_d8fe[29],1,2);var spr_menu_button_pause=loadSpr(_$_d8fe[30],1,1);var spr_menu_button_scorecard=loadSpr(_$_d8fe[31],1,2);var spr_menu_scorecard=loadSpr(_$_d8fe[32],4,2);var spr_menu_button_result=loadSpr(_$_d8fe[33],1,1);var spr_menu_result_rank=loadSpr(_$_d8fe[34],1,4);var spr_menu_result_multi=loadSpr(_$_d8fe[35],1,1);var spr_menu_button_course=loadSpr(_$_d8fe[36],1,1);var spr_menu_course_preview=loadSpr(_$_d8fe[37],2,1);var spr_menu_course_info=loadSpr(_$_d8fe[38],2,2);var spr_golf_cursor=loadSpr(_$_d8fe[39],1,1);var spr_golf_trajec=loadSpr(_$_d8fe[40],2,1);var spr_golf_ball=loadSpr(_$_d8fe[41],5,1);var spr_golf_ball_shadow=loadSpr(_$_d8fe[42],2,1);var spr_golf_hole=loadSpr(_$_d8fe[43],6,1);var spr_golf_trail=loadSpr(_$_d8fe[44],4,4);var spr_golf_medal=loadSpr(_$_d8fe[45],3,1);var spr_golf_mushroom=loadSpr(_$_d8fe[46],3,2);var spr_golf_kabodebitchi=loadSpr(_$_d8fe[47],1,1);var spr_golf_ghost_pad=loadSpr(_$_d8fe[48],3,1);var spr_golf_ghost_club=loadSpr(_$_d8fe[49],6,1);var spr_golf_ghost_shadow=loadSpr(_$_d8fe[50],6,1);var spr_hud_shadow_char=loadSpr(_$_d8fe[51],1,1);var spr_hud_number=loadSpr(_$_d8fe[52],10,4);var spr_hud_yards=loadSpr(_$_d8fe[53],4,1);var spr_hud_spin_type=loadSpr(_$_d8fe[54],3,1);var spr_hud_spin_bar=loadSpr(_$_d8fe[55],1,1);var spr_hud_spin_ticker=loadSpr(_$_d8fe[56],1,1);var spr_hud_max_drive=loadSpr(_$_d8fe[57],1,1);var spr_hud_lie=loadSpr(_$_d8fe[58],gameLieBonus[_$_d8fe[26]]+ 2,1);var spr_hud_wind_title=loadSpr(_$_d8fe[59],2,1);var spr_hud_wind_direction=loadSpr(_$_d8fe[60],8,10);var spr_hud_camera=loadSpr(_$_d8fe[61],1,7);var spr_hud_camera_title=loadSpr(_$_d8fe[62],1,1);var spr_hud_score=loadSpr(_$_d8fe[63],1,11);var spr_hud_sign=loadSpr(_$_d8fe[64],2,1);var spr_hud_par=loadSpr(_$_d8fe[65],1,1);var spr_hud_hole=loadSpr(_$_d8fe[66],1,18);var spr_player_shadow=loadSpr(_$_d8fe[67],1,1);var spr_player_particle=loadSpr(_$_d8fe[68],charStat[_$_d8fe[26]],2);var spr_player=[];for(i= 0;i< charStat[_$_d8fe[26]];i++){if(i< 10){tN= _$_d8fe[9]+ i}else {tN= i};spr_player[_$_d8fe[12]](loadSpr(_$_d8fe[69]+ tN,9,4))};var spr_club=[];for(i= 0;i< charStat[_$_d8fe[26]];i++){if(i< 10){tN= _$_d8fe[9]+ i}else {tN= i};spr_club[_$_d8fe[12]](loadSpr(_$_d8fe[70]+ tN,7,1))};var spr_course_range=loadSpr(_$_d8fe[71],1,1);var spr_course_tamatown=loadCourseSpr(9,_$_d8fe[72]);var spr_course_tamaween=loadCourseSpr(9,_$_d8fe[73])
+// Directory variable for easier loading strings.
+var loadTempDir = "";
+
+// Function for more convenient sprite loading.
+function loadSpr(file, fCol, fRow) {
+	this.tempRe = new Image();
+	this.tempRe.src = "spr/" + file + ".png";
+	this.tempRe.sprCol = fCol;
+	this.tempRe.sprRow = fRow;
+	this.tempRe.sprWidth = 0;
+	this.tempRe.sprHeight = 0;
+	return (tempRe);
+}
+
+// Loading course sprites.
+function loadCourseSpr(fLen, fName) {
+	fr = [];
+	for(fi = 0; fi < fLen; fi++) {
+		if (fi < 10) tN = "0" + fi;
+		else tN = fi;
+		fr.push(loadSpr("course_" + fName + "_" + tN, 1, 1));
+	}
+	return(fr);
+}
+
+// Transition.
+var spr_transition = loadSpr("transition", 1, 1);
+
+// Menu sprites.
+var spr_menu_title = loadSpr("menu_title", 1, 1);
+var spr_menu_back = loadSpr("menu_background", 1, 1);
+var spr_menu_button_main = loadSpr("menu_buttons_main", 1, 1);
+var spr_menu_player = loadSpr("menu_player", 4, 2);
+var spr_menu_player_mini = loadSpr("menu_player_mini", 4, 1);
+var spr_menu_ai = loadSpr("menu_ai", 4, 1);
+var spr_menu_flag = loadSpr("menu_flag", 2, 1);
+var spr_menu_stats = loadSpr("menu_stats", 1, 1);
+var spr_menu_bar = loadSpr("menu_bar", 1, 1);
+var spr_menu_bar_over = loadSpr("menu_bar_over", 1, 1);
+var spr_menu_bar_over_more = loadSpr("menu_bar_over_more", 1, 1);
+var spr_menu_char = loadSpr("menu_char", charStat.length, 4);
+var spr_menu_name = loadSpr("menu_name", 1, charStat.length);
+var spr_menu_locked = loadSpr("menu_locked", 1, 1);
+var spr_menu_button_char = loadSpr("menu_buttons_char", 1, 2);
+var spr_menu_button_pause = loadSpr("menu_buttons_pause", 1, 1);
+var spr_menu_button_scorecard = loadSpr("menu_buttons_scorecard", 1, 2);
+var spr_menu_scorecard = loadSpr("menu_scorecard", 4, 2);
+var spr_menu_button_result = loadSpr("menu_buttons_result", 1, 1);
+var spr_menu_result_rank = loadSpr("menu_result_rank", 1, 4);
+var spr_menu_result_multi = loadSpr("menu_result_multi", 1, 1);
+var spr_menu_button_course = loadSpr("menu_buttons_course", 1, 1);
+var spr_menu_course_preview = loadSpr("menu_course_preview", 2, 1);
+var spr_menu_course_info = loadSpr("menu_course_info", 2, 2);
+
+// Golf sprites.
+var spr_golf_cursor = loadSpr("golf_cursor", 1, 1);
+var spr_golf_trajec = loadSpr("golf_trajectory", 2, 1);
+var spr_golf_ball = loadSpr("golf_ball", 5, 1);
+var spr_golf_ball_shadow = loadSpr("golf_ball_shadow", 2, 1);
+var spr_golf_hole = loadSpr("golf_hole", 6, 1);
+var spr_golf_trail = loadSpr("golf_trail", 4, 4);
+var spr_golf_medal = loadSpr("golf_medal", 3, 1);
+var spr_golf_mushroom = loadSpr("golf_mushroom", 3, 2);
+var spr_golf_kabodebitchi = loadSpr("golf_kabodebitchi", 1, 1);
+var spr_golf_ghost_pad = loadSpr("golf_ghost_pad", 3, 1);
+var spr_golf_ghost_club = loadSpr("golf_ghost_club", 6, 1);
+var spr_golf_ghost_shadow = loadSpr("golf_ghost_shadow", 6, 1);
+
+// HUD sprites.
+var spr_hud_shadow_char = loadSpr("hud_shadow_char", 1, 1);
+var spr_hud_number = loadSpr("hud_number", 10, 4);
+var spr_hud_yards = loadSpr("hud_yards", 4, 1);
+var spr_hud_spin_type = loadSpr("hud_spin_type", 3, 1);
+var spr_hud_spin_bar = loadSpr("hud_spin_bar", 1, 1);
+var spr_hud_spin_ticker = loadSpr("hud_spin_ticker", 1, 1);
+var spr_hud_max_drive = loadSpr("hud_max_drive", 1, 1);
+var spr_hud_lie = loadSpr("hud_lie", gameLieBonus.length + 2, 1);
+var spr_hud_wind_title = loadSpr("hud_wind_title", 2, 1);
+var spr_hud_wind_direction = loadSpr("hud_wind_direction", 8, 10);
+var spr_hud_camera = loadSpr("hud_camera", 1, 7);
+var spr_hud_camera_title = loadSpr("hud_camera_title", 1, 1);
+var spr_hud_score = loadSpr("hud_score", 1, 11);
+var spr_hud_sign = loadSpr("hud_sign", 2, 1);
+var spr_hud_par = loadSpr("hud_par", 1, 1);
+var spr_hud_hole = loadSpr("hud_hole", 1, 18);
+
+// Player sprites.
+var spr_player_shadow = loadSpr("player_shadow", 1, 1);
+var spr_player_particle = loadSpr("player_particle", charStat.length, 2);
+var spr_player = [];
+for(i = 0; i < charStat.length; i++) {
+	if (i < 10) tN = "0" + i;
+	else tN = i;
+	spr_player.push(loadSpr("player_" + tN, 9, 4));
+}
+
+// Club sprites.
+var spr_club = [];
+for(i = 0; i < charStat.length; i++) {
+	if (i < 10) tN = "0" + i;
+	else tN = i;
+	spr_club.push(loadSpr("club_" + tN, 7, 1));
+}
+
+// Course sprites.
+var spr_course_range = loadSpr("course_range", 1, 1);
+var spr_course_tamatown = loadCourseSpr(9, "tamatown");
+var spr_course_tamaween = loadCourseSpr(9, "tamaween");

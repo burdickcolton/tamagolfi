@@ -1,8 +1,91 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_24b4=["\x74\x65\x6D\x70\x52\x65","\x6D\x73\x63\x2F","\x2E\x6F\x67\x67","\x73\x6E\x64\x2F","\x30","\x76\x6F\x69\x63\x65\x73\x2F\x67\x72\x65\x61\x74\x5F","\x76\x6F\x69\x63\x65\x73\x2F\x67\x6F\x6F\x64\x5F","\x76\x6F\x69\x63\x65\x73\x2F\x6F\x6B\x61\x79\x5F","\x76\x6F\x69\x63\x65\x73\x2F\x62\x61\x64\x5F","\x76\x6F\x69\x63\x65\x73\x2F\x73\x77\x69\x6E\x67\x5F","\x70\x75\x73\x68","\x6C\x65\x6E\x67\x74\x68","\x73\x69\x6C\x65\x6E\x63\x65","\x6D\x65\x6E\x75","\x73\x63\x6F\x72\x65\x63\x61\x72\x64","\x72\x65\x73\x75\x6C\x74\x5F\x67\x6F\x6F\x64","\x72\x65\x73\x75\x6C\x74\x5F\x6F\x6B\x61\x79","\x72\x65\x73\x75\x6C\x74\x5F\x62\x61\x64","\x63\x6F\x75\x72\x73\x65\x5F\x64\x65\x66\x61\x75\x6C\x74","\x63\x6F\x75\x72\x73\x65\x5F\x74\x61\x6D\x61\x77\x65\x65\x6E","\x6D\x65\x6E\x75\x5F\x63\x6F\x6E\x66\x69\x72\x6D","\x6D\x65\x6E\x75\x5F\x73\x65\x6C\x65\x63\x74","\x6D\x65\x6E\x75\x5F\x63\x61\x6E\x63\x65\x6C","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x67\x72\x65\x61\x74","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x67\x6F\x6F\x64","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x6F\x6B\x61\x79","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x62\x61\x64","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x63\x6F\x72\x72\x65\x63\x74","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x77\x72\x6F\x6E\x67","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x62\x6F\x75\x6E\x63\x65","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x68\x61\x70\x70\x79","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x73\x61\x64","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x68\x6F\x70","\x67\x65\x6E\x65\x72\x61\x6C\x5F\x63\x61\x6D\x65\x72\x61","\x67\x6F\x6C\x66\x5F\x68\x69\x74","\x67\x6F\x6C\x66\x5F\x62\x6F\x75\x6E\x63\x65","\x67\x6F\x6C\x66\x5F\x62\x6F\x75\x6E\x63\x65\x5F\x72\x6F\x75\x67\x68","\x67\x6F\x6C\x66\x5F\x63\x75\x70","\x67\x6F\x6C\x66\x5F\x73\x69\x6E\x6B","\x67\x6F\x6C\x66\x5F\x62\x61\x63\x6B\x73\x77\x69\x6E\x67","\x67\x6F\x6C\x66\x5F\x66\x6F\x72\x65\x73\x77\x69\x6E\x67","\x67\x6F\x6C\x66\x5F\x6B\x61\x62\x6F\x64\x65\x62\x69\x74\x63\x68\x69","\x67\x6F\x6C\x66\x5F\x73\x70\x6F\x6F\x6B\x65\x64","\x76\x6F\x69\x63\x65\x73\x2F\x67\x72\x65\x61\x74\x5F\x30\x32","\x76\x6F\x69\x63\x65\x73\x2F\x73\x77\x69\x6E\x67\x5F\x30\x32","\x76\x6F\x69\x63\x65\x73\x2F\x6F\x6B\x61\x79\x5F\x30\x32","\x76\x6F\x69\x63\x65\x73\x2F\x62\x61\x64\x5F\x30\x39","\x76\x6F\x69\x63\x65\x73\x2F\x67\x6F\x6F\x64\x5F\x30\x39","\x76\x6F\x69\x63\x65\x73\x2F\x73\x77\x69\x6E\x67\x5F\x30\x39","\x76\x6F\x69\x63\x65\x73\x2F\x67\x72\x65\x61\x74\x5F\x31\x32"];function loadSnd(_0x161C0,_0x161FC){if(_0x161FC){this[_$_24b4[0]]=  new Music(_$_24b4[1]+ _0x161C0+ _$_24b4[2])}else {this[_$_24b4[0]]=  new Sound(_$_24b4[3]+ _0x161C0+ _$_24b4[2])};return (tempRe)}function voiceLoad(_0x1598C){if(_0x1598C< 10){tN= _$_24b4[4]+ _0x1598C}else {tN= _0x1598C};snd_voice_great[_0x1598C]= (loadSnd(_$_24b4[5]+ tN,false));snd_voice_good[_0x1598C]= (loadSnd(_$_24b4[6]+ tN,false));snd_voice_okay[_0x1598C]= (loadSnd(_$_24b4[7]+ tN,false));snd_voice_bad[_0x1598C]= (loadSnd(_$_24b4[8]+ tN,false));snd_voice_swing[_0x1598C]= (loadSnd(_$_24b4[9]+ tN,false))}function silenceArray(_0x16148){tr= [];while(tr[_$_24b4[11]]< _0x16148){tr[_$_24b4[10]](msc_silence)};return (tr)}var msc_silence=loadSnd(_$_24b4[12],true);var msc_menu=loadSnd(_$_24b4[13],true);var msc_scorecard=loadSnd(_$_24b4[14],true);var msc_result_good=loadSnd(_$_24b4[15],true);var msc_result_okay=loadSnd(_$_24b4[16],true);var msc_result_bad=loadSnd(_$_24b4[17],true);var msc_course_default=loadSnd(_$_24b4[18],true);var msc_course_tamaween=loadSnd(_$_24b4[19],true);var snd_menu_confirm=loadSnd(_$_24b4[20],false);var snd_menu_select=loadSnd(_$_24b4[21],false);var snd_menu_cancel=loadSnd(_$_24b4[22],false);var snd_silence=loadSnd(_$_24b4[12],true);var snd_gen_great=loadSnd(_$_24b4[23],false);var snd_gen_good=loadSnd(_$_24b4[24],false);var snd_gen_okay=loadSnd(_$_24b4[25],false);var snd_gen_bad=loadSnd(_$_24b4[26],false);var snd_gen_correct=loadSnd(_$_24b4[27],false);var snd_gen_wrong=loadSnd(_$_24b4[28],false);var snd_gen_bounce=loadSnd(_$_24b4[29],false);var snd_gen_happy=loadSnd(_$_24b4[30],false);var snd_gen_sad=loadSnd(_$_24b4[31],false);var snd_gen_hop=loadSnd(_$_24b4[32],false);var snd_gen_camera=loadSnd(_$_24b4[33],false);var snd_golf_hit=loadSnd(_$_24b4[34],false);var snd_golf_bounce=loadSnd(_$_24b4[35],false);var snd_golf_bounce_rough=loadSnd(_$_24b4[36],false);var snd_golf_cup=loadSnd(_$_24b4[37],false);var snd_golf_sink=loadSnd(_$_24b4[38],false);var snd_golf_backswing=loadSnd(_$_24b4[39],false);var snd_golf_foreswing=loadSnd(_$_24b4[40],false);var snd_golf_kabodebitchi=loadSnd(_$_24b4[41],false);var snd_golf_spooked=loadSnd(_$_24b4[42],false);var snd_voice_great=silenceArray(charStat[_$_24b4[11]]);var snd_voice_good=silenceArray(charStat[_$_24b4[11]]);var snd_voice_okay=silenceArray(charStat[_$_24b4[11]]);var snd_voice_bad=silenceArray(charStat[_$_24b4[11]]);var snd_voice_swing=silenceArray(charStat[_$_24b4[11]]);voiceLoad(0);voiceLoad(1);snd_voice_great[2]= loadSnd(_$_24b4[43],false);snd_voice_swing[2]= loadSnd(_$_24b4[44],false);snd_voice_okay[2]= loadSnd(_$_24b4[45],false);voiceLoad(4);voiceLoad(5);voiceLoad(6);voiceLoad(7);snd_voice_bad[9]= loadSnd(_$_24b4[46],false);snd_voice_good[9]= loadSnd(_$_24b4[47],false);snd_voice_swing[9]= loadSnd(_$_24b4[48],false);voiceLoad(10);snd_voice_great[12]= loadSnd(_$_24b4[49],false);voiceLoad(13)
+// Function for more convenient sound loading.
+function loadSnd(file, ismusic) {
+	if (ismusic) {this.tempRe = new Music("msc/" + file + ".ogg");}
+	else {this.tempRe = new Sound("snd/" + file + ".ogg");}
+	return (tempRe);
+}
+
+// Voice loading function.
+function voiceLoad(fChar) {
+	if (fChar < 10) tN = "0" + fChar;
+	else tN = fChar;
+	snd_voice_great[fChar] = (loadSnd("voices/great_" + tN, false));
+	snd_voice_good[fChar] = (loadSnd("voices/good_" + tN, false));
+	snd_voice_okay[fChar] = (loadSnd("voices/okay_" + tN, false));
+	snd_voice_bad[fChar] = (loadSnd("voices/bad_" + tN, false));
+	snd_voice_swing[fChar] = (loadSnd("voices/swing_" + tN, false));
+}
+
+// An array of silence.
+function silenceArray(fLen) {
+	tr = [];
+	while(tr.length < fLen) {
+		tr.push(msc_silence);
+	}
+	return(tr);
+}
+
+// Music.
+var msc_silence = loadSnd("silence", true);
+var msc_menu = loadSnd("menu", true);
+var msc_scorecard = loadSnd("scorecard", true);
+var msc_result_good = loadSnd("result_good", true);
+var msc_result_okay = loadSnd("result_okay", true);
+var msc_result_bad = loadSnd("result_bad", true);
+var msc_course_default = loadSnd("course_default", true);
+var msc_course_tamaween = loadSnd("course_tamaween", true);
+
+// Menu.
+var snd_menu_confirm = loadSnd("menu_confirm", false);
+var snd_menu_select = loadSnd("menu_select", false);
+var snd_menu_cancel = loadSnd("menu_cancel", false);
+
+// General.
+var snd_silence = loadSnd("silence", true);
+var snd_gen_great = loadSnd("general_great", false);
+var snd_gen_good = loadSnd("general_good", false);
+var snd_gen_okay = loadSnd("general_okay", false);
+var snd_gen_bad = loadSnd("general_bad", false);
+var snd_gen_correct = loadSnd("general_correct", false);
+var snd_gen_wrong = loadSnd("general_wrong", false);
+var snd_gen_bounce = loadSnd("general_bounce", false);
+var snd_gen_happy = loadSnd("general_happy", false);
+var snd_gen_sad = loadSnd("general_sad", false);
+var snd_gen_hop = loadSnd("general_hop", false);
+var snd_gen_camera = loadSnd("general_camera", false);
+
+// Golf sounds.
+var snd_golf_hit = loadSnd("golf_hit", false);
+var snd_golf_bounce = loadSnd("golf_bounce", false);
+var snd_golf_bounce_rough = loadSnd("golf_bounce_rough", false);
+var snd_golf_cup = loadSnd("golf_cup", false);
+var snd_golf_sink = loadSnd("golf_sink", false);
+var snd_golf_backswing = loadSnd("golf_backswing", false);
+var snd_golf_foreswing = loadSnd("golf_foreswing", false);
+var snd_golf_kabodebitchi = loadSnd("golf_kabodebitchi", false);
+var snd_golf_spooked = loadSnd("golf_spooked", false);
+
+// Voice instantiation.
+var snd_voice_great = silenceArray(charStat.length);
+var snd_voice_good = silenceArray(charStat.length);
+var snd_voice_okay = silenceArray(charStat.length);
+var snd_voice_bad = silenceArray(charStat.length);
+var snd_voice_swing = silenceArray(charStat.length);
+
+// Loading available voices.
+voiceLoad(0);
+voiceLoad(1);
+snd_voice_great[2] = loadSnd("voices/great_02", false);
+snd_voice_swing[2] = loadSnd("voices/swing_02", false);
+snd_voice_okay[2] = loadSnd("voices/okay_02", false);
+voiceLoad(4);
+voiceLoad(5);
+voiceLoad(6);
+voiceLoad(7);
+//snd_voice_okay[9] = loadSnd("voices/okay_09", false);
+snd_voice_bad[9] = loadSnd("voices/bad_09", false);
+snd_voice_good[9] = loadSnd("voices/good_09", false);
+snd_voice_swing[9] = loadSnd("voices/swing_09", false);
+voiceLoad(10);
+snd_voice_great[12] = loadSnd("voices/great_12", false);
+voiceLoad(13);

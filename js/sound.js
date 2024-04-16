@@ -1,8 +1,77 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_6d8b=["\x73\x6F\x75\x6E\x64","\x61\x75\x64\x69\x6F","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x73\x72\x63","\x70\x72\x65\x6C\x6F\x61\x64","\x61\x75\x74\x6F","\x73\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65","\x63\x6F\x6E\x74\x72\x6F\x6C\x73","\x6E\x6F\x6E\x65","\x64\x69\x73\x70\x6C\x61\x79","\x73\x74\x79\x6C\x65","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x62\x6F\x64\x79","\x50\x6C\x61\x79","\x63\x75\x72\x72\x65\x6E\x74\x54\x69\x6D\x65","\x76\x6F\x6C\x75\x6D\x65","\x70\x6C\x61\x79","\x53\x74\x6F\x70","\x70\x61\x75\x73\x65","\x65\x6E\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"];var musicCurrentlyPlaying;function Sound(_0x16364){this[_$_6d8b[0]]= document[_$_6d8b[2]](_$_6d8b[1]);this[_$_6d8b[0]][_$_6d8b[3]]= _0x16364;this[_$_6d8b[0]][_$_6d8b[6]](_$_6d8b[4],_$_6d8b[5]);this[_$_6d8b[0]][_$_6d8b[6]](_$_6d8b[7],_$_6d8b[8]);this[_$_6d8b[0]][_$_6d8b[10]][_$_6d8b[9]]= _$_6d8b[8];document[_$_6d8b[12]][_$_6d8b[11]](this[_$_6d8b[0]]);this[_$_6d8b[13]]= function(){this[_$_6d8b[0]][_$_6d8b[14]]= 0;this[_$_6d8b[0]][_$_6d8b[15]]= gameVolume;this[_$_6d8b[0]][_$_6d8b[16]]()};this[_$_6d8b[17]]= function(){this[_$_6d8b[0]][_$_6d8b[14]]= 0;this[_$_6d8b[0]][_$_6d8b[18]]()}}function Music(_0x16364){this[_$_6d8b[0]]= document[_$_6d8b[2]](_$_6d8b[1]);this[_$_6d8b[0]][_$_6d8b[3]]= _0x16364;this[_$_6d8b[0]][_$_6d8b[6]](_$_6d8b[4],_$_6d8b[5]);this[_$_6d8b[0]][_$_6d8b[6]](_$_6d8b[7],_$_6d8b[8]);this[_$_6d8b[0]][_$_6d8b[10]][_$_6d8b[9]]= _$_6d8b[8];document[_$_6d8b[12]][_$_6d8b[11]](this[_$_6d8b[0]]);this[_$_6d8b[0]][_$_6d8b[20]](_$_6d8b[19],function(){this[_$_6d8b[14]]= 0;this[_$_6d8b[16]]()},false);this[_$_6d8b[13]]= function(){this[_$_6d8b[0]][_$_6d8b[14]]= 0;this[_$_6d8b[0]][_$_6d8b[15]]= gameVolume;this[_$_6d8b[0]][_$_6d8b[16]]()};this[_$_6d8b[17]]= function(){this[_$_6d8b[0]][_$_6d8b[14]]= 0;this[_$_6d8b[0]][_$_6d8b[18]]()}}function playMusic(_0x16418){if(_0x16418!= musicCurrentlyPlaying){if(musicCurrentlyPlaying!== undefined){musicCurrentlyPlaying[_$_6d8b[17]]()};musicCurrentlyPlaying= _0x16418;if(musicCurrentlyPlaying!== undefined){musicCurrentlyPlaying[_$_6d8b[13]]()}}}function playSound(_0x16454){_0x16454[_$_6d8b[13]]()}function newVolume(_0x163A0){gameVolume= _0x163A0;if(musicCurrentlyPlaying!== undefined){musicCurrentlyPlaying[_$_6d8b[0]][_$_6d8b[15]]= _0x163A0}}
+// Current music.
+var musicCurrentlyPlaying;
+
+// Sound class.
+function Sound(src) {
+	// Initialization.
+	this.sound = document.createElement("audio");
+	this.sound.src = src;
+	this.sound.setAttribute("preload", "auto");
+	this.sound.setAttribute("controls", "none");
+	this.sound.style.display = "none";
+	document.body.appendChild(this.sound);
+	
+	// Playing sound.
+	this.Play = function() {
+		this.sound.currentTime = 0;
+		this.sound.volume = gameVolume;
+		this.sound.play();
+	}
+	
+	// Stopping sound.
+	this.Stop = function() {
+		this.sound.currentTime = 0;
+		this.sound.pause();
+	}
+}
+
+// Music class.
+function Music(src) {
+	// Initialization.
+	this.sound = document.createElement("audio");
+	this.sound.src = src;
+	this.sound.setAttribute("preload", "auto");
+	this.sound.setAttribute("controls", "none");
+	this.sound.style.display = "none";
+	document.body.appendChild(this.sound);
+	
+	// Loop listener.
+	this.sound.addEventListener('ended', function() {
+		this.currentTime = 0;
+		this.play();
+	}, false);
+	
+	// Playing music.
+	this.Play = function() {
+		this.sound.currentTime = 0;
+		this.sound.volume = gameVolume;
+		this.sound.play();
+	}
+	
+	// Stopping music.
+	this.Stop = function() {
+		this.sound.currentTime = 0;
+		this.sound.pause();
+	}
+}
+
+// Playing new music.
+function playMusic(newMusic) {
+	if (newMusic != musicCurrentlyPlaying) {
+		if (musicCurrentlyPlaying !== undefined) {musicCurrentlyPlaying.Stop();}
+		musicCurrentlyPlaying = newMusic;
+		if (musicCurrentlyPlaying !== undefined) {musicCurrentlyPlaying.Play();}
+	}
+}
+
+// Playing a sound.
+function playSound(fSnd) {
+	//if (fSnd != undefined) fSnd.Play();
+	fSnd.Play();
+}
+
+// Changing volume.
+function newVolume(fVol) {
+	gameVolume = fVol;
+	if (musicCurrentlyPlaying !== undefined) musicCurrentlyPlaying.sound.volume = fVol;
+}

@@ -1,8 +1,29 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_d122=["\x67\x65\x74\x42\x6F\x75\x6E\x64\x69\x6E\x67\x43\x6C\x69\x65\x6E\x74\x52\x65\x63\x74","\x63\x61\x6E\x76\x61\x73","\x64\x6F\x63\x75\x6D\x65\x6E\x74\x45\x6C\x65\x6D\x65\x6E\x74","\x63\x6C\x69\x65\x6E\x74\x58","\x6C\x65\x66\x74","\x72\x6F\x75\x6E\x64","\x63\x6C\x69\x65\x6E\x74\x59","\x74\x6F\x70","\x43\x6C\x69\x63\x6B"];mouseX= 0;mouseY= 0;mouseState= 0;keyState= [];function getMousePos(_0x15518){tempBound= env[_$_d122[1]][_$_d122[0]]();tempDom= document[_$_d122[2]];mouseX= Math[_$_d122[5]]((_0x15518[_$_d122[3]]- tempBound[_$_d122[4]]- 4)/ 2);mouseY= Math[_$_d122[5]]((_0x15518[_$_d122[6]]- tempBound[_$_d122[7]]- 4)/ 2)}function MousePoint(_0x16274,_0x162EC,_0x162B0,_0x16328){return (mouseX>= _0x16274&& mouseY>= _0x162EC&& mouseX< _0x162B0&& mouseY< _0x16328)}function MouseClick(){mouseState= 2;if(objTransition== undefined&& MousePoint(0,0,320,240)){objControl[_$_d122[8]]()}}
+// Mouse variables.
+mouseX = 0;
+mouseY = 0;
+mouseState = 0;
+
+// Keyboard array.
+keyState = [];
+
+// Getting mouse position.
+function getMousePos(e) {
+	tempBound = env.canvas.getBoundingClientRect();
+	tempDom = document.documentElement;
+    mouseX = Math.round((e.clientX - tempBound.left - 4) / 2);
+    mouseY = Math.round((e.clientY - tempBound.top - 4) / 2);
+}
+
+// Mouse point.
+function MousePoint(fXA, fYA, fXB, fYB) {
+	return(mouseX >= fXA && mouseY >= fYA && mouseX < fXB && mouseY < fYB);
+}
+
+// Clicking.
+function MouseClick() {
+	// State.
+	mouseState = 2;
+	
+	// Control.
+	if (objTransition == undefined && MousePoint(0, 0, 320, 240)) objControl.Click();
+}

@@ -1,8 +1,257 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_ba8f=["\x6C\x65\x6E\x67\x74\x68","\x63\x6F\x75\x72\x73\x65\x44\x61\x74\x61","\x62\x61\x63\x6B\x53\x70\x72","\x63\x6F\x75\x72\x73\x65\x53\x70\x72","\x70\x6C\x61\x79\x65\x72\x4D\x65\x64\x61\x6C","\x63\x6F\x75\x72\x73\x65\x52\x65\x63","\x72\x65\x73\x75\x6C\x74\x53\x74\x61\x72\x74","\x72\x61\x6E\x6B\x59","\x72\x61\x6E\x6B\x47\x72\x61\x76","\x61\x63\x74\x50\x6C\x61\x79\x65\x72","\x61\x63\x74\x43\x72\x6F\x77\x64","\x74\x69\x6C\x65\x41\x72\x72","\x70\x75\x73\x68","\x63\x72\x6F\x77\x64\x41\x72\x72","\x63\x65\x69\x6C","\x6D\x69\x6E","\x50\x65\x72\x66\x6F\x72\x6D","\x61\x6E\x69\x6D\x54\x69\x63\x6B","\x61\x63\x74\x6F\x72\x4D\x75\x74\x65","\x73\x70\x6C\x69\x63\x65","\x63\x6F\x6E\x4D\x75\x73\x69\x63","\x43\x6C\x69\x63\x6B","\x4B\x65\x79\x62\x6F\x61\x72\x64","\x53\x74\x61\x72\x74","\x42\x6F\x75\x6E\x63\x65","\x44\x72\x61\x77","\x77\x69\x64\x74\x68","\x78","\x79","\x61\x6E\x69\x6D\x59","\x61\x62\x73","\x66\x6C\x6F\x6F\x72","\x70\x6C\x61\x79\x65\x72\x57\x69\x6E","\x61\x63\x74\x6F\x72\x57\x69\x6E","\x61\x63\x74\x6F\x72\x4C\x6F\x73\x65","\x69\x6E\x64\x65\x78\x4F\x66"];function ControlResultSolo(){tL= courseObj[gameCourse][_$_ba8f[1]][_$_ba8f[0]];this[_$_ba8f[2]]= courseObj[gameCourse][_$_ba8f[3]][tL- 1];this[_$_ba8f[4]]= (playerScore[0]> courseObj[gameCourse][_$_ba8f[5]])+ (playerScore[0]> -0.75* tL)+ (playerScore[0]> 0);this[_$_ba8f[6]]= false;this[_$_ba8f[7]]=  -32;this[_$_ba8f[8]]= 0;this[_$_ba8f[9]]=  new Actor(spr_player[playerChar[0]],playerColor[0],160,160);this[_$_ba8f[10]]= [];this[_$_ba8f[11]]= [];for(j= 0;j< 3;j++){for(i= 0;i< 7+ (!getEven(j));i++){if(j< 2|| (i!= 3&& i!= 4)){this[_$_ba8f[11]][_$_ba8f[12]]([32+ (i* 32)+ (16* (!getEven(j))),96+ (j* 24)])}}};this[_$_ba8f[13]]= [];for(i= 0;i< charStat[_$_ba8f[0]];i++){if(playerChar[0]!= i){this[_$_ba8f[13]][_$_ba8f[12]](i)}};tW= Math[_$_ba8f[15]](23,this[_$_ba8f[13]][_$_ba8f[0]],Math[_$_ba8f[14]]((-playerScore[0]/ tL) * 5));for(i= 0;i< tW;i++){tA= randomMax(this[_$_ba8f[13]][_$_ba8f[0]]- 1);tT= randomMax(this[_$_ba8f[11]][_$_ba8f[0]]- 1);tDis= randomMax(104);this[_$_ba8f[10]][_$_ba8f[12]]( new Actor(spr_player[this[_$_ba8f[13]][tA]],0,this[_$_ba8f[11]][tT][0]+ 16+ randomRange(-4,4),this[_$_ba8f[11]][tT][1]- randomMax(6)));if(this[_$_ba8f[4]]== 0&& randomMax(2)== 0){this[_$_ba8f[10]][this[_$_ba8f[10]][_$_ba8f[0]]- 1][_$_ba8f[16]](2,undefined)}else {this[_$_ba8f[10]][this[_$_ba8f[10]][_$_ba8f[0]]- 1][_$_ba8f[16]](1,undefined)};this[_$_ba8f[10]][this[_$_ba8f[10]][_$_ba8f[0]]- 1][_$_ba8f[17]]= randomMax(30);this[_$_ba8f[10]][this[_$_ba8f[10]][_$_ba8f[0]]- 1][_$_ba8f[18]]= true;this[_$_ba8f[13]][_$_ba8f[19]](tA,1);this[_$_ba8f[11]][_$_ba8f[19]](tT,1)};depthSort(this[_$_ba8f[10]]);this[_$_ba8f[20]]= msc_silence;if(this[_$_ba8f[4]]< 2){this[_$_ba8f[20]]= msc_result_good;this[_$_ba8f[9]][_$_ba8f[16]](2,undefined)}else {if(this[_$_ba8f[4]]== 2){this[_$_ba8f[20]]= msc_result_okay;this[_$_ba8f[9]][_$_ba8f[16]](1,undefined)}else {this[_$_ba8f[20]]= msc_result_bad;this[_$_ba8f[9]][_$_ba8f[16]](3,undefined)}};this[_$_ba8f[21]]= function(){if(MousePoint(0,8,171,34)){playSound(snd_menu_confirm);TransGo( new ControlMenuMain())}};this[_$_ba8f[22]]= function(_0x15A40){};this[_$_ba8f[23]]= function(){this[_$_ba8f[6]]= true;if(this[_$_ba8f[4]]< 2){if(this[_$_ba8f[4]]== 0){playSound(snd_gen_great);playSound(snd_voice_great[playerChar[0]])}else {playSound(snd_gen_good);playSound(snd_voice_good[playerChar[0]])}}else {if(this[_$_ba8f[4]]== 2){playSound(snd_gen_okay);playSound(snd_voice_okay[playerChar[0]])}else {playSound(snd_gen_bad);playSound(snd_voice_bad[playerChar[0]])}}};this[_$_ba8f[24]]= function(){this[_$_ba8f[7]]+= this[_$_ba8f[8]];if(this[_$_ba8f[7]]< 208){this[_$_ba8f[8]]+= 0.25}else {if(this[_$_ba8f[7]]>= 208&& this[_$_ba8f[8]]> 0){if(this[_$_ba8f[8]]>= 1){this[_$_ba8f[8]]*=  -0.5}else {this[_$_ba8f[8]]= 0};this[_$_ba8f[7]]= 208;playSound(snd_gen_bounce)}}};this[_$_ba8f[25]]= function(){if(!this[_$_ba8f[6]]&&  !exists(objTransition)){this[_$_ba8f[23]]()};if(!exists(objTransition)){this[_$_ba8f[24]]()};drawSprite(this[_$_ba8f[2]],0,0,160- Math[_$_ba8f[14]](this[_$_ba8f[2]][_$_ba8f[26]]/ 4),0);for(i= 0;i< this[_$_ba8f[10]][_$_ba8f[0]];i++){this[_$_ba8f[10]][i][_$_ba8f[25]](0)};this[_$_ba8f[9]][_$_ba8f[25]](0);drawSprite(spr_golf_medal,this[_$_ba8f[4]],0,this[_$_ba8f[9]][_$_ba8f[27]]+ 6,this[_$_ba8f[9]][_$_ba8f[28]]- 13+ this[_$_ba8f[9]][_$_ba8f[29]]);tS= playerScore[0];tXN= 160- Math[_$_ba8f[31]]((getNumWidth(Math[_$_ba8f[30]](tS))+ (7* (tS!= 0)))/ 2);drawSprite(spr_menu_scorecard,0,1,137,this[_$_ba8f[9]][_$_ba8f[28]]+ 16);if(tS!= 0){drawSprite(spr_hud_sign,(tS< 0),0,tXN,this[_$_ba8f[9]][_$_ba8f[28]]+ 21)};DrawNumber(tXN+ (7* (tS!= 0)),this[_$_ba8f[9]][_$_ba8f[28]]+ 21,Math[_$_ba8f[30]](tS),((tS< 1)* 2)+ (tS< 0));drawSprite(spr_menu_result_rank,0,this[_$_ba8f[4]],73,this[_$_ba8f[7]]);drawSprite(spr_menu_button_result,0,0,0,8)}}function ControlResultMulti(){this[_$_ba8f[2]]= courseObj[gameCourse][_$_ba8f[3]][courseObj[gameCourse][_$_ba8f[1]][_$_ba8f[0]]- 1];this[_$_ba8f[6]]= false;this[_$_ba8f[7]]=  -32;this[_$_ba8f[8]]= 0;this[_$_ba8f[32]]= [];for(i= 0;i< getPlayers();i++){if(this[_$_ba8f[32]][_$_ba8f[0]]== 0){this[_$_ba8f[32]][_$_ba8f[12]](i)}else {if(playerScore[this[_$_ba8f[32]][0]]== playerScore[i]){this[_$_ba8f[32]][_$_ba8f[12]](i)}else {if(playerScore[this[_$_ba8f[32]][0]]> playerScore[i]){this[_$_ba8f[32]]= [i]}}}};this[_$_ba8f[33]]= [];this[_$_ba8f[34]]= [];for(i= 0;i< getPlayers();i++){if(this[_$_ba8f[32]][_$_ba8f[35]](i)>  -1){this[_$_ba8f[33]][_$_ba8f[12]]( new Actor(spr_player[playerChar[i]],playerColor[i],160- ((getPlayers()- 1)* 40)+ (i* 80),160));this[_$_ba8f[33]][this[_$_ba8f[33]][_$_ba8f[0]]- 1][_$_ba8f[16]](2- (this[_$_ba8f[32]][_$_ba8f[0]]> 1),undefined);this[_$_ba8f[33]][this[_$_ba8f[33]][_$_ba8f[0]]- 1][_$_ba8f[17]]= randomMax(30)}else {this[_$_ba8f[34]][_$_ba8f[12]]( new Actor(spr_player[playerChar[i]],playerColor[i],160- ((getPlayers()- 1)* 40)+ (i* 80),112));this[_$_ba8f[34]][this[_$_ba8f[34]][_$_ba8f[0]]- 1][_$_ba8f[16]](3,undefined);this[_$_ba8f[34]][this[_$_ba8f[34]][_$_ba8f[0]]- 1][_$_ba8f[17]]= randomMax(30);this[_$_ba8f[34]][this[_$_ba8f[34]][_$_ba8f[0]]- 1][_$_ba8f[18]]= true}};if(this[_$_ba8f[32]][_$_ba8f[0]]== 1){this[_$_ba8f[20]]= msc_result_good}else {this[_$_ba8f[20]]= msc_result_okay};this[_$_ba8f[21]]= function(){if(MousePoint(0,8,171,34)){playSound(snd_menu_confirm);TransGo( new ControlMenuMain())}};this[_$_ba8f[22]]= function(_0x15A40){};this[_$_ba8f[23]]= function(){this[_$_ba8f[6]]= true;if(this[_$_ba8f[32]][_$_ba8f[0]]== 1){playSound(snd_gen_great)}else {playSound(snd_gen_good)};for(i= 0;i< this[_$_ba8f[32]][_$_ba8f[0]];i++){if(this[_$_ba8f[32]][_$_ba8f[0]]== 1){playSound(snd_voice_great[playerChar[this[_$_ba8f[32]][i]]])}else {playSound(snd_voice_good[playerChar[this[_$_ba8f[32]][i]]])}}};this[_$_ba8f[24]]= function(){this[_$_ba8f[7]]+= this[_$_ba8f[8]];if(this[_$_ba8f[7]]< 208){this[_$_ba8f[8]]+= 0.25}else {if(this[_$_ba8f[7]]>= 208&& this[_$_ba8f[8]]> 0){if(this[_$_ba8f[8]]>= 1){this[_$_ba8f[8]]*=  -0.5}else {this[_$_ba8f[8]]= 0};this[_$_ba8f[7]]= 208;playSound(snd_gen_bounce)}}};this[_$_ba8f[25]]= function(){if(!this[_$_ba8f[6]]&&  !exists(objTransition)){this[_$_ba8f[23]]()};if(!exists(objTransition)){this[_$_ba8f[24]]()};drawSprite(this[_$_ba8f[2]],0,0,160- Math[_$_ba8f[14]](this[_$_ba8f[2]][_$_ba8f[26]]/ 4),0);for(i= 0;i< this[_$_ba8f[34]][_$_ba8f[0]];i++){this[_$_ba8f[34]][i][_$_ba8f[25]](0)};for(i= 0;i< this[_$_ba8f[33]][_$_ba8f[0]];i++){this[_$_ba8f[33]][i][_$_ba8f[25]](0);drawSprite(spr_golf_medal,1+ (this[_$_ba8f[33]][_$_ba8f[0]]> 1),0,this[_$_ba8f[33]][i][_$_ba8f[27]]+ 6,this[_$_ba8f[33]][i][_$_ba8f[28]]- 13+ this[_$_ba8f[33]][i][_$_ba8f[29]])};tX= 160- ((getPlayers()- 1)* 40)- 23;for(i= 0;i< getPlayers();i++){tS= playerScore[i];tXN= tX+ (i* 80)+ 23- Math[_$_ba8f[31]]((getNumWidth(Math[_$_ba8f[30]](tS))+ (7* (tS!= 0)))/ 2);drawSprite(spr_menu_scorecard,i,1,tX+ (i* 80),176);if(tS!= 0){drawSprite(spr_hud_sign,(tS< 0),0,tXN,181)};DrawNumber(tXN+ (7* (tS!= 0)),181,Math[_$_ba8f[30]](tS),((tS< 1)* 2)+ (tS< 0))};drawSprite(spr_menu_result_multi,0,0,99,this[_$_ba8f[7]]);drawSprite(spr_menu_button_result,0,0,0,8)}}
+/////////////////
+// SOLO PLAYER //
+/////////////////
+function ControlResultSolo() {
+	// Variables.
+	tL = courseObj[gameCourse].courseData.length;
+	this.backSpr = courseObj[gameCourse].courseSpr[tL - 1];
+	this.playerMedal = (playerScore[0] > courseObj[gameCourse].courseRec) + (playerScore[0] > -.75 * tL) + (playerScore[0] > 0);
+	this.resultStart = false;
+	this.rankY = -32;
+	this.rankGrav = 0;
+	
+	// Actors.
+	this.actPlayer = new Actor(spr_player[playerChar[0]], playerColor[0], 160, 160);
+	this.actCrowd = [];
+	
+	// Direction array.
+	this.tileArr = [];
+	for(j = 0; j < 3; j++) {
+		for(i = 0; i < 7 + (!getEven(j)); i++) {
+			if (j < 2 || (i != 3 && i != 4)) this.tileArr.push([32 + (i * 32) + (16 * (!getEven(j))), 96 + (j * 24)]);
+		}
+	}
+	
+	// Populating crowd.
+	this.crowdArr = [];
+	for(i = 0; i < charStat.length; i++) {
+		if (playerChar[0] != i) this.crowdArr.push(i);
+	}
+	tW = Math.min(23, this.crowdArr.length, Math.ceil((-playerScore[0] / tL) * 5));
+	for(i = 0; i < tW; i++) {
+		tA = randomMax(this.crowdArr.length - 1);
+		tT = randomMax(this.tileArr.length - 1);
+		tDis = randomMax(104);
+		this.actCrowd.push(new Actor(spr_player[this.crowdArr[tA]], 0, this.tileArr[tT][0] + 16 + randomRange(-4, 4), this.tileArr[tT][1] - randomMax(6)));
+		if (this.playerMedal == 0 && randomMax(2) == 0) this.actCrowd[this.actCrowd.length - 1].Perform(2, undefined);
+		else this.actCrowd[this.actCrowd.length - 1].Perform(1, undefined);
+		this.actCrowd[this.actCrowd.length - 1].animTick = randomMax(30);
+		this.actCrowd[this.actCrowd.length - 1].actorMute = true;
+		this.crowdArr.splice(tA, 1);
+		this.tileArr.splice(tT, 1);
+	}
+	depthSort(this.actCrowd);
+	
+	// Music.
+	this.conMusic = msc_silence;
+	
+	// Adjusting to score.
+	if (this.playerMedal < 2) {
+		this.conMusic = msc_result_good;
+		this.actPlayer.Perform(2, undefined);
+	}
+	else if (this.playerMedal == 2) {
+		this.conMusic = msc_result_okay;
+		this.actPlayer.Perform(1, undefined);
+	}
+	else {
+		this.conMusic = msc_result_bad;
+		this.actPlayer.Perform(3, undefined);
+	}
+	
+	// Clicky.
+	this.Click = function() {
+		if (MousePoint(0, 8, 171, 34)) {
+			playSound(snd_menu_confirm);
+			TransGo(new ControlMenuMain());
+		}
+	}
+	
+	// Keyboard.
+	this.Keyboard = function(fE) {
+		// Nothing.
+	}
+	
+	// Start things.
+	this.Start = function() {
+		this.resultStart = true;
+		if (this.playerMedal < 2) {
+			if (this.playerMedal == 0) {playSound(snd_gen_great); playSound(snd_voice_great[playerChar[0]]);}
+			else {playSound(snd_gen_good); playSound(snd_voice_good[playerChar[0]]);}
+		}
+		else if (this.playerMedal == 2) {
+			playSound(snd_gen_okay);
+			playSound(snd_voice_okay[playerChar[0]]);
+		}
+		else {
+			playSound(snd_gen_bad);
+			playSound(snd_voice_bad[playerChar[0]]);
+		}
+	}
+	
+	// Score bouncing.
+	this.Bounce = function() {
+		this.rankY += this.rankGrav;
+		if (this.rankY < 208) this.rankGrav += .25;
+		else if (this.rankY >= 208 && this.rankGrav > 0) {
+			if (this.rankGrav >= 1) this.rankGrav *= -.5;
+			else this.rankGrav = 0;
+			this.rankY = 208;
+			playSound(snd_gen_bounce);
+		}
+	}
+	
+	// Drawing.
+	this.Draw = function() {
+		// Starting.
+		if (!this.resultStart && !exists(objTransition)) this.Start();
+		
+		// Bouncing.
+		if (!exists(objTransition)) this.Bounce();
+		
+		// Background.
+		drawSprite(this.backSpr, 0, 0, 160 - Math.ceil(this.backSpr.width / 4), 0);
+		
+		// Crowd.
+		for(i = 0; i < this.actCrowd.length; i++) {
+			this.actCrowd[i].Draw(0);
+		}
+		
+		// Player.
+		this.actPlayer.Draw(0);
+		drawSprite(spr_golf_medal, this.playerMedal, 0, this.actPlayer.x + 6, this.actPlayer.y - 13 + this.actPlayer.animY);
+		
+		// Score.
+		tS = playerScore[0];
+		tXN = 160 - Math.floor((getNumWidth(Math.abs(tS)) + (7 * (tS != 0)) ) / 2);
+		drawSprite(spr_menu_scorecard, 0, 1, 137, this.actPlayer.y + 16);
+		if (tS != 0) drawSprite(spr_hud_sign, (tS < 0), 0, tXN, this.actPlayer.y + 21);
+		DrawNumber(tXN + (7 * (tS != 0)), this.actPlayer.y + 21, Math.abs(tS), ((tS < 1) * 2) + (tS < 0));
+		
+		// Rank.
+		drawSprite(spr_menu_result_rank, 0, this.playerMedal, 73, this.rankY);
+		
+		// Button.
+		drawSprite(spr_menu_button_result, 0, 0, 0, 8);
+	}
+}
+
+
+
+/////////////////
+// MULTIPLAYER //
+/////////////////
+function ControlResultMulti() {
+	// Variables.
+	this.backSpr = courseObj[gameCourse].courseSpr[courseObj[gameCourse].courseData.length - 1];
+	this.resultStart = false;
+	this.rankY = -32;
+	this.rankGrav = 0;
+	
+	// Determining winner.
+	this.playerWin = [];
+	for(i = 0; i < getPlayers(); i++) {
+		if (this.playerWin.length == 0) this.playerWin.push(i);
+		else if (playerScore[this.playerWin[0]] == playerScore[i]) this.playerWin.push(i);
+		else if (playerScore[this.playerWin[0]] > playerScore[i]) this.playerWin = [i];
+	}
+	
+	// Creating actors.
+	this.actorWin = [];
+	this.actorLose = [];
+	for(i = 0; i < getPlayers(); i++) {
+		// Winner.
+		if (this.playerWin.indexOf(i) > -1) {
+			this.actorWin.push(new Actor(spr_player[playerChar[i]], playerColor[i], 160 - ((getPlayers() - 1) * 40) + (i * 80), 160));
+			this.actorWin[this.actorWin.length - 1].Perform(2 - (this.playerWin.length > 1), undefined);
+			this.actorWin[this.actorWin.length - 1].animTick = randomMax(30);
+		}
+		
+		// Loser.
+		else {
+			this.actorLose.push(new Actor(spr_player[playerChar[i]], playerColor[i], 160 - ((getPlayers() - 1) * 40) + (i * 80), 112));
+			this.actorLose[this.actorLose.length - 1].Perform(3, undefined);
+			this.actorLose[this.actorLose.length - 1].animTick = randomMax(30);
+			this.actorLose[this.actorLose.length - 1].actorMute = true;
+		}
+	}
+	
+	// Music.
+	if (this.playerWin.length == 1) this.conMusic = msc_result_good;
+	else this.conMusic = msc_result_okay;
+	
+	// Clicky.
+	this.Click = function() {
+		if (MousePoint(0, 8, 171, 34)) {
+			playSound(snd_menu_confirm);
+			TransGo(new ControlMenuMain());
+		}
+	}
+	
+	// Keyboard.
+	this.Keyboard = function(fE) {
+		// Nothing.
+	}
+	
+	// Start things.
+	this.Start = function() {
+		this.resultStart = true;
+		if (this.playerWin.length == 1) playSound(snd_gen_great);
+		else playSound(snd_gen_good);
+		for(i = 0; i < this.playerWin.length; i++) {
+			if (this.playerWin.length == 1) playSound(snd_voice_great[playerChar[this.playerWin[i]]]);
+			else playSound(snd_voice_good[playerChar[this.playerWin[i]]]);
+		}
+	}
+	
+	// Score bouncing.
+	this.Bounce = function() {
+		this.rankY += this.rankGrav;
+		if (this.rankY < 208) this.rankGrav += .25;
+		else if (this.rankY >= 208 && this.rankGrav > 0) {
+			if (this.rankGrav >= 1) this.rankGrav *= -.5;
+			else this.rankGrav = 0;
+			this.rankY = 208;
+			playSound(snd_gen_bounce);
+		}
+	}
+	
+	// Drawing.
+	this.Draw = function() {
+		// Starting.
+		if (!this.resultStart && !exists(objTransition)) this.Start();
+		
+		// Bouncing.
+		if (!exists(objTransition)) this.Bounce();
+		
+		// Background.
+		drawSprite(this.backSpr, 0, 0, 160 - Math.ceil(this.backSpr.width / 4), 0);
+		
+		// Loser(s).
+		for(i = 0; i < this.actorLose.length; i++) {
+			this.actorLose[i].Draw(0);
+		}
+		
+		// Winner(s).
+		for(i = 0; i < this.actorWin.length; i++) {
+			this.actorWin[i].Draw(0);
+			drawSprite(spr_golf_medal, 1 + (this.actorWin.length > 1), 0, this.actorWin[i].x + 6, this.actorWin[i].y - 13 + this.actorWin[i].animY);
+		}
+		
+		// Scores.
+		tX = 160 - ((getPlayers() - 1) * 40) - 23;
+		for(i = 0; i < getPlayers(); i++) {
+			tS = playerScore[i];
+			tXN = tX + (i * 80) + 23 - Math.floor((getNumWidth(Math.abs(tS)) + (7 * (tS != 0)) ) / 2);
+			drawSprite(spr_menu_scorecard, i, 1, tX + (i * 80), 176);
+			if (tS != 0) drawSprite(spr_hud_sign, (tS < 0), 0, tXN, 181);
+			DrawNumber(tXN + (7 * (tS != 0)), 181, Math.abs(tS), ((tS < 1) * 2) + (tS < 0));
+		}
+		
+		// Rank.
+		drawSprite(spr_menu_result_multi, 0, 0, 99, this.rankY);
+		
+		// Button.
+		drawSprite(spr_menu_button_result, 0, 0, 0, 8);
+	}
+}

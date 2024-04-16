@@ -1,8 +1,77 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_d33d=["\x73\x68\x6F\x74\x45\x6E\x64","\x73\x68\x6F\x74\x57\x61\x69\x74","\x73\x68\x6F\x74\x50\x6C\x61\x79\x65\x72","\x6F\x62\x6A\x42\x61\x6C\x6C","\x70\x6C\x61\x79\x65\x72\x53\x63\x6F\x72\x65","\x68\x6F\x6C\x65\x50\x61\x72","\x6F\x62\x6A\x48\x6F\x6C\x65","\x73\x63\x6F\x72\x65\x49\x6E\x64\x65\x78","\x4E\x65\x78\x74\x54\x75\x72\x6E","\x73\x68\x6F\x74\x48\x69\x74","\x63\x61\x6D\x65\x72\x61\x58","\x77\x69\x64\x74\x68","\x68\x6F\x6C\x65\x53\x70\x72","\x78","\x63\x61\x6D\x65\x72\x61\x41\x75\x74\x6F","\x63\x61\x6D\x65\x72\x61\x53\x70\x65\x65\x64","\x6D\x61\x78","\x63\x61\x6D\x65\x72\x61\x42\x75\x74\x74\x6F\x6E","\x63\x61\x6D\x65\x72\x61\x47\x6F\x61\x6C","\x61\x62\x73","\x73\x69\x67\x6E","\x53\x74\x6F\x70\x70\x65\x64","\x61\x6E\x69\x6D\x4F\x6E","\x6F\x62\x6A\x41\x63\x74\x6F\x72","\x73\x68\x6F\x74\x44\x69\x73","\x73\x68\x6F\x74\x44\x69\x72","\x73\x68\x6F\x74\x53\x70\x69\x6E","\x62\x61\x6C\x6C\x4C\x69\x65","\x73\x68\x6F\x74\x4D\x61\x78","\x53\x74\x72\x6F\x6B\x65","\x73\x63\x6F\x72\x65\x59","\x73\x63\x6F\x72\x65\x47\x72\x61\x76"];function ControlGolfRun(_0x15914){if(_0x15914[_$_d33d[0]]){if(_0x15914[_$_d33d[1]]> 0){_0x15914[_$_d33d[1]]--}else {if(_0x15914[_$_d33d[2]]>  -1&& (BallDone(_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]])|| _0x15914[_$_d33d[4]][_0x15914[_$_d33d[2]]]>= _0x15914[_$_d33d[6]][_$_d33d[5]]+ 3)&& _0x15914[_$_d33d[7]]==  -1){Celebrate(_0x15914)}else {_0x15914[_$_d33d[8]]()}}};if(_0x15914[_$_d33d[9]]&& _0x15914[_$_d33d[7]]==  -1){if(exists(_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]])){_0x15914[_$_d33d[10]]= median(0,(_0x15914[_$_d33d[6]][_$_d33d[12]][_$_d33d[11]]/ 2)- 320,_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]][_$_d33d[13]]- 160)}}else {if(_0x15914[_$_d33d[14]]){if(_0x15914[_$_d33d[10]]> 0){if(_0x15914[_$_d33d[15]]< 16){_0x15914[_$_d33d[15]]+= 0.05};_0x15914[_$_d33d[10]]-= Math[_$_d33d[16]](_0x15914[_$_d33d[15]],0);if(_0x15914[_$_d33d[10]]< 0){_0x15914[_$_d33d[10]]= 0}}else {_0x15914[_$_d33d[14]]= false}}else {if(_0x15914[_$_d33d[17]]> 0){if(Math[_$_d33d[19]](_0x15914[_$_d33d[10]]- _0x15914[_$_d33d[18]])< 16){_0x15914[_$_d33d[10]]= _0x15914[_$_d33d[18]];_0x15914[_$_d33d[17]]= 0}else {_0x15914[_$_d33d[10]]+= Math[_$_d33d[20]](_0x15914[_$_d33d[18]]- _0x15914[_$_d33d[10]])* 16}}}};if(_0x15914[_$_d33d[9]]){if(!exists(_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]])){_0x15914[_$_d33d[0]]= true}else {if(_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]][_$_d33d[21]]()){_0x15914[_$_d33d[0]]= true}else {_0x15914[_$_d33d[0]]= false;_0x15914[_$_d33d[1]]= getSec(1)}}}else {if(_0x15914[_$_d33d[23]][_$_d33d[22]]== 10){playSound(snd_voice_swing[playerChar[_0x15914[_$_d33d[2]]]]);_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]][_$_d33d[29]](_0x15914[_$_d33d[24]],_0x15914[_$_d33d[25]],GetLoft(playerChar[_0x15914[_$_d33d[2]]],_0x15914[_$_d33d[26]],_0x15914[_$_d33d[3]][_0x15914[_$_d33d[2]]][_$_d33d[27]],_0x15914[_$_d33d[24]]/ _0x15914[_$_d33d[28]]),GetSpin(playerChar[_0x15914[_$_d33d[2]]],_0x15914[_$_d33d[26]]));_0x15914[_$_d33d[9]]= true;_0x15914[_$_d33d[1]]= getSec(1);_0x15914[_$_d33d[4]][_0x15914[_$_d33d[2]]]++}};if(_0x15914[_$_d33d[7]]>  -1){_0x15914[_$_d33d[30]]+= _0x15914[_$_d33d[31]];if(_0x15914[_$_d33d[30]]< 208){_0x15914[_$_d33d[31]]+= 0.25}else {if(_0x15914[_$_d33d[30]]>= 208&& _0x15914[_$_d33d[31]]> 0){if(_0x15914[_$_d33d[31]]>= 1){_0x15914[_$_d33d[31]]*=  -0.5}else {_0x15914[_$_d33d[31]]= 0};_0x15914[_$_d33d[30]]= 208;playSound(snd_gen_bounce)}}}}
+// Run function.
+function ControlGolfRun(fO) {
+	// Turn handling.
+	if (fO.shotEnd) {
+		if (fO.shotWait > 0) fO.shotWait--;
+		else if (fO.shotPlayer > -1 && (BallDone(fO.objBall[fO.shotPlayer]) || fO.playerScore[fO.shotPlayer] >= fO.objHole.holePar + 3) && fO.scoreIndex == -1) Celebrate(fO);
+		else fO.NextTurn();
+	}
+	
+	// Automatic camera movement.
+	if (fO.shotHit && fO.scoreIndex == -1) {
+		if (exists(fO.objBall[fO.shotPlayer])) fO.cameraX = median(0, (fO.objHole.holeSpr.width / 2) - 320, fO.objBall[fO.shotPlayer].x - 160);
+	}
+	else if (fO.cameraAuto) {
+		if (fO.cameraX > 0) {
+			if (fO.cameraSpeed < 16) fO.cameraSpeed += .05;
+			fO.cameraX -= Math.max(fO.cameraSpeed, 0);
+			if (fO.cameraX < 0) fO.cameraX = 0;
+		}
+		else fO.cameraAuto = false;
+	}
+	
+	// Manual camera movements.
+	else if (fO.cameraButton > 0) {
+		if (Math.abs(fO.cameraX - fO.cameraGoal) < 16) {
+			fO.cameraX = fO.cameraGoal;
+			fO.cameraButton = 0;
+		}
+		else fO.cameraX += Math.sign(fO.cameraGoal - fO.cameraX) * 16;
+	}
+	
+	// Arrow keys. (temporary)
+	/*else if (fO.objActor.animOn == 5) {
+		if (keyState[37]) {
+			if (fO.cameraX > 8) fO.cameraX -= 8;
+			else fO.cameraX = 0;
+		}
+		if (keyState[39]) {
+			if (fO.cameraX < (fO.objHole.holeSpr.width / 2) - 328) fO.cameraX += 8;
+			else fO.cameraX = (fO.objHole.holeSpr.width / 2) - 320;
+		}
+	}*/
+	
+	// Shot tracking.
+	if (fO.shotHit) {
+		if (!exists(fO.objBall[fO.shotPlayer])) fO.shotEnd = true;
+		else if (fO.objBall[fO.shotPlayer].Stopped()) fO.shotEnd = true;
+		else {
+			fO.shotEnd = false;
+			fO.shotWait = getSec(1);
+		}
+	}
+	else if (fO.objActor.animOn == 10) {
+		playSound(snd_voice_swing[playerChar[fO.shotPlayer]]);
+		fO.objBall[fO.shotPlayer].Stroke(fO.shotDis,
+			fO.shotDir,
+			GetLoft(playerChar[fO.shotPlayer], fO.shotSpin, fO.objBall[fO.shotPlayer].ballLie, fO.shotDis / fO.shotMax),
+			GetSpin(playerChar[fO.shotPlayer], fO.shotSpin));
+		fO.shotHit = true;
+		fO.shotWait = getSec(1);
+		fO.playerScore[fO.shotPlayer]++;
+	}
+	
+	// Score bouncing.
+	if (fO.scoreIndex > -1) {
+		fO.scoreY += fO.scoreGrav;
+		if (fO.scoreY < 208) fO.scoreGrav += .25;
+		else if (fO.scoreY >= 208 && fO.scoreGrav > 0) {
+			if (fO.scoreGrav >= 1) fO.scoreGrav *= -.5;
+			else fO.scoreGrav = 0;
+			fO.scoreY = 208;
+			playSound(snd_gen_bounce);
+		}
+	}
+	
+	// End.
+}

@@ -1,8 +1,205 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_fa70=["\x72\x61\x6E\x64\x6F\x6D","\x6C\x65\x6E\x67\x74\x68","\x66\x6C\x6F\x6F\x72","\x61\x62\x73","\x50\x49","\x63\x6F\x73","\x73\x69\x6E","\x72\x6F\x75\x6E\x64","\x61\x74\x61\x6E\x32","\x73\x71\x72\x74","","\x69\x6E\x64\x65\x78\x4F\x66","\x73\x70\x6C\x69\x63\x65","\x70\x6F\x77","\x77\x69\x6E\x64\x53\x70\x65\x65\x64","\x6F\x62\x6A\x48\x6F\x6C\x65","\x77\x69\x6E\x64\x44\x69\x72","\x74\x6F\x53\x74\x72\x69\x6E\x67","\x63\x65\x69\x6C","\x79","\x73\x6F\x72\x74","\x4D\x41\x4D\x41\x54\x4F\x4D\x4F","\x47\x55\x52\x55\x47\x55\x52\x55"];function resetPlayers(){for(fI= 0;fI< 4;fI++){resetPlayer(fI)}}function resetPlayer(_0x15AF4){playerChar[_0x15AF4]=  -1;playerAi[_0x15AF4]= false;playerColor[_0x15AF4]= 0;playerScore[_0x15AF4]= 0}function checkForChar(_0x1598C){for(fi= 0;fi< 4;fi++){if(playerChar[fi]== _0x1598C){return (true)}};return (false)}function checkCharPlayer(_0x1598C){for(fi= 0;fi< 4;fi++){if(playerChar[fi]== _0x1598C){return (fi)}};return (-1)}function getUnselectedChar(){tRe=  -1;while(tRe==  -1|| checkForChar(tRe)){tRe= Math[_$_fa70[2]](Math[_$_fa70[0]]()* spr_player[_$_fa70[1]])};return (tRe)}function smallNegate(_0x15AF4){if(Math[_$_fa70[3]](_0x15AF4)< 0.00000000000001){return (0)}else {return (_0x15AF4)}}function cos(_0x15AF4){return (smallNegate(Math[_$_fa70[5]](_0x15AF4* (Math[_$_fa70[4]]/ 180))))}function sin(_0x15AF4){return (smallNegate(Math[_$_fa70[6]](_0x15AF4* (Math[_$_fa70[4]]/ 180))))}function xDir(_0x16148,_0x15BA8){return (cos(_0x15BA8)* _0x16148)}function yDir(_0x16148,_0x15BA8){return (-sin(_0x15BA8)* _0x16148)}function getBetween(_0x15E00,_0x15E3C,_0x15BE4){return (_0x15E00+ ((_0x15E3C- _0x15E00)* _0x15BE4))}function randomRange(_0x15E00,_0x15E3C){return (_0x15E00+ Math[_$_fa70[7]](Math[_$_fa70[0]]()* (_0x15E3C- _0x15E00)))}function randomMax(_0x15D4C){return (randomRange(0,_0x15D4C))}function valueBetween(_0x15E00,_0x164CC,_0x15E3C){return ((_0x164CC>= _0x15E00&& _0x164CC<= _0x15E3C)|| (_0x164CC>= _0x15E3C&& _0x164CC<= _0x15E00))}function calcDirection(_0x15824,_0x1589C,_0x15860,_0x158D8){tRe= Math[_$_fa70[8]](_0x158D8- _0x1589C,_0x15860- _0x15824)* (180/ Math[_$_fa70[4]]);if(tRe< 0){tRe= Math[_$_fa70[3]](tRe)}else {tRe= 360- tRe};return (tRe)}function calcDistance(_0x15824,_0x1589C,_0x15860,_0x158D8){return (Math[_$_fa70[9]](sqr(_0x15860- _0x15824)+ sqr(_0x158D8- _0x1589C)))}function sqr(_0x15AF4){return (_0x15AF4* _0x15AF4)}function getSec(_0x15AF4){return (Math[_$_fa70[7]](_0x15AF4* 60))}function mean(_0x15E00,_0x15E3C){return ((_0x15E00+ _0x15E3C)/ 2)}function exists(_0x16094){return (_0x16094!= undefined)}function getPlayers(){for(fI= 3;fI>= 0;fI--){if(playerChar[fI]>  -1){return (fI+ 1)}};return (0)}function keyArrayString(_0x15AF4){tRe= _$_fa70[10];for(fi= 0;fi< _0x15AF4[_$_fa70[1]];fi++){tRe+= gameLetterTable[_0x15AF4[fi]- 65]};return (tRe)}function selectColor(_0x1598C,_0x15D88){tAv= [0,1,2,3];for(fI= 3;fI>= 0;fI--){if(playerChar[fI]== _0x1598C){tAv[_$_fa70[12]](tAv[_$_fa70[11]](playerColor[fI]),1)}};if(tAv[_$_fa70[11]](_0x15D88)>  -1){return (_0x15D88)}else {if(tAv[_$_fa70[1]]== 0){return (0)}else {return (tAv[0])}}}function median(_0x15E00,_0x15E3C,_0x16238){if(valueBetween(_0x15E3C,_0x15E00,_0x16238)){return (_0x15E00)}else {if(valueBetween(_0x15E00,_0x15E3C,_0x16238)){return (_0x15E3C)}else {return (_0x16238)}}}function mean(_0x15E00,_0x15E3C){return ((_0x15E00+ _0x15E3C)/ 2)}function restart(){TransGo( new ControlGolf())}function shortDecimal(_0x15E78,_0x15AB8){return (Math[_$_fa70[7]](_0x15E78* Math[_$_fa70[13]](10,_0x15AB8))/ Math[_$_fa70[13]](10,_0x15AB8))}function wind(_0x16544,_0x16508){objControl[_$_fa70[15]][_$_fa70[14]]= _0x16544;objControl[_$_fa70[15]][_$_fa70[16]]= _0x16508}function getNumWidth(_0x15E78){return (_0x15E78[_$_fa70[17]]()[_$_fa70[1]]* 7)}function getEven(_0x15E78){return (Math[_$_fa70[2]](_0x15E78/ 2)== Math[_$_fa70[18]](_0x15E78/ 2))}function depthSort(_0x15DC4){_0x15DC4[_$_fa70[20]](function(_0x15E00,_0x15E3C){return (_0x15E00[_$_fa70[19]]- _0x15E3C[_$_fa70[19]])})}function charCode(_0x15950){switch(keyArrayString(_0x15950)){case _$_fa70[21]:return (12);case _$_fa70[22]:return (13);default:return (-1)}}
+// Resetting player variables.
+function resetPlayers() {
+	for (fI = 0; fI < 4; fI++) {
+		resetPlayer(fI);
+	}
+}
+
+// Resetting one player.
+function resetPlayer(fIn) {
+	playerChar[fIn] = -1;
+	playerAi[fIn] = false;
+	playerColor[fIn] = 0;
+	playerScore[fIn] = 0;
+}
+
+// Seeing if the character has been selected.
+function checkForChar(fChar) {
+	for (fi = 0; fi < 4; fi++) {
+		if (playerChar[fi] == fChar) return(true);
+	}
+	return(false);
+}
+
+// Seeing who selected a character.
+function checkCharPlayer(fChar) {
+	for (fi = 0; fi < 4; fi++) {
+		if (playerChar[fi] == fChar) return(fi);
+	}
+	return(-1);
+}
+
+// Getting a random unselected character.
+function getUnselectedChar() {
+	tRe = -1;
+	while (tRe == -1 || checkForChar(tRe)) tRe = Math.floor(Math.random() * spr_player.length);
+	return(tRe);
+}
+
+// Negating too small numbers.
+function smallNegate(fIn) {
+	if (Math.abs(fIn) < .00000000000001) return(0);
+	else return(fIn);
+}
+
+// Cosine.
+function cos(fIn) {
+	return(smallNegate(Math.cos(fIn * (Math.PI / 180))));
+}
+
+// Sine.
+function sin(fIn) {
+	return(smallNegate(Math.sin(fIn * (Math.PI / 180))));
+}
+
+// X length by direction.
+function xDir(fLen, fDir) {
+	return(cos(fDir) * fLen);
+}
+
+// Y length by direction.
+function yDir(fLen, fDir) {
+	return(-sin(fDir) * fLen);
+}
+
+// Getting a point in between two points.
+function getBetween(fA, fB, fDis) {
+	return(fA + ((fB - fA) * fDis));
+}
+
+// Getting a random whole number between 2 numbers (inclusive).
+function randomRange(fA, fB) {
+	return(fA + Math.round(Math.random() * (fB - fA)));
+}
+
+// Getting a random whole number with a maximum (inclusive).
+function randomMax(fMax) {
+	return(randomRange(0, fMax));
+}
+
+// Seeing if the middle value is between the outer values.
+function valueBetween(fA, fMid, fB) {
+	return((fMid >= fA && fMid <= fB) || (fMid >= fB && fMid <= fA));
+}
+
+// Calculating direction from point A to point B.
+function calcDirection(xA, yA, xB, yB) {
+	tRe = Math.atan2(yB - yA, xB - xA) * (180 / Math.PI);
+	if (tRe < 0) tRe = Math.abs(tRe);
+	else tRe = 360 - tRe;
+	return(tRe);
+}
+
+// Calculating distance between point A to point B.
+function calcDistance(xA, yA, xB, yB) {
+	return(Math.sqrt(sqr(xB - xA) + sqr(yB - yA)));
+}
+
+// Squaring since apparently JavaScript doesn't have its own function for this.
+function sqr(fIn) {
+	return(fIn * fIn);
+}
+
+// Getting seconds.
+function getSec(fIn) {
+	return(Math.round(fIn * 60));
+}
+
+// Mean.
+function mean(fA, fB) {
+	return((fA + fB) / 2);
+}
+
+// Checking to see if an object exist.
+function exists(fObj) {
+	return(fObj != undefined);
+}
+
+// Getting amount of players.
+function getPlayers() {
+	for(fI = 3; fI >= 0; fI--) {
+		if (playerChar[fI] > -1) return(fI + 1);
+	}
+	return(0);
+}
+
+// Compiling string from key array.
+function keyArrayString(fIn) {
+	tRe = "";
+	for(fi = 0; fi < fIn.length; fi++) tRe += gameLetterTable[fIn[fi] - 65];
+	return(tRe);
+}
+
+// Attempting to select a color.
+function selectColor(fChar, fColor) {
+	tAv = [0, 1, 2, 3];
+	for(fI = 3; fI >= 0; fI--) {
+		if (playerChar[fI] == fChar) tAv.splice(tAv.indexOf(playerColor[fI]), 1);
+	}
+	if (tAv.indexOf(fColor) > -1) return(fColor);
+	else if (tAv.length == 0) return(0);
+	else return(tAv[0]);
+}
+
+// Median.
+function median(fA, fB, fC) {
+	if (valueBetween(fB, fA, fC)) return(fA);
+	else if (valueBetween(fA, fB, fC)) return(fB);
+	else return(fC);
+	/*if (Math.min(fA, fB, fC) != fA && Math.max(fA, fB, fC) != fA) return(fA);
+	else if (Math.min(fA, fB, fC) != fB && Math.max(fA, fB, fC) != fB) return(fB);
+	else return(fC);*/
+}
+
+// Mean.
+function mean(fA, fB) {
+	return((fA + fB) / 2);
+}
+
+// Testing.
+function restart() {
+	TransGo(new ControlGolf());
+}
+
+// Shorten a decimal number.
+function shortDecimal(fN, fP) {
+	return(Math.round(fN * Math.pow(10, fP)) / Math.pow(10, fP));
+}
+
+// Setting wind (debug).
+function wind(fS, fD) {
+	objControl.objHole.windSpeed = fS;
+	objControl.objHole.windDir = fD;
+}
+
+// Getting string width of a number.
+function getNumWidth(fN) {
+	return(fN.toString().length * 7);
+}
+
+// Getting if the number if even.
+function getEven(fN) {
+	return(Math.floor(fN / 2) == Math.ceil(fN / 2));
+}
+
+// Sorting for drawing depth.
+function depthSort(fArr) {
+	fArr.sort(function(fA, fB) {return(fA.y - fB.y);});
+}
+
+// Getting character code.
+function charCode(fCode) {
+	switch(keyArrayString(fCode)) {
+		// Mommy.
+		case "MAMATOMO":
+			return(12);
+			
+		// Memetchi.
+		case "GURUGURU":
+			return(13);
+			
+		// Invalid.
+		default:
+			return(-1);
+	}
+}

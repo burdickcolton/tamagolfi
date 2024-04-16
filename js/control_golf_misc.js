@@ -1,8 +1,102 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_ae3c=["\x74\x6F\x53\x74\x72\x69\x6E\x67","\x63\x65\x69\x6C","\x6C\x65\x6E\x67\x74\x68","\x78","\x79","\x6D\x69\x6E","\x6D\x61\x78","\x72\x6F\x75\x6E\x64","\x62\x61\x6C\x6C\x4C\x69\x65","\x68\x6F\x6C\x65\x50\x61\x72","\x6F\x62\x6A\x48\x6F\x6C\x65","\x73\x68\x6F\x74\x50\x6C\x61\x79\x65\x72","\x70\x6C\x61\x79\x65\x72\x53\x63\x6F\x72\x65","\x6F\x62\x6A\x42\x61\x6C\x6C","\x73\x63\x6F\x72\x65\x49\x6E\x64\x65\x78","\x63\x6C\x75\x62\x4F\x6E","\x6F\x62\x6A\x41\x63\x74\x6F\x72","\x50\x65\x72\x66\x6F\x72\x6D","\x61\x6E\x69\x6D\x50\x61\x72\x74","\x63\x61\x6D\x65\x72\x61\x58","\x77\x69\x64\x74\x68","\x68\x6F\x6C\x65\x53\x70\x72","\x73\x68\x6F\x74\x57\x61\x69\x74","\x66\x6C\x6F\x6F\x72","\x68\x6F\x6C\x65\x41\x72\x72\x61\x79"];function DrawYards(_0x155CC,_0x15608,_0x16058,_0x15554){tStr= Math[_$_ae3c[1]](_0x16058/ 6)[_$_ae3c[0]]();for(fi= 0;fi< tStr[_$_ae3c[2]];fi++){drawSprite(spr_hud_number,Number(tStr[fi]),_0x15554,_0x155CC+ (7* fi),_0x15608)};drawSprite(spr_hud_yards,_0x15554,0,_0x155CC+ (7* tStr[_$_ae3c[2]]),_0x15608+ 5)}function GetMaxDistance(_0x1598C,_0x15C5C,_0x160D0){if(_0x15C5C< 0){tSpin= 1- ((_0x15C5C* (charStat[_0x1598C][2]/ 25))/ 16)}else {tSpin= 1- ((_0x15C5C* ((26- charStat[_0x1598C][2])/ 25))/ 16)};return ((((87.5+ (charStat[_0x1598C][0]* 0.5))* LieEffect(_0x160D0,charStat[_0x1598C][3]))* tSpin)* 6)}function GetLoft(_0x1598C,_0x15C5C,_0x160D0,_0x15BE4){if(_0x15C5C< 0){tSpin= 1- ((_0x15C5C* (charStat[_0x1598C][2]/ 25))* 0.2)}else {tSpin= 1- ((_0x15C5C* ((26- charStat[_0x1598C][2])/ 25))* 0.2)};return ((((9+ sqr((charStat[_0x1598C][1]/ 50)* 1))* LieEffect(_0x160D0,charStat[_0x1598C][3]))* tSpin)* _0x15BE4)}function GetFixDistance(_0x155CC,_0x157E8,_0x15D4C){return (median(24,calcDistance(_0x157E8[_$_ae3c[3]]- _0x155CC,_0x157E8[_$_ae3c[4]],mouseX,mouseY)* (mouseX> (_0x157E8[_$_ae3c[3]]- _0x155CC)),_0x15D4C))}function GetFixDirection(_0x155CC,_0x157E8){tDir= calcDirection(Math[_$_ae3c[5]](_0x157E8[_$_ae3c[3]]- _0x155CC,mouseX),_0x157E8[_$_ae3c[4]],Math[_$_ae3c[6]](_0x157E8[_$_ae3c[3]]- _0x155CC,mouseX),mouseY- 1);if(tDir> 67.5&& tDir< 112.5){tDir= 67.5}else {if(tDir< 292.5&& tDir> 247.5){tDir= 292.5}};return (tDir)}function GetSpin(_0x1598C,_0x15C5C){return (_0x15C5C* mean(1,charStat[_0x1598C][2]/ 25))}function DrawNumber(_0x155CC,_0x15608,_0x15E78,_0x15554){tStr= Math[_$_ae3c[7]](_0x15E78)[_$_ae3c[0]]();for(fi= 0;fi< tStr[_$_ae3c[2]];fi++){drawSprite(spr_hud_number,Number(tStr[fi]),_0x15554,_0x155CC+ (7* fi),_0x15608)}}function LieEffect(_0x160D0,_0x1610C){tR= gameLieBonus[_0x160D0];if(tR< 1){tR= getBetween(tR,1,_0x1610C/ 50)};return (tR)}function BallDone(_0x157E8){if(_0x157E8== undefined){return (true)}else {return (_0x157E8[_$_ae3c[8]]== 5)}}function Celebrate(_0x15914){tP= _0x15914[_$_ae3c[10]][_$_ae3c[9]];tS= _0x15914[_$_ae3c[12]][_0x15914[_$_ae3c[11]]]+ exists(_0x15914[_$_ae3c[13]][_0x15914[_$_ae3c[11]]]);if(exists(_0x15914[_$_ae3c[13]][_0x15914[_$_ae3c[11]]])){if(_0x15914[_$_ae3c[13]][_0x15914[_$_ae3c[11]]][_$_ae3c[8]]!= 5){tS++}};if(tS== 1){_0x15914[_$_ae3c[14]]= 0}else {_0x15914[_$_ae3c[14]]= 5+ (tS- tP)};if(tS> tP){playSound(snd_gen_bad);playSound(snd_voice_bad[playerChar[_0x15914[_$_ae3c[11]]]])}else {if(tS== tP){playSound(snd_gen_okay);playSound(snd_voice_okay[playerChar[_0x15914[_$_ae3c[11]]]])}else {if(tS== tP- 1){playSound(snd_gen_good);playSound(snd_voice_good[playerChar[_0x15914[_$_ae3c[11]]]])}else {playSound(snd_gen_great);playSound(snd_voice_great[playerChar[_0x15914[_$_ae3c[11]]]])}}};_0x15914[_$_ae3c[16]][_$_ae3c[15]]= false;_0x15914[_$_ae3c[16]][_$_ae3c[17]](2- (tS== tP)+ (tS> tP),undefined);if(tS- tP<  -1){_0x15914[_$_ae3c[16]][_$_ae3c[18]]= playerChar[_0x15914[_$_ae3c[11]]]};_0x15914[_$_ae3c[19]]= median(0,(_0x15914[_$_ae3c[10]][_$_ae3c[21]][_$_ae3c[20]]/ 2)- 320,_0x15914[_$_ae3c[16]][_$_ae3c[3]]- 160);_0x15914[_$_ae3c[22]]= getSec(4);playerScore[_0x15914[_$_ae3c[11]]]+= tS- tP}function CheckLie(_0x155CC,_0x15608,_0x159C8){return (_0x159C8[_$_ae3c[24]][Math[_$_ae3c[23]](_0x155CC/ 32)][Math[_$_ae3c[23]]((_0x15608- 80)/ 32)]+ 1)}
+// Yard drawing function.
+function DrawYards(fX, fY, fYd, fCol) {
+	tStr = Math.ceil(fYd / 6).toString();
+	for(fi = 0; fi < tStr.length; fi++) {
+		drawSprite(spr_hud_number, Number(tStr[fi]), fCol, fX + (7 * fi), fY);
+	}
+	drawSprite(spr_hud_yards, fCol, 0, fX + (7 * tStr.length), fY + 5);
+}
+
+// Getting maximum distance.
+function GetMaxDistance(fChar, fSpin, fLie) {
+	if (fSpin < 0) tSpin = 1 - ((fSpin * (charStat[fChar][2] / 25)) / 16);
+	else tSpin = 1 - ((fSpin * ((26 - charStat[fChar][2]) / 25)) / 16);
+	return((((87.5 + (charStat[fChar][0] * .5)) * LieEffect(fLie, charStat[fChar][3])) * tSpin) * 6);
+}
+
+// Getting loft. (old)
+/*function GetLoft(fChar, fSpin, fLie) {
+	if (fSpin < 0) tSpin = 1 - ((fSpin * (charStat[fChar][2] / 25)) * .2);
+	else tSpin = 1 - ((fSpin * ((26 - charStat[fChar][2]) / 25)) * .2);
+	return((5 + (charStat[fChar][1] * .4)) * tSpin);
+}*/
+
+// Getting loft.
+function GetLoft(fChar, fSpin, fLie, fDis) {
+	if (fSpin < 0) tSpin = 1 - ((fSpin * (charStat[fChar][2] / 25)) * .2);
+	else tSpin = 1 - ((fSpin * ((26 - charStat[fChar][2]) / 25)) * .2);
+	//return(((7.5 + (charStat[fChar][1] * .1)) * tSpin) * fDis);
+	return((((9 + sqr((charStat[fChar][1] / 50) * 1)) * LieEffect(fLie, charStat[fChar][3])) * tSpin) * fDis);
+}
+
+// Getting a valid distance.
+function GetFixDistance(fX, fBall, fMax) {
+	return(median(24, calcDistance(fBall.x - fX, fBall.y, mouseX, mouseY) * (mouseX > (fBall.x - fX)), fMax));
+}
+
+// Getting a valid direction.
+function GetFixDirection(fX, fBall) {
+	tDir = calcDirection(Math.min(fBall.x - fX, mouseX), fBall.y, Math.max(fBall.x - fX, mouseX), mouseY - 1);
+	if (tDir > 67.5 && tDir < 112.5) tDir = 67.5;
+	else if (tDir < 292.5 && tDir > 247.5) tDir = 292.5;
+	return(tDir);
+}
+
+// Getting spin strength.
+function GetSpin(fChar, fSpin) {
+	return(fSpin * mean(1, charStat[fChar][2] / 25));
+}
+
+// Number drawing function.
+function DrawNumber(fX, fY, fN, fCol) {
+	tStr = Math.round(fN).toString();
+	for(fi = 0; fi < tStr.length; fi++) {
+		drawSprite(spr_hud_number, Number(tStr[fi]), fCol, fX + (7 * fi), fY);
+	}
+}
+
+// Getting lie multiplier.
+function LieEffect(fLie, fSave) {
+	tR = gameLieBonus[fLie];
+	if (tR < 1) tR = getBetween(tR, 1, fSave / 50);
+	return(tR);
+}
+
+// Seeing if the ball is sunk.
+function BallDone(fBall) {
+	if (fBall == undefined) return(true);
+	else return(fBall.ballLie == 5);
+}
+
+// Celebrating after finishing.
+function Celebrate(fO) {
+	// Getting stuff.
+	tP = fO.objHole.holePar;
+	tS = fO.playerScore[fO.shotPlayer] + exists(fO.objBall[fO.shotPlayer]);
+	if (exists(fO.objBall[fO.shotPlayer])) {
+		if (fO.objBall[fO.shotPlayer].ballLie != 5) tS++;
+	}
+	
+	// HUD.
+	if (tS == 1) fO.scoreIndex = 0;
+	else fO.scoreIndex = 5 + (tS - tP);
+	
+	// Sounds.
+	if (tS > tP) {playSound(snd_gen_bad); playSound(snd_voice_bad[playerChar[fO.shotPlayer]]);}
+	else if (tS == tP) {playSound(snd_gen_okay); playSound(snd_voice_okay[playerChar[fO.shotPlayer]]);}
+	else if (tS == tP - 1) {playSound(snd_gen_good); playSound(snd_voice_good[playerChar[fO.shotPlayer]]);}
+	else {playSound(snd_gen_great); playSound(snd_voice_great[playerChar[fO.shotPlayer]]);}
+	
+	// Misc.
+	fO.objActor.clubOn = false;
+	fO.objActor.Perform(2 - (tS == tP) + (tS > tP), undefined);
+	if (tS - tP < -1) fO.objActor.animPart = playerChar[fO.shotPlayer];
+	fO.cameraX = median(0, (fO.objHole.holeSpr.width / 2) - 320, fO.objActor.x - 160);
+	fO.shotWait = getSec(4);
+	playerScore[fO.shotPlayer] += tS - tP;
+}
+
+// Checking the lie of a coordinate.
+function CheckLie(fX, fY, fHole) {
+	return(fHole.holeArray[Math.floor(fX / 32)][Math.floor((fY - 80) / 32)] + 1);
+}

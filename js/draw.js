@@ -1,8 +1,23 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_ed11=["\x73\x70\x72\x57\x69\x64\x74\x68","\x73\x70\x72\x48\x65\x69\x67\x68\x74","\x77\x69\x64\x74\x68","\x73\x70\x72\x43\x6F\x6C","\x72\x6F\x75\x6E\x64","\x68\x65\x69\x67\x68\x74","\x73\x70\x72\x52\x6F\x77","\x64\x72\x61\x77\x49\x6D\x61\x67\x65","\x63\x6F\x6E\x74\x65\x78\x74"];function initSpriteDimensions(_0x15590){if(_0x15590[_$_ed11[0]]== 0|| _0x15590[_$_ed11[1]]== 0){_0x15590[_$_ed11[0]]= Math[_$_ed11[4]]((_0x15590[_$_ed11[2]]/ _0x15590[_$_ed11[3]])/ 2);_0x15590[_$_ed11[1]]= Math[_$_ed11[4]]((_0x15590[_$_ed11[5]]/ _0x15590[_$_ed11[6]])/ 2)}}function drawSpriteFull(_0x15590,_0x15F2C,_0x15F68,_0x15FA4,_0x15EF0,_0x155CC,_0x15608){env[_$_ed11[8]][_$_ed11[7]](_0x15590,_0x15F2C,_0x15F68,_0x15FA4,_0x15EF0,_0x155CC,_0x15608,_0x15FA4,_0x15EF0)}function drawSprite(_0x15590,_0x15554,_0x15EB4,_0x155CC,_0x15608){initSpriteDimensions(_0x15590);drawSpriteFull(_0x15590,(_0x15554* _0x15590[_$_ed11[0]])* 2,(_0x15EB4* _0x15590[_$_ed11[1]])* 2,_0x15590[_$_ed11[0]]* 2,_0x15590[_$_ed11[1]]* 2,Math[_$_ed11[4]](_0x155CC)* 2,Math[_$_ed11[4]](_0x15608)* 2)}function drawSpritePart(_0x15590,_0x1601C,_0x15FE0,_0x155CC,_0x15608){drawSpriteFull(_0x15590,0,0,Math[_$_ed11[4]](_0x1601C)* 2,Math[_$_ed11[4]](_0x15FE0)* 2,Math[_$_ed11[4]](_0x155CC)* 2,Math[_$_ed11[4]](_0x15608)* 2)}
+// Setting dimensions.
+function initSpriteDimensions(fSpr) {
+	if (fSpr.sprWidth == 0 || fSpr.sprHeight == 0) {
+		fSpr.sprWidth = Math.round((fSpr.width / fSpr.sprCol) / 2);
+		fSpr.sprHeight = Math.round((fSpr.height / fSpr.sprRow) / 2);
+	}
+}
+
+// Base drawing function.
+function drawSpriteFull(fSpr, fLeft, fTop, fWidth, fHeight, fX, fY) {
+	env.context.drawImage(fSpr, fLeft, fTop, fWidth, fHeight, fX, fY, fWidth, fHeight);
+}
+
+// Simple drawing function.
+function drawSprite(fSpr, fCol, fRow, fX, fY) {
+	initSpriteDimensions(fSpr);
+	drawSpriteFull(fSpr, (fCol * fSpr.sprWidth) * 2, (fRow * fSpr.sprHeight) * 2, fSpr.sprWidth * 2, fSpr.sprHeight * 2, Math.round(fX) * 2, Math.round(fY) * 2);
+}
+
+// Partial sprite drawing.
+function drawSpritePart(fSpr, fW, fH, fX, fY) {
+	drawSpriteFull(fSpr, 0, 0, Math.round(fW) * 2, Math.round(fH) * 2, Math.round(fX) * 2, Math.round(fY) * 2);
+}

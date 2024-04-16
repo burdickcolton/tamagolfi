@@ -1,8 +1,93 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_1c52=["\x73\x74\x61\x72\x74","\x63\x6F\x6E\x4D\x75\x73\x69\x63","\x63\x61\x6E\x76\x61\x73","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x77\x69\x64\x74\x68","\x68\x65\x69\x67\x68\x74","\x69\x6E\x74\x65\x72\x76\x61\x6C","\x63\x6F\x6E\x74\x65\x78\x74","\x32\x64","\x67\x65\x74\x43\x6F\x6E\x74\x65\x78\x74","\x63\x68\x69\x6C\x64\x4E\x6F\x64\x65\x73","\x62\x6F\x64\x79","\x69\x6E\x73\x65\x72\x74\x42\x65\x66\x6F\x72\x65","\x6B\x65\x79\x64\x6F\x77\x6E","\x6B\x65\x79\x43\x6F\x64\x65","\x4B\x65\x79\x62\x6F\x61\x72\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x6B\x65\x79\x75\x70","\x6D\x6F\x75\x73\x65\x6D\x6F\x76\x65","\x6D\x6F\x75\x73\x65\x64\x6F\x77\x6E","\x6D\x6F\x75\x73\x65\x75\x70","\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x63\x68\x65\x6E\x64","\x63\x6C\x65\x61\x72\x52\x65\x63\x74","\x78","\x6E\x65\x78\x74\x43\x6F\x6E\x74\x72\x6F\x6C","\x64\x6F\x54\x69\x63\x6B","\x6D\x75\x73\x69\x63\x51\x75\x65\x75\x65","\x41\x63\x74","\x44\x72\x61\x77"];function startGame(){env[_$_1c52[0]]();objControl=  new ControlMenuMain();playMusic(objControl[_$_1c52[1]])}var env={canvas:document[_$_1c52[3]](_$_1c52[2]),start:function(){this[_$_1c52[2]][_$_1c52[4]]= 640;this[_$_1c52[2]][_$_1c52[5]]= 480;this[_$_1c52[6]]= setInterval(gameInterval,1000/ 60);this[_$_1c52[7]]= this[_$_1c52[2]][_$_1c52[9]](_$_1c52[8]);document[_$_1c52[11]][_$_1c52[12]](this[_$_1c52[2]],document[_$_1c52[11]][_$_1c52[10]][0]);window[_$_1c52[16]](_$_1c52[13],function(_0x15518){if(objTransition== undefined){objControl[_$_1c52[15]](_0x15518[_$_1c52[14]])};keyState[_0x15518[_$_1c52[14]]]= true});window[_$_1c52[16]](_$_1c52[17],function(_0x15518){keyState[_0x15518[_$_1c52[14]]]= false});window[_$_1c52[16]](_$_1c52[18],function(_0x15518){getMousePos(_0x15518)});window[_$_1c52[16]](_$_1c52[19],function(_0x15518){MouseClick()});window[_$_1c52[16]](_$_1c52[20],function(_0x15518){mouseState= 0});window[_$_1c52[16]](_$_1c52[21],function(_0x15518){getMousePos(_0x15518)});window[_$_1c52[16]](_$_1c52[22],function(_0x15518){mouseState= 0;MouseClick()})},clear:function(){this[_$_1c52[7]][_$_1c52[23]](0,0,this[_$_1c52[2]][_$_1c52[4]],this[_$_1c52[2]][_$_1c52[5]])}};function Transition(_0x16490){this[_$_1c52[24]]=  -(spr_transition[_$_1c52[4]]/ 2);this[_$_1c52[25]]= _0x16490;this[_$_1c52[26]]= 0;this[_$_1c52[27]]= undefined;this[_$_1c52[28]]= function(){if(this[_$_1c52[26]]> 0){this[_$_1c52[26]]--}else {this[_$_1c52[24]]+= 32;this[_$_1c52[26]]= 1};if(this[_$_1c52[24]]==  -256){playMusic(this[_$_1c52[25]][_$_1c52[1]]);objControl= this[_$_1c52[25]]}else {if(this[_$_1c52[24]]>= 320){objTransition= undefined}}};this[_$_1c52[29]]= function(){drawSprite(spr_transition,0,0,this[_$_1c52[24]],0)}}function TransGo(_0x16490){objTransition=  new Transition(_0x16490)}
+// Actually starting the game.
+function startGame() {
+	env.start();
+	objControl = new ControlMenuMain();
+	playMusic(objControl.conMusic);
+}
+
+// Initializing canvas.
+var env = {
+	// Creating canvas.
+	canvas : document.createElement("canvas"),
+	
+	// Start function.
+	start : function() {
+		// Dimensions.
+		this.canvas.width = 640;
+		this.canvas.height = 480;
+		
+		// Other settings.
+		this.interval = setInterval(gameInterval, 1000/60);
+		this.context = this.canvas.getContext("2d");
+		document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+		
+		// Key inputs.
+		window.addEventListener('keydown', function (e) {
+			if (objTransition == undefined) objControl.Keyboard(e.keyCode);
+			keyState[e.keyCode] = true;
+		})
+		window.addEventListener('keyup', function (e) {
+			keyState[e.keyCode] = false;
+		})
+		
+		// Mouse inputs.
+		window.addEventListener('mousemove', function (e) {
+            getMousePos(e);
+        })
+		window.addEventListener('mousedown', function (e) {
+			MouseClick();
+        })
+        window.addEventListener('mouseup', function (e) {
+            mouseState = 0;
+        })
+        window.addEventListener('touchstart', function (e) {
+			getMousePos(e);
+        })
+        window.addEventListener('touchend', function (e) {
+            mouseState = 0;
+			MouseClick();
+        })
+	},
+	
+	// Clear function.
+	clear : function() {
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	}
+};
+
+// Transition object.
+function Transition(fNext) {
+	// Variables.
+	this.x = -(spr_transition.width / 2);
+	this.nextControl = fNext;
+	this.doTick = 0;
+	this.musicQueue = undefined;
+	
+	// Moving.
+	this.Act = function() {
+		if (this.doTick > 0) this.doTick--;
+		else {
+			this.x += 32;
+			this.doTick = 1;
+		}
+		if (this.x == -256) {
+			playMusic(this.nextControl.conMusic);
+			objControl = this.nextControl;
+		}
+		else if (this.x >= 320) {
+			objTransition = undefined;
+		}
+	}
+	
+	// Drawing.
+	this.Draw = function() {
+		drawSprite(spr_transition, 0, 0, this.x, 0);
+	}
+}
+
+// Transition script.
+function TransGo(fNext) {
+	objTransition = new Transition(fNext);
+}
+
+// Console disabling.
